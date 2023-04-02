@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="logo">
+                <h1>Filmder</h1>
+            </div>
+        </header>
+
+        <section class="start-ui">
+            <h3>Welcome!</h3>
+            <form>
+                <h3>What are you looking for?</h3>
+                <div class="movie-data">
+                    <select name="genre" id="genre" required>
+                        <option disabled selected value> Select an option </option>
+                        <option value="Action">Action</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Romance">Romance</option>
+                    </select>
+                    <input id="start-btn" value="Start" type="submit">
+                </div>
+            </form>
+        </section>
+        <section class="loader">
+            <p class="loading">This is a loader</p>
+        </section>
+        <section class="match-ui">
+            <div class="buttons">
+                <button class="change-cat btn">Change genre</button>
+                <button class="next-movie btn">Try again</button>
+            </div>
+            <div class="show-match">
+                <div class="display-movie">
+                    <!-- Movies are added here -->
+                </div>
+            </div>
+        </section>
+        <footer>
+            this is a footer
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
