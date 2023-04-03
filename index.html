@@ -8,12 +8,108 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+
     <main>
         <header>
             <div class="logo">
                 <h1>Filmder</h1>
             </div>
         </header>
+
+        <!--TESTTTTTTTTTTTTTTTTTTT-->
+        <!-- Welcome section -->
+
+        <!--<section class="start-ui">
+            <form>
+                <input type="text" placeholder="Enter your name" id="name-input" required>
+
+                <h3>What are you looking for?</h3>
+                <div class="movie-data">
+
+                    <header class="form__header">
+                        <h2 class="form__title">Awesome Form</h2>
+                    </header>
+
+                    <form name="genre" id="genre" required>
+                        <fieldset class="form__options">
+                            <legend class="form__question">What is your ideal match?
+                            </legend>
+
+                            <p class="form__answer">
+                                <input type="radio" name="match" id="match_1" value="action" checked>
+                                <label for="match_1">
+                                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <title>Action</title>
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Guy" stroke="#FFFFFF" stroke-width="2">
+                            <path d="M50,89 C28.4608948,89 11,71.5391052 11,50 C11,28.702089 28.8012779,11 50,11 C71.3811739,11 89,28.8647602 89,50 C89,71.5391052 71.5391052,89 50,89 Z" id="Oval"></path>
+                        </g>
+                    </g>
+                </svg>
+                                    Action
+                                </label>
+                            </p>
+
+                            <p class="form__answer">
+                                <input type="radio" name="match" id="match_2" value="Fantasy">
+                                <label for="match_2">
+                                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <title>Fantasy</title>
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Fantasy" stroke="#FFFFFF" stroke-width="2">
+                           <path d="M19,75 C19,75 30,90 50,90 C70,90 81,75 81,75" id="Path-10"></path>
+                        </g>
+                    </g>
+                </svg>
+                Fantasy
+                                </label>
+                            </p>
+
+                            <p class="form__answer">
+                                <input type="radio" name="match" id="match_3" value="Comedy">
+                                <label for="match_3">
+                                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <title>Icon Comedy</title>
+                    <defs>
+                        <path d="M30,60 C35.5228475,60 40,55.5228475 40,50 C40,44.4771525 35.5228475,40 30,40 C27.4438451,40 25.111693,40.9590696 23.3437566,42.5369956 C21.2918762,44.3683486 20,47.0333074 20,50 C20,55.5228475 24.4771525,60 30,60 Z" id="path-1"></path>
+
+                    </defs>
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Comedy" stroke="#FFFFFF" stroke-width="2">
+                            <path d="M15.6045554,11.052094 C15.8984048,11.0790685 16.2166631,11.1118527 16.5541262,11.1509239 C17.7741019,11.2921716 18.9930349,11.4854282 20.1238677,11.7372596 C21.5364271,12.0518303 22.7030398,12.4356235 23.5244335,12.8796798 C23.5414694,12.8888901 23.5414694,12.8888901 23.5585058,12.8981029 C23.7454837,12.9992849 23.7454837,12.9992849 23.9322814,13.100615 C25.183042,13.7794963 26.5023737,14.5072598 27.8074703,15.2350739 C28.264319,15.489845 28.6867129,15.7264005 29.0643327,15.9386523 C29.2907055,16.0658914 29.451698,16.1566687 29.5369976,16.2048997 L30.0129434,16.4740134 L30.4963695,16.218581 C30.5673344,16.1810846 30.7119383,16.1070914 30.9251003,16.0018161 C31.2848257,15.824157 31.7030217,15.6256002 32.1745912,15.4113586 C33.5257414,14.7975092 35.0298711,14.1830609 36.6458832,13.6096354 C41.0121235,12.0603193 45.3587912,11.0981098 49.3883493,11.0069705 C49.5934656,11.0023313 49.7973581,11 50,11 C54.2448535,11 58.8202484,11.9774134 63.3996768,13.6091506 C65.0082003,14.1822979 66.5014458,14.796412 67.839795,15.4098861 C68.3068138,15.6239586 68.720528,15.8223395 69.0760239,15.9998165 C69.2865605,16.1049244 69.429157,16.178746 69.4989157,16.2160671 L70.0598516,16.5161694 L70.5693877,16.1352711 C70.7288369,16.0160765 71.0348348,15.7993306 71.4601611,15.5177561 C72.1731743,15.0457273 72.9520263,14.5733447 73.7686324,14.1333968 C74.6461433,13.6606362 75.5147404,13.2543551 76.3554025,12.9347134 C77.073559,12.6616515 77.9224108,12.3944661 78.8734801,12.1364647 C80.0278333,11.8233174 81.2694462,11.5400267 82.5117176,11.2922899 C82.8653336,11.2217709 83.1982991,11.1583175 83.504914,11.1022628 C83.6786981,11.3902848 83.8681602,11.7120308 84.0698708,12.0640137 C84.7606933,13.2694917 85.4517903,14.5773638 86.0960625,15.9391364 C87.0109499,17.8728978 87.7531432,19.7520794 88.2610367,21.5088656 C88.7442535,23.1802961 89,24.6918305 89,26 C89,30.3008468 88.6796109,33.4599844 88.1526222,35.645704 C87.8556082,36.8775888 87.5845534,37.4856497 87.4589164,37.6478706 L87.1692269,38.0219142 L87.2746954,38.4831138 C87.2877907,38.5403775 87.3128495,38.6519059 87.3481598,38.8121995 C87.4073036,39.0806867 87.4732841,39.3869781 87.5443883,39.7255644 C87.7476825,40.6936174 87.9510154,41.7251264 88.14067,42.7757683 C88.3125293,43.7278287 88.4647099,44.6498881 88.5919245,45.524531 C88.8551958,47.3346081 89,48.8615247 89,50 C89,71.5391052 71.5391052,89 50,89 C28.4608948,89 11,71.5391052 11,50 C11,48.9899882 11.1146583,47.627898 11.322919,46.0096575 C11.4215663,45.2431417 11.5391496,44.4353669 11.6716874,43.6012995 C11.8199275,42.6684169 11.9788584,41.7519204 12.1377591,40.8913635 C12.1933364,40.5903744 12.2449089,40.3180348 12.2911379,40.0792614 C12.3187384,39.9367046 12.3383263,39.8374968 12.3485635,39.7865461 L12.4050477,39.5054239 L12.3039793,39.2370858 C12.2625868,39.1271881 12.1841292,38.8977551 12.0807502,38.558328 C11.9052063,37.9819599 11.7288868,37.3144182 11.5638764,36.5652785 C10.8593638,33.3668246 10.5858251,29.8143853 10.9939861,26.109506 C11.047714,25.6218179 11.1161012,25.123161 11.1986391,24.6142671 C11.6129201,22.0599833 12.3682534,19.3202237 13.3666834,16.5201769 C13.9213566,14.9646241 14.5159533,13.4887989 15.11019,12.1415846 C15.2869676,11.740806 15.4527933,11.3763954 15.6045554,11.052094 Z" id="Oval"></path>
+
+                        </g>
+                    </g>
+                </svg>
+                Comedy
+                                </label>
+                            </p>
+
+                            <p class="form__answer">
+                                <input type="radio" name="match" id="match_4" value="Crime">
+                                <label for="match_4">
+                                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <title>Icon Crime</title>
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Bacon" stroke="#FFFFFF" stroke-width="2">
+                            <path d="M61,20 C61,20 63,25 63,30 C63,35 61,35 61,40 C61,45 63,45 63,50 C63,55 61,55 61,60 C61,65 63,65 63,70 C63,75 61,80 61,80" id="Path-11"></path>
+                        </g>
+                    </g>
+                </svg>
+                                    Crime
+                                </label>
+                            </p>
+                        </fieldset>
+                        <input id="start-btn" value="Start" type="submit">
+                    </div>
+
+                    </form>
+                </div>
+
+            </form>
+        </section>-->
+
 
         <section class="start-ui">
             <h3>Welcome!</h3>
@@ -32,35 +128,55 @@
                 </div>
             </form>
         </section>
-       <section class="loader">
+
+        <section class="loader">
             <div class="loading">
-                    <div class="profile-pic center" style="background-image: url(https://specials-images.forbesimg.com/imageserve/59d5062131358e542c034eb7/416x416.jpg?background=000000&cropX1=419&cropX2=1409&cropY1=53&cropY2=1044)"></div>
-                    <p class="center text_loader">There's no one new around you.</p>
-                    <div class="sonar-container">
-                      <div class="sonar center"></div>
-                      <div class="sonar center delay"></div>
-                    </div>
+                <div class="profile-pic center" style="background-image: url(https://cdn-icons-png.flaticon.com/512/520/520712.png?w=360)"></div>
+                <p class="center text_loader">There's no one new around you.</p>
+                <div class="sonar-container">
+                    <div class="sonar center"></div>
+                    <div class="sonar center delay"></div>
+                </div>
             </div>
         </section>
-        
-        
+
+        <!-- Game section -->
         <section class="match-ui">
             <div class="show-match">
-                <div class="match-elem display-movie">
-                    <!-- Movies are added here -->
-                </div>
+                <div class="test">
+                    <div class="display_poster_and_note">
+                    <div class="match-elem display-movie">
+                        <!-- Poster are added here -->
+                    </div>
+                    </div>
+                    <!-- Gauge -->
+                    <div class="gauge">
+                        <div class="gauge__body">
+                            <div class="gauge__fill"></div>
+                            <div class="gauge__cover"></div>
+                        </div>
 
+                        <div class="gauge__text_content"></div>
+                    </div>
+                    <div class="match-elem display-movie2">
+                        <!-- More Info are added here -->
+                    </div>
+
+                </div>
             </div>
             <div class="buttons">
+                <button class="next-movie btn">X</button>
                 <button class="change-cat btn">Change genre</button>
-                <button class="next-movie btn">Try again</button>
+                <button class="next-movie btn">V</button>
             </div>
         </section>
-        
         <footer>
             this is a footer
+
         </footer>
     </main>
+
+    <!--<script src="image-upload.js"></script>-->
     <script src="script.js"></script>
 </body>
 </html>
