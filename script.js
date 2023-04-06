@@ -8,7 +8,6 @@ const genreInput = document.querySelector('#genre');
 const displayMovie2 = document.querySelector('.display-movie2');
 
 const displayMovie = document.querySelector('.display-movie');
-
 const footerUi = document.querySelector('footer');
 
 // Hide 'match' UI
@@ -103,15 +102,16 @@ function showMovie(movie) {
         class="movie-poster2"
         />
     `;
-    setGaugeValue(gaugeElement, movie.vote_average);
+    setGaugeValue(gaugeElement, movie.vote_average, movie.vote_count, movie.popularity, movie.adult, movie.backdrop_path);
     showMovie2(movie)
+
 }
 
 /*Gauge*/
 
 const gaugeElement = document.querySelector(".gauge");
 
-function setGaugeValue(gauge, value) {
+function setGaugeValue(gauge, value, vote_count, popularity, adult, backdrop_path) {
     if (value < 0 || value > 10) {
       return;
     }
@@ -119,8 +119,13 @@ function setGaugeValue(gauge, value) {
     const angle = value / 10 * 180;
 
     gauge.querySelector(".gauge__fill").style.transform = `rotate(${angle}deg)`;
-    gauge.querySelector(".gauge__text_content").textContent = `${value}/10`;
+    gauge.querySelector(".gauge__text_content").innerHTML = `
+        <h4 class="">Vote average: ${value}/10   </h4>
 
+
+
+
+        `;
 }
 
 /*function showMovie2(movie) {
@@ -145,23 +150,40 @@ function setGaugeValue(gauge, value) {
 function showMovie2(movie) {
     displayMovie2.innerHTML = `
     <div class="card">
-    <div class="card__image" alt=""></div>
+    <div class="card__image" alt="">
+    <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
+            <div style="flex-basis: 40%;"></div>
+            <div style="flex-basis: 60%; display: flex; justify-content: center; align-items: center;">
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <button style="height: 30px; width: 30px; border-radius: 50%;">${movie.vote_count}</button>
+                    <p style="margin-top: 5px; font-size: 8px; text-align: center;">count</p>
+                </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <button style="height: 30px; width: 30px; border-radius: 50%;">${movie.popularity}</button>
+                <p style="font-size: 8px; margin-top: 5px; text-align: center;">popular</p>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <button style="height: 30px; width: 30px; border-radius: 50%; color: transparent; background-color: ${movie.adult ? 'red' : 'green'};">${movie.adult}</button>
+                    <p style="font-size: 8px; margin-top: 5px; text-align: center;">${movie.adult ? 'Adult' : 'Family'}</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card__overlay">
         <div class="card__header">
             <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
-            <img class="card__thumb" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" alt="" />
+
+            <img class="card__thumb" src="${getPoster(IMGPATH, movie.backdrop_path)}" alt="" />
             <div class="card__header-text">
                 <h3 class="card__title">${movie.title}</h3>
                 <p class="card__status"><strong>Year:</strong> ${getYear(movie.release_date)}</p>
             </div>
         </div>
         <div class="card__description">
-        <p>
-            ${movie.vote_count}<br>
-            ${movie.video}<br>
-            ${movie.popularity}<br>
-            ${genreInput.value}<br>
-        </p><br><p class="scroller">    ${movie.overview}</p>
+        <img class="card__thumb3" src="${getPoster(IMGPATH, movie.backdrop_path)}" alt="" />
+
+        <p><b>Original title</b>: ${movie.original_title}</p>
+        <p class="scroller">${movie.overview}</p>
         </div>
     </div>
 </div>
@@ -193,28 +215,44 @@ function getPoster(imgPath, movie) {
 // Depending on the input assign an ID
 
 function assignID() {
-    if (genreInput.value === 'Horror') {
-        genreID = 27;
-    } else if(genreInput.value === 'Action') {
+    if(genreInput.value === 'Action') {
         genreID = 28;
+    } else if(genreInput.value === 'Adventure') {
+        genreID = 12;
     } else if (genreInput.value === 'Animated') {
         genreID = 16;
-    } else if(genreInput.value === 'Documentary') {
-        genreID = 99;
-    } else if (genreInput.value === 'Fantasy') {
-        genreID = 14;
-    } else if (genreInput.value === 'History') {
-        genreID = 36;
     } else if (genreInput.value === 'Comedy') {
         genreID = 35;
     } else if (genreInput.value === 'Crime') {
         genreID = 80;
+    } else if(genreInput.value === 'Documentary') {
+        genreID = 99;
+    } else if (genreInput.value === 'Drama') {
+        genreID = 18;
+    } else if (genreInput.value === 'Family') {
+        genreID = 10751;
+    } else if (genreInput.value === 'Fantasy') {
+        genreID = 14;
+    } else if (genreInput.value === 'History') {
+        genreID = 36;
+    } else if (genreInput.value === 'Horror') {
+        genreID = 27;
+    } else if (genreInput.value === 'Music') {
+        genreID = 10402;
     } else if (genreInput.value === 'Mystery') {
         genreID = 9648;
     } else if (genreInput.value === 'Romance') {
         genreID = 10749;
     } else if (genreInput.value === 'Sci fi') {
         genreID = 878;
+    } else if (genreInput.value === 'TV Movie') {
+        genreID = 10770;
+    } else if (genreInput.value === 'Thriller') {
+        genreID = 53;
+    } else if (genreInput.value === 'War') {
+        genreID = 10752;
+    } else if (genreInput.value === 'Western') {
+        genreID = 37;
     }
 }
 
