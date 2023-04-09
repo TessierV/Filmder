@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-9v9pV7AN/6P0Z6QFJLC44BBuN7z50RdM/pL7z8v9h9fui0/Om5S5w7e8xdvGc0Q+4fv4y4Weyia8vzz0SDQ2dQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha384-VJvy4gloAEdY1WmscKT7ndCwz5r5x5eBk5DW8Dddg0Jc+SB9kmCUGPZAMvxW0o+z" crossorigin="anonymous">
+
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -112,18 +116,20 @@
             </form>
         </section>-->
 
-
-        <section class="start-ui">
-            <h3>Welcome!</h3>
+        <section href='#' class="start-ui">
+            <h2>Welcome!</h2>
             <form>
-                <h3>What are you looking for?</h3>
+                <h2>What are you looking for?</h2>
                 <div class="movie-data">
-                    <select name="genre" id="genre" required>
-                        <option disabled selected value> Select an option </option>
+                    <!--<label for="genre">Select a genre:</label>-->
+                    <br>
+                    <select name="genre" id="genre" size="3" required >
+                        <option disabled selected value> Select an option <i class="bar"></i></option>
                         <option value="Action">Action</option>
                         <option value="Adventure">Adventure</option>
                         <option value="Animated">Animation</option>
-                        <option value="Comedy">Comedy</option>
+                        <option value="Comedy">Comedy
+                        </option>
                         <option value="Crime">Crime</option>
                         <option value="Documentary">Documentary</option>
                         <option value="Drama">Drama</option>
@@ -139,8 +145,6 @@
                         <option value="Thriller">Thriller</option>
                         <option value="War">War</option>
                         <option value="Western">Western</option>
-
-
                     </select>
                     <input id="start-btn" value="Start" type="submit">
                 </div>
@@ -148,10 +152,11 @@
         </section>
 
         <section class="loader">
-            <div class="loading">
-                <div class="profile-pic center" style="background-image: url(https://cdn-icons-png.flaticon.com/512/520/520712.png?w=360)"></div>
-                <p class="center text_loader">There's no one new around you.</p>
-                <div class="sonar-container">
+            <div class="loading center">
+                <div class="profile-pic center" style="background-image: url(images/popcorn-logo.png)"></div>
+                <!--<div class="profile-pic center" style="background-image: url(https://cdn-icons-png.flaticon.com/512/520/520712.png?w=360)"></div>-->
+                <h3 class="center text_loader">Filmder is searching your perfect <b>Match</b></h3>
+                <div class="sonar-container center">
                     <div class="sonar center"></div>
                     <div class="sonar center delay"></div>
                 </div>
@@ -162,10 +167,8 @@
         <section class="match-ui">
             <div class="show-match">
                 <div class="test">
-                    <div class="display_poster_and_note">
                     <div class="match-elem display-movie">
                         <!-- Poster are added here -->
-                    </div>
                     </div>
                     <!-- Gauge -->
                     <div class="gauge">
@@ -185,14 +188,19 @@
             <div class="buttons">
                 <button class="next-movie btn2"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="navy" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
                 <button class="change-cat btn2"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="navy" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></button>
-                <button class="next-movie btn2"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="navy" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
+                <!--<button class="ismatch btn2"></button>-->
+                <button class="ismatch btn2"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="navy" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
             </div>
         </section>
+
+        <section class="thisismatch bg_heart">
+        </section>
+
         <footer>
-            this is a footer
+            made with ♡ by <a href="https://github.com/TessierV"><b>Vanessa</b></a><br>
+            <p>Portfolio Project HolbertonSchool TOULOUSE C#19</p>
         </footer>
     </main>
-
     <!--<script src="image-upload.js"></script>-->
     <script src="script.js"></script>
 </body>
