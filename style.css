@@ -6,7 +6,15 @@ body {
 }
 
 h1,
-h2 {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Squada+One&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #D5E1E1;
+}
+
+/*HEADING*/
+h1{
   font-family: "Squada One", cursive;
   color: black;
   font-size: 3.5rem;
@@ -14,9 +22,39 @@ h2 {
   text-align: center;
 }
 
-h3 {
+h2 {
+  font-family: "Squada One", cursive;
+  color: black;
+  font-size: 15px;
+  margin: 0;
+  text-align: center;
+}
+
+.subheading{
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: light;
+  margin-left: 12px;
+}
+
+
+h3, footer {
+  font-size: 0.7rem;
   text-align: center;
   margin: 0.8rem;
+  font-weight: 400;
+}
+
+
+h4{
+  text-align: center;
+  font-size: 7px;
+  font-weight: lighter;
+}
+
+.mini_button_text{
+  height: 30px;
+  width: 30px;
 }
 
 input,
@@ -28,6 +66,10 @@ select {
   width: 100%;
   font-size: 0.9em;
   transition: all 300ms ease-in-out;
+}
+
+select:hover{
+  color: #6CAE9A;
 }
 
 main {
@@ -61,19 +103,21 @@ button:focus,
   box-shadow: 0 0 0 5px rgba(35, 37, 39, 0.4);
 }
 
-header,
-footer {
+header {
   margin-top: 1rem;
 }
 
-footer {
-  font-size: 0.9rem;
+option{
+  color: black;
+  font-size: x-small;
 }
+
 
 .start-ui {
   background-color: white;
   padding: 2rem;
   border-radius: 40px;
+  width: 50%;
 
 }
 
@@ -86,7 +130,7 @@ footer {
   cursor: pointer;
   background-color: black;
   color: white;
-  width: 50%;
+  width: 60%;
   display: block;
   margin: auto;
   padding: 10px;
@@ -96,6 +140,45 @@ footer {
 
 label:hover,
 #start-btn:hover {
+  transform: scale(1.1);
+}
+
+/* > */
+.movie-data .bar {
+  position: relative;
+  border-bottom: 0.0625rem solid #999;
+  display: block;
+}
+
+
+/*.movie-data .bar::before {
+  content: '';
+  height: 0.125rem;
+  width: 0;
+  left: 50%;
+  bottom: -0.0625rem;
+  position: absolute;
+  -webkit-transition: left 0.28s ease, width 0.28s ease;
+  transition: left 0.28s ease, width 0.28s ease;
+  z-index: 2;
+    transform: rotate(-135deg) translateY(-50%);
+
+}*/
+
+.btn_match {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  width: 60%;
+  display: block;
+  margin: auto;
+  padding: 10px;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-radius: 40px;
+}
+
+.btn_match:hover {
   transform: scale(1.1);
 }
 
@@ -112,7 +195,6 @@ label:hover,
   justify-content: space-between;
   text-align: center;
   width: 80%;
-
 }
 
 
@@ -184,6 +266,72 @@ label:hover,
   max-height: 2px;
 }
 
+
+/*This is a match*/
+.thisismatch{
+  margin: 10%;
+  display: none;
+  border-radius: 25px;
+  /*background-color: black;*/
+  color: white;
+  background-color: #e7ebed;
+  width: 60%;
+  height: 85%;
+  padding: 5%;
+
+}
+
+.NTMatch {
+  position: relative;
+  height: 180px;
+}
+
+/*.NTIcon1 {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  top: 216px;
+  border-radius: 100%;
+  border: 3px solid salmon;
+  left: 30px;
+}
+.NTIcon2 {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  top: 250px;
+  border-radius: 100%;
+  z-index: 2;
+  border: 4px solid cyan;
+
+}
+
+.NTIcon3 {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  top: 216px;
+  right: 30px;
+  border-radius: 100%;
+  border: 4px solid slateblue;
+  z-index: 1;
+}*/
+
+
+.NTMText h1{
+  color: #6CAE9A;
+  font-size: xx-large;
+
+}
+
+.NTMText{
+  color: black;
+  padding: 3%;
+}
+
+
+
+/*Loader*/
 .loader {
   display: none;
   border-radius: 50%;
@@ -217,10 +365,6 @@ label:hover,
     font-size: 2.8rem;
   }
 
-  h3 {
-    font-size: 1rem;
-  }
-
   .show-match {
     flex-direction: column;
   }
@@ -252,16 +396,12 @@ label:hover,
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
 }
 
 .text_loader{
-  color: #c0c0c0;
-  line-height: 1;
   margin-top: 95px;
-  font-family: arial;
   width: 100%;
-  text-align: center;
 }
 
 
@@ -280,10 +420,10 @@ label:hover,
 .profile-pic{
   z-index: 2;
   border: 3px solid #fff;
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  background-size: 70%;
+  background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
 
@@ -350,7 +490,7 @@ label:hover,
 	margin: 20px 1% 20px 0;
 	height: 100px;
 	vertical-align: top;
-	font-size: 8px;
+	font-size: 7px;
 	text-align: center;
 }
 
@@ -363,7 +503,7 @@ label {
 	padding: 10px 10px 30px 10px;
 	cursor: pointer;
 	opacity: .5;
-	transition: all .5s ease-in-out;
+	transition: all 4s ease-in-out;
 }
 	label:hover, label:focus, label:active {
 		border: 1px solid rgba(#FAFAFA,.5);
@@ -417,8 +557,11 @@ input[type="radio"]:checked ~ label {
   max-width: 60%;
   transform: translate(0px, 5%);
   z-index: 2;
-
+  transition: all 300ms ease-in-out;
 }
+
+
+
 
 /*Gauge Test*/
 .gauge {
@@ -432,11 +575,11 @@ input[type="radio"]:checked ~ label {
 }
 
 .gauge__body {
+  position: relative;
   width: 100%;
   height: 0;
   padding-bottom: 50%;
   background: #C4DCD6;
-  position: relative;
   border-top-left-radius: 100% 200%;
   border-top-right-radius: 100% 200%;
   overflow: hidden;
@@ -452,8 +595,9 @@ input[type="radio"]:checked ~ label {
   background: #6CAE9A;
   transform-origin: center top;
   transform: rotate(0.25turn);
-  transition: transform 0.2s ease-out;
+  transition: all 300ms ease-in-out;
 }
+
 
 .gauge__cover {
   width: 95%;
@@ -470,12 +614,11 @@ input[type="radio"]:checked ~ label {
   box-sizing: border-box;
 }
 
-.gauge__text_content{
+.gauge__text_content {
   padding: 4%;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  color: #004033;
 }
+
+
 
 .test{
   position: relative;
@@ -505,14 +648,12 @@ input[type="radio"]:checked ~ label {
 .card {
   position: relative;
   display: block;
-  height: 450px;
+  height: 300px;
   border-radius: calc((40) * 1px);
   overflow: hidden;
   text-decoration: none;
   margin-top: -35%;
   border-radius: 40px 40px 15px 15px;
-
-
 }
 
 .card__image {
@@ -520,7 +661,7 @@ input[type="radio"]:checked ~ label {
   content: "";
   width: 100%;
   height: 100%;
-  background-color: #AECAC7;
+  background-color: #738a83;
   z-index: 0;
 }
 
@@ -553,6 +694,8 @@ input[type="radio"]:checked ~ label {
   transform: translateY(-100%);
   transition: .2s ease-in-out;
   padding: 1%;
+  height: 120px;
+  border: 2px;
 }
 
 .card__arc{
@@ -573,19 +716,24 @@ input[type="radio"]:checked ~ label {
 }
 
 .card__thumb {
-  width: 50px;
-  height: 50px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  margin: 0 5%;
+  margin: 0 1% 0 5%;
+  background-size: cover;
+  background-color: #D7E1E1;
+  padding: 5px
 }
 
-.card__title {
-  font-size: 20px;
-  color: #6A515E;
+
+/*.card__title {
   text-align: left;
   text-transform: uppercase;
   font-weight: bold;
   line-height: 1.1em;}
+*/
+
+
 
 /*.card__tagline {
   display: block;
@@ -597,7 +745,7 @@ input[type="radio"]:checked ~ label {
 }*/
 
 .card__status {
-  font-size: 14px;
+  font-size: 10px;
   color: #6CAE9A;
   text-align: left;
   margin-left: 13px;
@@ -605,7 +753,6 @@ input[type="radio"]:checked ~ label {
 }
 
 .card__description {
-  margin: 5%;
   color: black;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -613,13 +760,327 @@ input[type="radio"]:checked ~ label {
   overflow: hidden;
   height: 100%;
   font-size: 12px;
+  padding: 1% 5% 1% 5%;
+
 }
 
 .scroller{
-  padding-top: 2%;
-  height: 100px;
+  height: 18%;
   overflow-y: scroll;
   scrollbar-width:thin;
-  padding: 4%;
   text-align: justify;
+  padding: 2%;
+}
+
+.btn2 {
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 40px;
+  background-color: #F5F5F5;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border: none;
+  margin: 0.25rem 0;
+  transition: all 300ms ease-in-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.btn2 svg{
+  width: 50%;
+}
+
+.btn2:nth-child(2) {
+  width: 70px;
+  height: 70px;
+}
+
+.btn2:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.btn2:hover {
+  transform: scale(1.1);
+}
+
+.btn2:not(:nth-child(2)):hover svg{
+  transition: all 3.5s ease-in-out;
+  animation: pulse 1.5s infinite forwards;
+
+}
+
+@keyframes pulse{
+  0%{
+    transform: scale(0.8);
+     opacity: 0.7;
+  }
+
+  100%{
+    transform: scale(1.3);
+  }
+}
+
+.btn2:active {
+  background-color: gray;
+}
+
+/*#genre option[value="Action"]::before {
+  content: "\e59f";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Adventure"]::before {
+  content: "\f14e";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Animated"]::before {
+  content: "\e212";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Comedy"]::before {
+  content: "\f8cb";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Crime"]::before {
+  content: "\e4f8";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Documentary"]::before {
+  content: "\f06c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Drama"]::before {
+  content: "\f630";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Family"]::before {
+  content: "\e302";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Fantasy"]::before {
+  content: "\e2ca";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="History"]::before {
+  content: "\f52d";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Horror"]::before {
+  content: "\f30e";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Music"]::before {
+  content: "\f8cf";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Mystery"]::before {
+  content: "\e3c4";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+  color: #00703f;
+}
+
+
+#genre option[value="Romance"]::before {
+  content: "\f004";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Sci Fi"]::before {
+  content: "\f8f5";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="TV Movie"]::before {
+  content: "\f401";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Thriller"]::before {
+  content: "\f6f5";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+*/
+option{
+  padding-left: 15%;
+}
+
+#genre option:checked {
+  background-color: #c8a2c8;
+  border-radius: 20px;
+}
+
+select option:hover {
+  background-color: #D5E1E1;
+  border-radius: 20px;
+
+}
+
+.purple-heart {
+  color: plum;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.purple-heart:hover{
+  transform: scale(1.5);
+  transition: all 3.5s ease-in-out;
+}
+
+/*
+#genre option[value="War"]::before {
+  content: "\f1e2";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+#genre option[value="Western"]::before {
+  content: "\f8c0";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 5px;
+}*/
+
+/*heart footer*/
+.heart {
+  position: fixed;
+  top: -1vh;
+  font-size: 2rem;
+  transform: translateY(0);
+  animation: fall 3s linear forwards;
+  animation-duration: 6s;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-1vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(225vh);
+    opacity: 0.5;
+  }
+}
+
+/*logo its a match*/
+/*
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);*/
+
+.itsmatch_imglogo{
+  position: absolute;
+  width: 160px;
+  z-index: 1;
+}
+
+/*.itsmatch_imgflame{
+  position: absolute;
+  width: 10%;
+  transform: translate(-50%, 300px);
+  transition: all 3.5s ease-in-out;
+  animation: popcornfall 3s linear infinite;
+}
+
+.itsmatch_imgflame2{
+  position: absolute;
+  width: 10%;
+  transform: translate(10px, 260px);
+  transition: all 3.5s ease-in-out;
+  animation: popcornfall 3s linear infinite;
+  animation-delay: 1s;
+}
+
+.itsmatch_imgflame3{
+  position: absolute;
+  width: 10%;
+  transform: translate(-30px, 280px);
+  transition: all 3.5s ease-in-out;
+  animation: popcornfall 3s linear infinite;
+  animation-delay: 2s;
+
+
+}
+
+@keyframes popcornfall {
+  0% {
+    opacity: 1;
+
+  }
+  75%{
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(260px);
+  }
+}
+*/
+
+
+/*Footer*/
+footer a{
+  text-decoration: none;
+  color: black;
+  transition: all 3.5s ease-in-out;
+}
+
+footer a:hover{
+  text-decoration: underline;
+  color: black;
+}
+
+footer p{
+  line-height: 0;
+  font-size: xx-small;
 }
