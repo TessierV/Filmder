@@ -1,7 +1,7 @@
 const nameInput = document.querySelector('#name-input');
 const matchUI = document.querySelector('.match-ui');
 // Test
-
+const swipperUI = document.querySelector('.swipper-start')
 const startUI = document.querySelector('.start-ui');
 const nameValue = document.querySelector('#name-value');
 const genreInput = document.querySelector('#genre');
@@ -18,17 +18,23 @@ matchUI.classList.add('none');
 
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 
+//test set tutorial page
+document.querySelector('.button_swipper').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('.swipper-start').style.display = 'none';
+    document.querySelector('.start-ui').style.display = 'block';
+  });
+
+
 
 // Event listeners
 document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
-
     document.querySelector('.loader').style.display = 'block';
     startUI.style.display = 'none';
     footerUi.style.display = 'none';
     //test
     Thisismatch.style.display = 'none';
-
     setTimeout(getMovies, 5000);
 });
 
@@ -73,7 +79,6 @@ async function getMovies() {
         const movie = resData.results[randomNumber];
 
         displayMatch(movie.title);
-
         displayMatchUI();
 
 
@@ -386,7 +391,6 @@ function createheart() {
     Thisismatch.style.display = "block";
     footerUi.style.display = "block";
 
-
     const movieTitle = movie.title;
     Thisismatch.innerHTML = `
       <center>
@@ -400,11 +404,18 @@ function createheart() {
           <h1>This is a match</h1>
 
           <h3>You and ${movieTitle}<br> have liked each other.</h3>
+          <button class="button_returnback">Enter</button>
         </div>
         <div class="heart-container"></div> <!-- new div to contain heart animations -->
       </center>
     `;
     setInterval(createheart, 150); // start heart animations
+    /*return back*/
+    document.querySelector('.button_returnback').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('.thisismatch').style.display = 'none';
+        document.querySelector('.start-ui').style.display = 'block';
+      });
   }
 
 
@@ -438,5 +449,28 @@ function createheart() {
     `;
     setInterval(createheart, 150); // start heart animations
   }*/
+
+
+/*Test slider beguinning*/
+var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    effect: 'fade',
+    loop: true,
+    speed: 300,
+    mousewheel: {
+    invert: false,
+    },
+    pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    dynamicBullets: true
+    },
+    // Navigation arrows
+    navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+    }
+    });
 
 
