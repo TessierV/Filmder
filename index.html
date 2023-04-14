@@ -13,13 +13,20 @@
 
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="/style/header.css">
+    <link rel="stylesheet" href="./style/color1.css" id="css">
+
 
 </head>
 <body>
     <main>
         <header>
             <h1 class="header_title">Filmdeur</h1>
-        </header>
+            <button class="style_button" onclick="document.getElementById('css').href='./style/color1.css';">1</button>
+		    <button class="style_button" onclick="document.getElementById('css').href='./style/color2.css';">2</button>
+            <button class="style_button" onclick="document.getElementById('css').href='./style/color3.css';">3</button>
+            <button class="style_button" onclick="document.getElementById('css').href='./style/color4.css';">4</button>
+
+	</header>
         <section href='#' class="swipper-start">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -109,7 +116,7 @@
         <section class="loader">
             <div class="loading center">
                 <div class="profile-pic center" style="background-image: url(images/popcorn-logo.png)"></div>
-                <h3 class="center text_loader">Filmder is searching your perfect <b>Match</b></h3>
+                <h3 class="text_loader">Filmder is searching your perfect <b>Match</b></h3>
                 <div class="sonar-container center">
                     <div class="sonar center"></div>
                     <div class="sonar center delay"></div>

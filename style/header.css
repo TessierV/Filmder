@@ -1,0 +1,13 @@
+header {
+  padding-top: 4%;
+}
+
+.header_title{
+  font-family: "Squada One", cursive;
+  color: black;
+  font-size: 3.5rem;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
