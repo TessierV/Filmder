@@ -111,7 +111,7 @@ function showMovie(movie) {
         class="movie-poster2"
         />
     `;
-    setGaugeValue(gaugeElement, movie.vote_average, movie.vote_count, movie.popularity, movie.adult, movie.backdrop_path);
+    setGaugeValue(gaugeElement, movie.vote_average, movie.vote_count, movie.popularity, movie.adult, movie.backdrop_path, movie.genre, movie.genreID);
     showMovie2(movie);
 }
 
@@ -509,16 +509,20 @@ function updateMoviesListUI() {
     const moviesListContainer = document.getElementById('moviesListContainer');
 
     const moviesListHTML = moviesList
-      .map((movie, index) => `<div class="movie-item">
-          <img src="https://image.tmdb.org/t/p/w200/${movie.poster_path}" alt="${movie.title} Poster">
-          <div class="movie-details">
-            <p class="movie-title">${index + 1}. ${movie.title}</p>
-            <p class="movie-genre">${movie.genre}</p>
-          </div>
-        </div>`)
-      .join('');
+  .map((movie, index) => `
 
-    moviesListContainer.innerHTML = moviesListHTML;
+    <div class="movie-item">
+    <img src="https://image.tmdb.org/t/p/w200/${movie.poster_path}" alt="${movie.title} Poster">
+
+      <p>${index + 1}. ${movie.title}</p>
+
+      <button class="delete-button" onclick="deleteMovie(${index})">Delete</button>
+    </div>
+  `)
+  .join('');
+
+// Insérer le contenu HTML dans l'élément HTML
+moviesListContainer.innerHTML = moviesListHTML;
 
     // Sauvegarder la liste des films likés dans le stockage local
     localStorage.setItem('moviesList', JSON.stringify(moviesList));
@@ -532,6 +536,26 @@ function updateMoviesListUI() {
       updateMoviesListUI();
     }
   });
+
+
+  function deleteMovie(index) {
+    // Supprimer le film de la liste
+    moviesList.splice(index, 1);
+
+    // Mettre à jour la liste affichée
+    updateMoviesListUI();
+
+    // Mettre à jour la liste sauvegardée dans le stockage local
+    saveMoviesList();
+  }
+
+  function saveMoviesList() {
+    // Convertir la liste en format JSON
+    const moviesListJSON = JSON.stringify(moviesList);
+
+    // Sauvegarder la liste dans le stockage local
+    localStorage.setItem('moviesList', moviesListJSON);
+  }
 
 
 //end
