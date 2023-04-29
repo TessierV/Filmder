@@ -38,6 +38,8 @@ document.querySelector('.change-cat').addEventListener('click', displayStartUI)
 document.querySelector('.ismatch').addEventListener('click', displayMatch)
 
 let genreID;
+let moviesList = [];
+
 
 async function getMovies() {
     assignID();
@@ -66,6 +68,14 @@ async function getMovies() {
 
         footerUi.style.display = 'none';
         const movie = resData.results[randomNumber];
+
+        currentMovie = {
+            title: movie.title,
+    genre: await getGenre(movie.genre_ids),
+    poster_path: movie.poster_path,
+            // Ajoutez d'autres propriétés nécessaires du film
+          };
+          updateMoviesListUI();
 
         displayMatch(movie.title);
         displayMatchUI();
@@ -160,6 +170,15 @@ function showMovie2(movie) {
 </div>
     `;
 }
+
+async function getGenre(genreIds) {
+    const APIURL = `https://api.themoviedb.org/3/genre/movie/list?api_key=4898aec2424aaa52b8e4e628ec9b9e04&language=en-US`;
+    const res = await fetch(APIURL);
+    const resData = await res.json();
+    const genres = resData.genres;
+    const movieGenres = genres.filter(genre => genreIds.includes(genre.id));
+    return movieGenres.map(genre => genre.name).join(', ');
+  }
 // Switch a certain image depending of the genre
 function getGenreImage(genre) {
     let image;
@@ -465,3 +484,54 @@ function createheart() {
     }, 5000);
 }
 
+//test
+
+// Fonction pour ajouter ou supprimer un film de la liste des likés
+function toggleLike() {
+  const likeButton = document.getElementById('likeButton');
+
+  if (likeButton.classList.contains('active')) {
+    // Le bouton est déjà actif, donc le film est "unliked"
+    moviesList = moviesList.filter(movie => movie.title !== currentMovie.title);
+    likeButton.classList.remove('active');
+  } else {
+    // Le bouton n'est pas actif, donc le film est "liked"
+    moviesList.push(currentMovie);
+    likeButton.classList.add('active');
+  }
+
+  // Mettre à jour l'interface utilisateur
+  updateMoviesListUI();
+}
+
+// Fonction pour mettre à jour l'interface utilisateur avec la liste des films likés
+function updateMoviesListUI() {
+    const moviesListContainer = document.getElementById('moviesListContainer');
+
+    const moviesListHTML = moviesList
+      .map((movie, index) => `<div class="movie-item">
+          <img src="https://image.tmdb.org/t/p/w200/${movie.poster_path}" alt="${movie.title} Poster">
+          <div class="movie-details">
+            <p class="movie-title">${index + 1}. ${movie.title}</p>
+            <p class="movie-genre">${movie.genre}</p>
+          </div>
+        </div>`)
+      .join('');
+
+    moviesListContainer.innerHTML = moviesListHTML;
+
+    // Sauvegarder la liste des films likés dans le stockage local
+    localStorage.setItem('moviesList', JSON.stringify(moviesList));
+  }
+
+  // Au chargement de la page, restaurer la liste des films likés depuis le stockage local
+  window.addEventListener('load', () => {
+    const storedMoviesList = localStorage.getItem('moviesList');
+    if (storedMoviesList) {
+      moviesList = JSON.parse(storedMoviesList);
+      updateMoviesListUI();
+    }
+  });
+
+
+//end
