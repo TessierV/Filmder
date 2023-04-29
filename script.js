@@ -1,6 +1,5 @@
 const nameInput = document.querySelector('#name-input');
 const matchUI = document.querySelector('.match-ui');
-// Test
 const swipperUI = document.querySelector('.swipper-start')
 const startUI = document.querySelector('.start-ui');
 const nameValue = document.querySelector('#name-value');
@@ -8,7 +7,6 @@ const genreInput = document.querySelector('#genre');
 const displayMovie2 = document.querySelector('.display-movie2');
 const displayMovie = document.querySelector('.display-movie');
 const footerUi = document.querySelector('footer');
-
 
 // Test this is a match
 const Thisismatch = document.querySelector('.thisismatch');
@@ -23,9 +21,7 @@ document.querySelector('.button_swipper').addEventListener('click', (e) => {
     e.preventDefault();
     document.querySelector('.swipper-start').style.display = 'none';
     document.querySelector('.start-ui').style.display = 'block';
-  });
-
-
+});
 
 // Event listeners
 document.querySelector('form').addEventListener('submit', (e) => {
@@ -33,44 +29,37 @@ document.querySelector('form').addEventListener('submit', (e) => {
     document.querySelector('.loader').style.display = 'block';
     startUI.style.display = 'none';
     footerUi.style.display = 'none';
-    //test
     Thisismatch.style.display = 'none';
     setTimeout(getMovies, 5000);
 });
 
-
 document.querySelector('.next-movie').addEventListener('click', getMovies)
 document.querySelector('.change-cat').addEventListener('click', displayStartUI)
-document.querySelector('.ismatch').addEventListener('click', displayMatch )
-
+document.querySelector('.ismatch').addEventListener('click', displayMatch)
 
 let genreID;
 
 async function getMovies() {
-
     assignID();
 
+  // Vérifier si la liste des films existe dans le stockage local
     try {
         // Generate random page number
         const randomNumberPg = Math.floor(Math.random() * (50));
+        const APIURL = `https://api.themoviedb.org/3/discover/movie?api_key=4898aec2424aaa52b8e4e628ec9b9e04&page=${randomNumberPg}&with_genres=${genreID}&language=en-US`;
 
-        const APIURL = `https://api.themoviedb.org/3/discover/movie?api_key=7391fe5e6a32318027103e00e3a6093e&with_genres=${genreID}&page=${randomNumberPg}&language=en-US`;
-
-        // Make GET request to The Movie DB API
         const res = await fetch(APIURL);
 
         // Check if response is successful
-        if(!res.ok) {
+        if (!res.ok) {
             // Throw error if response is not ok
             throw new Error(res.status);
         }
 
         // Convert response object to JSON
         const resData = await res.json()
-
         // Generate a random index number
         const randomNumber = Math.floor(Math.random() * (resData.results.length));
-
         // Hide loader
         document.querySelector('.loader').style.display = 'none'
         document.querySelector('.thisismatch').style.display = 'none'
@@ -81,25 +70,16 @@ async function getMovies() {
         displayMatch(movie.title);
         displayMatchUI();
 
-
-
         // Display random movie
         showMovie(movie);
-
-/////
-
+        //test
 
 
     } catch (error) {
         console.log(error)
-
-        // Go back to the start if there is an error
-
         displayStartUI()
-
         // Hide loader
         document.querySelector('.loader').style.display = 'none';
-
         // Show error in UI
         const err = document.createElement('p');
         err.textContent = 'Something went wrong, try again!';
@@ -123,8 +103,6 @@ function showMovie(movie) {
     `;
     setGaugeValue(gaugeElement, movie.vote_average, movie.vote_count, movie.popularity, movie.adult, movie.backdrop_path);
     showMovie2(movie);
-
-
 }
 
 /*Gauge*/
@@ -133,39 +111,17 @@ const gaugeElement = document.querySelector(".gauge");
 
 function setGaugeValue(gauge, value, vote_count, popularity, adult, backdrop_path) {
     if (value < 0 || value > 10) {
-      return;
+        return;
     }
-
     const angle = value / 10 * 180;
-
     gauge.querySelector(".gauge__fill").style.transform = `rotate(${angle}deg)`;
 }
 
-/*function showMovie2(movie) {
-    displayMovie2.innerHTML = `
-        <div class="movie-info">
-        <div>
-            <h3 class="card__title">${movie.title}</h3>
-            <p class="card__status"><strong>Year:</strong> ${getYear(movie.release_date)} 📅</p>
-            <div class="movie-content_info">
-                <p>${movie.vote_count}</p>
-                <p>${movie.video}</p>
-                <p>${movie.popularity}</p>
-                <p>${genreInput.value}</p>
-                <p><strong>Vote average:</strong> ${movie.vote_average} ⭐</p>
-                <p class="overview" tabindex="0" role="document">${movie.overview}</p>
-                <img class="card__thumb" src="${getPoster(IMGPATH, movie.backdrop_path)}" alt="" />
-            </div>
-        </div>
-    `;
-}*/
-
-/*END*/
 function showMovie2(movie) {
+
     displayMovie2.innerHTML = `
     <div class="card">
     <div class="card__image" alt="">
-
     <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
             <div style="flex-basis: 40%; display: flex;  justify-content: center; align-items: center;">
                 <p style="font-size: 10px; text-align: left;"><b>vote average</b>: ${movie.vote_average} / 10<br>${movie.vote_count} voted</p>
@@ -182,7 +138,6 @@ function showMovie2(movie) {
                 <div style="margin-left:"2%"; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 <button style="border: none; height: 30px; width: 30px; border-radius: 50%; padding: 5%; background-color: transparent; background-size: cover; background-image: url(${movie.adult ? './images/icons/children.png' : './images/icons/baby-boy.png'});">
             </button>
-
                     <h4 style="margin-top: 5px;">${movie.adult ? 'Adult' : 'Family'}</h4>
                 </div>
             </div>
@@ -190,19 +145,14 @@ function showMovie2(movie) {
     </div>
     <div class="card__overlay">
         <div class="card__header">
-
             <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
-
-
             ${getGenreImage(genreInput.value)}
-
             <div class="card__header-text">
                 <h2 class="subheading">${movie.title}</h2>
                 <p class="card__status"><strong>Year:</strong> ${getYear(movie.release_date)}</p>
             </div>
         </div>
         <div class="card__description">
-
         <p><b>Original title</b>: ${movie.original_title}</p>
         <p class="scroller">${movie.overview}</p>
         </div>
@@ -210,7 +160,6 @@ function showMovie2(movie) {
 </div>
     `;
 }
-
 // Switch a certain image depending of the genre
 function getGenreImage(genre) {
     let image;
@@ -283,9 +232,8 @@ function getGenreImage(genre) {
 
 function getYear(date) {
     const year = new Date(date);
-
     // If it's not a number just display '-'
-    if(isNaN(year.getFullYear())) {
+    if (isNaN(year.getFullYear())) {
         return '-'
     } else {
         return year.getFullYear();
@@ -302,11 +250,10 @@ function getPoster(imgPath, movie) {
 }
 
 // Depending on the input assign an ID
-
 function assignID() {
-    if(genreInput.value === 'Action') {
+    if (genreInput.value === 'Action') {
         genreID = 28;
-    } else if(genreInput.value === 'Adventure') {
+    } else if (genreInput.value === 'Adventure') {
         genreID = 12;
     } else if (genreInput.value === 'Animated') {
         genreID = 16;
@@ -314,7 +261,7 @@ function assignID() {
         genreID = 35;
     } else if (genreInput.value === 'Crime') {
         genreID = 80;
-    } else if(genreInput.value === 'Documentary') {
+    } else if (genreInput.value === 'Documentary') {
         genreID = 99;
     } else if (genreInput.value === 'Drama') {
         genreID = 18;
@@ -345,9 +292,6 @@ function assignID() {
     }
 }
 
-
-
-
 function displayMatchUI() {
     /*nameValue.textContent = nameInput.value;*/
     /*document.querySelector('#genre-value').textContent = genreInput.value;*/
@@ -355,43 +299,23 @@ function displayMatchUI() {
     startUI.style.display = 'none';
     Thisismatch.style.display = 'none';
     footerUi.style.display = "none";
-
 }
-
 
 function displayStartUI() {
     matchUI.classList.add('none');
     startUI.style.display = 'block';
     Thisismatch.style.display = 'none';
     footerUi.style.display = "none";
-
 }
 
-
-/*Heart function*/
-
-function createheart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.classList.add("purple-heart"); // add purple-heart class
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = Math.random() * 2 + 9 + "s";
-    Thisismatch.querySelector(".heart-container").appendChild(heart);
-    heart.innerText = "♡";
-
-    setTimeout(() => {
-      heart.remove();
-    }, 5000);
-  }
-
-
-  function displayMatch(movie) {
+function displayMatch(movie) {
     matchUI.classList.add("none");
     startUI.style.display = "none";
     Thisismatch.style.display = "block";
     footerUi.style.display = "block";
-
     const movieTitle = movie.title;
+
+
     Thisismatch.innerHTML = `
       <center>
         <div class="NTMatch">
@@ -402,9 +326,17 @@ function createheart() {
 
         <div class="NTMText">
           <h1>This is a match</h1>
-
           <h3>You and ${movieTitle}<br> have liked each other.</h3>
           <button class="button_returnback">Return back</button>
+            <div class="share">
+                <span>Share</span>
+                <nav>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+                </nav>
+            </div>
         </div>
         <div class="heart-container"></div> <!-- new div to contain heart animations -->
       </center>
@@ -415,41 +347,8 @@ function createheart() {
         e.preventDefault();
         document.querySelector('.thisismatch').style.display = 'none';
         document.querySelector('.start-ui').style.display = 'block';
-      });
-  }
-
-
-  /*function displayMatch(movie) {
-    matchUI.classList.add("none");
-    startUI.style.display = "none";
-    Thisismatch.style.display = "block";
-    footerUi.style.display = "block";
-
-
-    const movieTitle = movie.title;
-    Thisismatch.innerHTML = `
-      <center>
-        <div class="NTMatch">
-        <div class="itsmatch_logo">
-        <img class="center itsmatch_imgflame" src='images/tinder.png'>
-        <img class="center itsmatch_imgflame2" src='images/tinder.png'>
-        <img class="center itsmatch_imgflame3" src='images/tinder.png'>
-
-        <img class="center itsmatch_imglogo" src='images/popcorn-logo.png'>
-        </div>
-        </div>
-
-        <div class="NTMText">
-          <h1 style="color: plum;">This is a match</h1>
-
-          <h3>You and ${movieTitle} have liked each other.</h3>
-        </div>
-        <div class="heart-container"></div> <!-- new div to contain heart animations -->
-      </center>
-    `;
-    setInterval(createheart, 150); // start heart animations
-  }*/
-
+    });
+}
 
 /*Test slider beguinning*/
 var swiper = new Swiper('.swiper-container', {
@@ -459,60 +358,110 @@ var swiper = new Swiper('.swiper-container', {
     loop: true,
     speed: 300,
     mousewheel: {
-    invert: false,
+        invert: false,
     },
     pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-    dynamicBullets: true
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true
     },
     // Navigation arrows
     navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     }
-    });
+});
 
-    /*test couleur*/
-    /*function setRed() {
-        document.body.style.backgroundColor = "red";
-        document.cookie = "color=red";
-        document.getElementById('css').href='style1.css';
-      }
 
-      function setGreen() {
-        document.body.style.backgroundColor = "green";
-        document.cookie = "color=green";
-        document.getElementById('css').href='style3.css';
-      }
+// Fonction pour définir la couleur en fonction du cookie
+function setColor() {
+    var color = getCookie("color");
+    if (color !== "") {
+        document.getElementById("css").setAttribute("href", "style/" + color + ".css");
+    }
+}
 
-      function setYellow() {
-        document.body.style.backgroundColor = "yellow";
-        document.cookie = "color=yellow";
-        document.getElementById('css').href='style2.css';
-      }
-*/
-      /*function getCookie(css) {
-        const cookies = document.cookie.split(';');
-        for(let i = 0; i < cookies.length; i++) {
-          const cookie = cookies[i].trim();
-          if(cookie.startsWith(css + '=')) {
-            return cookie.substring(css.length + 1);
-          }
-        }
-        return null;
-      }*/
-/*
-      window.onload = function() {
-        const color = getCookie('color');
-        if(color) {
-          document.body.style.backgroundColor = color;
-          if(color === 'yellow') {
-            document.getElementById('css').href='style2.css';
-          } else if(color === 'green') {
-            document.getElementById('css').href='style3.css';
-          } else {
-            document.getElementById('css').href='style1.css';
-          }
-        }
-      }*/
+// Fonction pour obtenir le cookie
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(";");
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return "";
+}
+
+// Fonction pour définir le cookie
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+// Fonction pour définir la couleur et le cookie
+function setRed() {
+    document.getElementById("css").setAttribute("href", "style/color1.css");
+    setCookie("color", "color1", 7);
+}
+
+function setGreen() {
+    document.getElementById("css").setAttribute("href", "style/color2.css");
+    setCookie("color", "color2", 7);
+}
+
+function setYellow() {
+    document.getElementById("css").setAttribute("href", "style/color3.css");
+    setCookie("color", "color3", 7);
+}
+
+function setBlue() {
+    document.getElementById("css").setAttribute("href", "style/color4.css");
+    setCookie("color", "color4", 7);
+}
+
+
+// Appel de la fonction setColor au chargement de la page
+setColor();
+
+// Force a hover to see the effect
+const share = document.querySelector('.share');
+
+setTimeout(() => {
+    share.classList.add("hover");
+}, 1000);
+
+setTimeout(() => {
+    share.classList.remove("hover");
+}, 3000);
+
+const share2 = document.querySelector('.share2');
+
+setTimeout(() => {
+    share2.classList.add("hover");
+}, 1000);
+
+setTimeout(() => {
+    share2.classList.remove("hover");
+}, 3000);
+
+/*Heart function*/
+function createheart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.classList.add("purple-heart"); // add purple-heart class
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 2 + 9 + "s";
+    Thisismatch.querySelector(".heart-container").appendChild(heart);
+    heart.innerText = "♡";
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+

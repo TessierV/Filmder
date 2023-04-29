@@ -381,7 +381,7 @@ function createheart() {
 
     const movieTitle = movie.title;
     Thisismatch.innerHTML = `
-      <center>
+      <center style="background-color: red;">
         <div class="NTMatch">
           <img class="NTIcon1" src="https://placehold.it/120">
           <img class="NTIcon2" src="https://placehold.it/80">
