@@ -151,11 +151,14 @@ option {
 /*a changer*/
 .btn2 svg {
   width: 50%;
-  filter: grayscale(1);
 }
 
 .btn2:active {
   background-color: var(--colors3);
+}
+
+.btn2:hover {
+  transform: scale(1.1);
 }
 
 #genre option:checked {

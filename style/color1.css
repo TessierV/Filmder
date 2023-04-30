@@ -128,11 +128,17 @@ option {
 
 /*Title + description*/
 
+.subheading{
+  color: var(--colorblack);
+}
+
 .card__image {
   background: linear-gradient(154deg, var(--colors2) 0%, var(--colors3) 50%, var(--colors1) 80%);
 
   color: var(--colorwhite);
 }
+
+
 
 .card__header {
   background-color: var(--colorwhite);
@@ -146,6 +152,7 @@ option {
 .card__thumb {
   background-color: var(--colors5);
   background: var(--colorbg90);
+
 }
 
 .card__status {
@@ -164,7 +171,6 @@ option {
 /*a changer*/
 .btn2 svg {
   width: 50%;
-  filter: grayscale(1);
 }
 
 .btn2:active {
@@ -207,6 +213,7 @@ footer a:hover {
 .slider-image-wrapper::before {
   background-color: var(--colors3);
   background: var(--colorbg);
+
   z-index: -1;
 }
 

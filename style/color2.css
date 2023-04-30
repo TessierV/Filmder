@@ -135,7 +135,7 @@ option {
 /*Gauge Test*/
 
 .gauge__body {
-  background: var(--colors3);
+  background: var(--colors4);
 }
 
 .gauge__fill {
@@ -172,6 +172,9 @@ option {
   fill: var(--colors4);
 }
 
+.subheading{
+  color: var(--colorblack);
+}
 
 .card__thumb {
   background: var(--colorbg);
@@ -188,7 +191,7 @@ option {
 }
 
 .btn2 {
-  background-color: var(--colors1);
+  background-color: var(--colors4);
 }
 
 .btn2:active {

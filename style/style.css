@@ -37,10 +37,16 @@ h2 {
 }
 
 .subheading {
+  max-width: 200px;
   text-align: left;
   text-transform: uppercase;
   font-weight: light;
   margin-left: 12px;
+}
+
+.card__age{
+  position: absolute;
+  right: 10%;
 }
 
 
@@ -720,12 +726,13 @@ input[type="radio"]:checked~label {
   border-radius: 40px 40px 0 0;
   transform: translateY(100%);
   transition: .2s ease-in-out;
-  height: 90%;
+  height: 100%;
 }
 
 .display-movie2:hover .card__overlay {
   transform: translateY(0);
 }
+
 
 .card__header {
   position: relative;
@@ -737,7 +744,7 @@ input[type="radio"]:checked~label {
   transform: translateY(-100%);
   transition: .2s ease-in-out;
   padding: 1%;
-  height: 120px;
+  height: 30%;
   border: 2px;
 }
 
@@ -760,8 +767,8 @@ input[type="radio"]:checked~label {
 }
 
 .card__thumb {
-  width: 38px;
-  height: 38px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   margin: 0 1% 0 5%;
   background-size: cover;
@@ -798,22 +805,20 @@ input[type="radio"]:checked~label {
 
 .card__description {
   color: black;
-  display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
   height: 100%;
   font-size: 12px;
-  padding: 1% 5% 1% 5%;
-
+  padding: 2% 5% 1% 5%;
+  text-align: left;
 }
 
 .scroller {
-  height: 18%;
+  height: 10%;
   overflow-y: scroll;
   scrollbar-width: thin;
   text-align: justify;
-  padding: 2%;
 }
 
 .btn2 {
@@ -852,10 +857,26 @@ input[type="radio"]:checked~label {
   transform: scale(1.1);
 }
 
+
 .btn2:not(:nth-child(2)):hover svg {
   transition: all 3.5s ease-in-out;
   animation: pulse 1.5s infinite forwards;
+}
 
+.btn2:last-child:hover svg {
+  animation: pulse 1.5s infinite forwards, fillHeart 0.5s forwards;
+}
+
+@keyframes fillHeart {
+  0% { fill: none; stroke: url(#heartStrokeGradient);
+  }
+  100% { fill: url(#heartGradient);
+    stroke: url(#heartStrokeGradient);
+  }
+}
+
+#heartGradient {
+  stop-colors: #B2E9D6, #4b806c;
 }
 
 @keyframes pulse {
@@ -1068,11 +1089,35 @@ select option:hover {
   left: 50%;
   transform: translate(-50%, -50%);*/
 
-.itsmatch_imglogo {
-  position: absolute;
-  width: 160px;
-  z-index: 1;
-}
+  .itsmatch_imglogo {
+    position: absolute;
+    z-index: 1;
+    width: 25%; /* Ajustez la taille en pourcentage selon vos besoins */
+    max-width: 85px; /* Limitez la largeur maximale de l'image */
+    top: 60%;
+    transform: translateX(-50%);
+    background: var(--colorbg);
+    border-radius: 50%;
+  }
+
+  .itsmatch_movie {
+    position: absolute;/* Ajustez la taille en pourcentage selon vos besoins */
+    width: 35%;
+    max-height: 200px;
+    max-width: 100px;
+    border-radius: 5px;
+    left: 14%;
+    top: 6%;
+    background-size: contain;
+    transform: rotate(-8deg);
+    border: 5px solid var(--colors1);
+
+    border-radius: 15px;
+
+  }
+
+
+
 
 
 /*Footer*/
@@ -1549,3 +1594,14 @@ share2 header
 option:checked {
   background-color: black;
 }
+
+.genre{
+  width: 20%;
+  text-align: center;
+  font-size: xx-small;
+  cursor: default;
+  color: #000000;
+}
+
+
+

@@ -113,7 +113,6 @@ function showMovie(movie) {
     `;
     setGaugeValue(gaugeElement, movie.vote_average, movie.vote_count, movie.popularity, movie.adult, movie.backdrop_path, movie.genre, movie.genreID);
     showMovie2(movie);
-    //DISPLAYMATCH
 }
 
 /*Gauge*/
@@ -128,52 +127,7 @@ function setGaugeValue(gauge, value, vote_count, popularity, adult, backdrop_pat
     gauge.querySelector(".gauge__fill").style.transform = `rotate(${angle}deg)`;
 }
 
-//TESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSST
-const genreColors = {
-    action: "#FF7F7F",
-    comedy: "#FFFF99",
-    drama: "#B3B3FF",
-    romance: "#FFD1DC",
-    thriller: "#CC99FF",
-    fantasy: "#FFD700",
-    animation: "#ADEAEA",
-    crime: "#FFB266",
-    adventure: "#99FF99",
-    horror: "#FF9999",
-    'science fiction': "#CCCCCC",
-    mystery: "#DCB3FF",
-    family: "#FFEDB3",
-    documentary: "#E6E6E6",
-    history: "#D2B48C",
-    war: "#B30000",
-    music: "#FFB3FF",
-    western: "#FFC299",
-    biography: "#C2A2C2",
-    sport: "#99FF99",
-  };
-
-  function showMovie2(movie) {
-    const genres = currentMovie.genre.split(',');
-    const genreListHTML = genres
-    .map((genre) => `<li class="genre" style="background-color: ${genreColors[genre.trim().toLowerCase()] || 'transparent'}; border-radius: 50px; padding: 5px; margin-right: 5px; margin-bottom: 1%; display: inline-block;">${genre.trim()}</li>`)
-      .join('');
-
-      const currentYear = new Date().getFullYear();
-const movieYear = getYear(movie.release_date);
-const releaseDate = new Date(movie.release_date);
-const formattedReleaseDate = `${(releaseDate.getMonth() + 1).toString().padStart(2, '0')}/${releaseDate.getDate().toString().padStart(2, '0')}/${releaseDate.getFullYear()}`;
-
-
-let releaseYearText = currentYear - movieYear;
-if (releaseYearText < 1) {
-  releaseYearText = "SOON";
-} else if (releaseYearText === 1) {
-  releaseYearText = releaseYearText + " age";
-} else {
-  releaseYearText = releaseYearText + " ages";
-}
-
-
+function showMovie2(movie) {
 
     displayMovie2.innerHTML = `
     <div class="card">
@@ -182,53 +136,40 @@ if (releaseYearText < 1) {
             <div style="flex-basis: 40%; display: flex;  justify-content: center; align-items: center;">
                 <p style="font-size: 10px; text-align: left;"><b>vote average</b>: ${movie.vote_average} / 10<br>${movie.vote_count} voted</p>
             </div>
-            <div style="margin-left: 5px; flex-basis: 60%; display: flex; justify-content: center; align-items: center;">
+            <div style="flex-basis: 60%; display: flex; justify-content: center; align-items: center;">
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; ">
-                <button style="border: none; height: 30px; width: 30px; border-radius: 50%; padding: 5%; background-color: white; background-size: 30px 30px; background-repeat: no-repeat; background-position: center center; background-image: url(${movie.vote_average > 8 ? './images/goldlike.png' : movie.vote_average >= 5 ? './images/superlike.png' : './images/notpopular.png'});">
-                </button>
-                                    <h4 style="margin-top: 5px;">Like</h4>
+                    <button style="text-align: center; font-size: 7px; height: 30px; width: 30px; border-radius: 50%;">${movie.vote_count}</button>
+                    <h4 style="margin-top: 5px;">count</h4>
                 </div>
-                    <div style="margin-left: 5px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <button style="border: none; height: 30px; width: 30px; border-radius: 50%; padding: 5%; background-color: white; background-size: 30px 30px; background-repeat: no-repeat; background-position: center center; background-image: url(${movie.vote_count <= 1000 ? './images/notpopular.png' : movie.vote_count <= 5000 ? './images/popular.png' : movie.vote_count <= 10000 ? './images/superpopular.png' : './images/goldpopular.png'});">
-                    </button>
-                                    <h4 style="margin-top: 5px; ">Popular</h4>
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <button style="text-align: center; font-size: 7px; height: 30px; width: 30px; border-radius: 50%;">${movie.popularity}</button>
+                <h4 style="margin-top: 5px; ">culte</h4>
                 </div>
-                <div style="margin-left: 5px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <button style="border: none; height: 30px; width: 30px; border-radius: 50%; padding: 5%; background-color: white; background-size: 30px 30px; background-repeat: no-repeat; background-position: center center; background-image: url(${movie.adult ? './images/icons/children.png' : './images/icons/baby-boy.png'});">
-                </button>
+                <div style="margin-left:"2%"; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <button style="border: none; height: 30px; width: 30px; border-radius: 50%; padding: 5%; background-color: transparent; background-size: cover; background-image: url(${movie.adult ? './images/icons/children.png' : './images/icons/baby-boy.png'});">
+            </button>
                     <h4 style="margin-top: 5px;">${movie.adult ? 'Adult' : 'Family'}</h4>
                 </div>
-
             </div>
         </div>
     </div>
-        <div class="card__overlay">
-          <div class="card__header">
+    <div class="card__overlay">
+        <div class="card__header">
             <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
             ${getGenreImage(genreInput.value)}
             <div class="card__header-text">
-              <h2 class="subheading">${movie.title}</h2>
-              <p class="card__status"><strong>Year:</strong> ${formattedReleaseDate}</p>
+                <h2 class="subheading">${movie.title}</h2>
+                <p class="card__status"><strong>Year:</strong> ${getYear(movie.release_date)}</p>
             </div>
-            <p class="card__age" ><strong>${releaseYearText}</strong></p>
-            </div>
-
-          <div class="card__description">
-            <p><b>Original title</b>: ${movie.original_title}</p>
-            <p><b>Overview:</b></p>
-            <p class="scroller">${movie.overview}</p>
-            <p><b>Genres</b>:</p>
-            <ul class="genre-list" style="list-style-type: none; padding: 0; display: flex; flex-wrap: wrap;">
-            ${genreListHTML}
-            </ul>
-          </div>
         </div>
-      </div>
+        <div class="card__description">
+        <p><b>Original title</b>: ${movie.original_title}</p>
+        <p class="scroller">${movie.overview}</p>
+        </div>
+    </div>
+</div>
     `;
-  }
-
-///END
-
+}
 
 async function getGenre(genreIds) {
     const APIURL = `https://api.themoviedb.org/3/genre/movie/list?api_key=4898aec2424aaa52b8e4e628ec9b9e04&language=en-US`;
@@ -391,22 +332,19 @@ function displayMatch(movie) {
     startUI.style.display = "none";
     Thisismatch.style.display = "block";
     footerUi.style.display = "block";
-    const lastMovie = moviesList[moviesList.length - 1];
+    const movieTitle = movie.title;
+
 
     Thisismatch.innerHTML = `
       <center>
         <div class="NTMatch">
         <div class="itsmatch_logo">
-        <img class="center itsmatch_imglogo" src='images/popcorn-logo__white.png'>
-        <img class="center itsmatch_movie" src="https://image.tmdb.org/t/p/w200/${lastMovie.poster_path}" alt="${lastMovie.title} Poster">
-
+        <img class="center itsmatch_imglogo" src='images/popcorn-logo.png'>
         </div>
         </div>
-
-
         <div class="NTMText">
           <h1>This is a match</h1>
-          <h3>You and ${lastMovie.title}<br> have liked each other.</h3>
+          <h3>You and ${movieTitle}<br> have liked each other.</h3>
           <button class="button_returnback">Return back</button>
             <div class="share">
                 <span>Share</span>
@@ -571,11 +509,9 @@ function updateMoviesListUI() {
 
     const moviesListHTML = moviesList
   .map((movie, index) => `
-
     <div class="movie-item">
     <img src="https://image.tmdb.org/t/p/w200/${movie.poster_path}" alt="${movie.title} Poster">
       <p>${index + 1}. ${movie.title}</p>
-      <p class="movie-genre">${movie.genre}</p>
       <button class="delete-button" onclick="deleteMovie(${index})">Delete</button>
     </div>
   `)
@@ -618,4 +554,4 @@ moviesListContainer.innerHTML = moviesListHTML;
   }
 
 
-
+//end
