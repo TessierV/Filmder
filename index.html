@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-9v9pV7AN/6P0Z6QFJLC44BBuN7z50RdM/pL7z8v9h9fui0/Om5S5w7e8xdvGc0Q+4fv4y4Weyia8vzz0SDQ2dQ=="
@@ -26,32 +25,25 @@
     <main>
         <header>
             <h1 class="header_title">Filmdeur</h1>
-            <div id="moviesListContainer"></div>
 
-
-            <!--<button class="style_button" onclick="document.getElementById('css').href='./style/color1.css';">1</button>
-		    <button class="style_button" onclick="document.getElementById('css').href='./style/color2.css';">2</button>
-            <button class="style_button" onclick="document.getElementById('css').href='./style/color3.css';">3</button>
-            <button class="style_button" onclick="document.getElementById('css').href='./style/color4.css';">4</button>
-            -->
-            <!--<div class="share">
-                <span>Share</span>
-                <nav>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-google"></i></a>
-                    <a href="#"><i class="fa fa-github"></i></a>
-                </nav>
-            </div>-->
-            <div class="share2">
-                <span>🖌</span>
-                <!--<span>Share</span>-->
-                <nav>
+            <div class="center-content">
+                <div class="share2">
+                  <span>theme</span>
+                  <button id="toggleSeemoreButton" onclick="toggleSeemore()">messenger</button>
+                  <nav>
                     <a href="#" onclick="setRed()"><i class="fa fa-github"></i></a>
                     <a href="#" onclick="setGreen()"><i class="fa fa-github"></i></a>
                     <a href="#" onclick="setYellow()"><i class="fa fa-github"></i></a>
                     <a href="#" onclick="setBlue()"><i class="fa fa-github"></i></a>
-                </nav>
+                  </nav>
+                </div>
+              </div>
+
+            <div class="seemore">
+                <div id="moviesListContainer"></div>
+                <div class="prev_next">
+                    <button id="prevButton">Prev</button>
+                    <button id="nextButton">Next</button></div>
             </div>
         </header>
         <section href='#' class="swipper-start">
@@ -216,6 +208,7 @@
             <p>Portfolio Project HolbertonSchool TOULOUSE C#19</p>
         </footer>
     </main>
+    <script src="server.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -153,9 +153,7 @@ option {
   width: 50%;
 }
 
-.btn2:active {
-  background-color: var(--colors3);
-}
+
 
 .btn2:hover {
   transform: scale(1.1);
@@ -259,7 +257,12 @@ option:checked {
 }
 
 .share2 span {
-  color: var(--colorblack);
+  color: var(--colorwhite);
+}
+
+#toggleSeemoreButton{
+  background: var(--colorbg90);
+  color: var(--colors1);
 }
 
 form h1 {

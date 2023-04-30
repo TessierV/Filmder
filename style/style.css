@@ -302,22 +302,134 @@ label:hover,
 }
 
 /**************/
+#moviesListContainer{
+  max-width: 100%;
+  margin-top: 20px;
+  transition: opacity 3s ease-in-out;
+
+}
+
 .movie-item {
   display: inline-flex;
   align-items: center;
-  margin-right: 10px;
+  position: relative; /* Ajout de la position relative */
+  justify-content: center; /* Ajout de la justification centrée */
+  margin-left: 10px;
 }
 
-.movie-item img{
-  width: 20px;
-  height: 20px;
+.movie-item img {
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-size: cover;
+
 }
 
 .movie-item p {
   margin: 0;
-  font-size: 15px;
+  position: absolute;
+  top: 50px;
+  font-size: 7px;
+  padding-top: 10px;
+  text-overflow: ellipsis;
+}
+
+.movie-item p:hover {
+  overflow: initial;
+  text-overflow: initial;
+}
+
+.delete-button {
+  position: absolute; /* Ajout de la position absolue */
+  top: 0; /* Ajuster la valeur pour positionner verticalement */
+  left: 33px; /* Ajuster la valeur pour positionner horizontalement */
+  border-radius: 50%;
+  z-index: 2;
+  border: none;
+  background: var(--colorbg);
+  color: var(--colorwhite);
+  font-weight: 500;
+}
+
+#toggleSeemoreButton {
+  width: 80px;
+  line-height: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 90%;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  color: palevioletred;
+  border: none;
+  border-radius: 10px;
+  font-size: xx-small;
+}
+
+
+.prev_next{
+  position: relative;
+  justify-content: center;
+  text-align: center;
+    width: 100%;
+    margin-top: 35px;
+
+}
+
+.prev_next button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: black;
+  border-radius: 10px;
+  font-size: 9px;
+  font-weight: 600;
+
+}
+
+
+.prevButton::before {
+  content: '';
+  position: absolute;
+  background-color: black;
+  height: 1px;
+  width: 0;
+  left: 0;
+  /*transform: translatey(-50%);*/
+  bottom: -1px;
+  transition: 0.2s;
+}
+
+.nextButton::before {
+  content: '';
+  position: absolute;
+  background-color: black;
+  height: 1px;
+  width: 0;
+  right: 0;
+  /*transform: translatey(-50%);*/
+  bottom: -1px;
+  transition: 0.2s;
+}
+
+.prevButton:hover::before,
+.nextButton:hover::before {
+  width: 100%;
+}
+
+
+
+
+
+.seemore {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.seemore.visible {
+  display: block;
+  opacity: 1;
 }
 
 
@@ -1066,19 +1178,20 @@ select option:hover {
   top: -1vh;
   font-size: 2rem;
   transform: translateY(0);
-  animation: fall 3s linear forwards;
-  animation-duration: 6s;
+  animation: fall linear forwards;
+  animation-duration: 7s;
 }
+
 
 @keyframes fall {
   0% {
-    transform: translateY(-1vh);
+    transform: translateY(100vh);
     opacity: 1;
   }
 
   100% {
-    transform: translateY(225vh);
-    opacity: 0.5;
+    transform: translateY(-200vh);
+    opacity: 0.6;
   }
 }
 
@@ -1297,6 +1410,7 @@ p {
   justify-content: flex-end;
   width: 100%;
   margin-top: 10px;
+
 }
 
 .swiper-button-next,
@@ -1308,8 +1422,10 @@ p {
   color: black;
   position: relative;
   margin-left: 4px;
-  font-size: 7px;
+  font-size: 9px;
   border-radius: 10px;
+  font-weight: 600;
+
 }
 
 
@@ -1469,26 +1585,41 @@ p {
 share2 header
 */
 
+
 .share2 {
-  width: 200px;
+  width: 160px;
   position: relative;
-  left: 10%;
-  margin-top: 5%;
   align-items: center;
   align-content: center;
+  display: flex;
+  margin-left: -50px;
 }
 
+.center-content {
+  display: flex;
+  justify-content: center;
+}
+
+#toggleSeemoreButton {
+  margin-left: -15px; /* Ajustez la marge selon vos besoins */
+  transition: opacity 0.3s ease-in-out;
+
+}
+
+
+
+
 .share2 span {
-  width: 100px;
+  width: 40px;
   line-height: 20px;
   display: inline-block;
-  font-weight: 600;
+  font-weight: 400;
   position: absolute;
-  left: 65%;
+  left: 30%;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
   pointer-events: none;
-  color: palevioletred;
+  font-size: xx-small;
 }
 
 .share2 nav {
@@ -1498,7 +1629,7 @@ share2 header
 
 .share2 a {
   line-height: 20px;
-  width: 70px;
+  width: 60px;
   text-align: center;
   display: inline-block;
   background-color: yellow;
@@ -1549,7 +1680,7 @@ share2 header
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  margin: 0 10px;
+  margin: 0 5px;
   color: #fff;
   font-size: 28px;
 }

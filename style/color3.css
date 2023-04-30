@@ -296,12 +296,30 @@ option:checked {
 
 /*Share button*/
 .share2 a {
-  background: var(--colors4);
+  background: var(--colors3);
 }
 
 .share2 span {
   color: var(--colors2);
 }
+
+#toggleSeemoreButton{
+  background: var(--colorbg);
+  color: var(--colors1);
+}
+
+.delete-button {
+  color: var(--colors1);
+}
+
+.movie-item {
+  color: var(--colorwhite);
+}
+
+.prev_next button{
+  color: var(--colorwhite);
+}
+
 
 form h1 {
   color: var(--colorblack);

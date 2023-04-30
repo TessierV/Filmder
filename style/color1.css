@@ -173,9 +173,6 @@ option {
   width: 50%;
 }
 
-.btn2:active {
-  background-color: var(--colors3);
-}
 
 #genre option:checked {
   background-color: var(--colors5);
@@ -256,10 +253,15 @@ option:checked {
 
 /*Share button*/
 .share2 a {
-  background: var(--colors3);
+  background: var(--colors2);
 }
 
 .share2 span {
+  color: var(--colorwhite);
+}
+
+#toggleSeemoreButton{
+  background: var(--colorbg90);
   color: var(--colorwhite);
 }
 

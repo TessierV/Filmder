@@ -321,13 +321,29 @@ option:checked {
   background-color: var(--colors2);
 }
 
+
+
 .share2 a {
-  background: var(--colors2);
+  background: var(--colors6);
 }
 
 .share2 span {
+  color: var(--colorwhite);
+}
+
+#toggleSeemoreButton{
+  background: var(--colorbg);
+  color: var(--colorwhite);
+}
+
+.movie-item {
   color: var(--colorblack);
 }
+
+.prev_next button{
+  color: var(--colorblack);
+}
+
 
 form h1 {
   color: var(--colorblack);

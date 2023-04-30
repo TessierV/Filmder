@@ -30,6 +30,8 @@ document.querySelector('form').addEventListener('submit', (e) => {
     startUI.style.display = 'none';
     footerUi.style.display = 'none';
     Thisismatch.style.display = 'none';
+    document.querySelector('.center-content').style.display = 'none';
+
     setTimeout(getMovies, 5000);
 });
 
@@ -65,6 +67,7 @@ async function getMovies() {
         // Hide loader
         document.querySelector('.loader').style.display = 'none'
         document.querySelector('.thisismatch').style.display = 'none'
+        document.querySelector('.center-content').style.display = 'flex';
 
         footerUi.style.display = 'none';
         const movie = resData.results[randomNumber];
@@ -76,7 +79,6 @@ async function getMovies() {
             // Ajoutez d'autres propriétés nécessaires du film
           };
           updateMoviesListUI();
-
         displayMatch(movie.title);
         displayMatchUI();
 
@@ -117,7 +119,6 @@ function showMovie(movie) {
 }
 
 /*Gauge*/
-
 const gaugeElement = document.querySelector(".gauge");
 
 function setGaugeValue(gauge, value, vote_count, popularity, adult, backdrop_path) {
@@ -164,17 +165,22 @@ const releaseDate = new Date(movie.release_date);
 const formattedReleaseDate = `${(releaseDate.getMonth() + 1).toString().padStart(2, '0')}/${releaseDate.getDate().toString().padStart(2, '0')}/${releaseDate.getFullYear()}`;
 
 
-let releaseYearText = currentYear - movieYear;
-if (releaseYearText < 1) {
-  releaseYearText = "SOON";
-} else if (releaseYearText === 1) {
-  releaseYearText = releaseYearText + " age";
-} else {
-  releaseYearText = releaseYearText + " ages";
-}
-
-
-
+let releaseYearText;
+  if (releaseDate > new Date()) {
+    releaseYearText = "SOON";
+  } else {
+    const diffInYears = currentYear - movieYear;
+  if (diffInYears < 1 && releaseDate < new Date()) {
+    releaseYearText = "RECENT";
+  } else {
+    releaseYearText = diffInYears;
+    if (releaseYearText === 1) {
+      releaseYearText += " age";
+    } else {
+      releaseYearText += " ages";
+    }
+    }
+  }
     displayMovie2.innerHTML = `
     <div class="card">
     <div class="card__image" alt="">
@@ -386,13 +392,13 @@ function displayStartUI() {
     footerUi.style.display = "none";
 }
 
+let lastLikedMovieIndex = -1;
 function displayMatch(movie) {
     matchUI.classList.add("none");
     startUI.style.display = "none";
     Thisismatch.style.display = "block";
     footerUi.style.display = "block";
     const lastMovie = moviesList[moviesList.length - 1];
-
     Thisismatch.innerHTML = `
       <center>
         <div class="NTMatch">
@@ -425,8 +431,7 @@ function displayMatch(movie) {
     /*return back*/
     document.querySelector('.button_returnback').addEventListener('click', (e) => {
         e.preventDefault();
-        document.querySelector('.thisismatch').style.display = 'none';
-        document.querySelector('.start-ui').style.display = 'block';
+        location.reload();
     });
 }
 
@@ -536,14 +541,30 @@ function createheart() {
     heart.classList.add("heart");
     heart.classList.add("purple-heart"); // add purple-heart class
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = Math.random() * 2 + 9 + "s";
-    Thisismatch.querySelector(".heart-container").appendChild(heart);
-    heart.innerText = "♡";
+    heart.style.animationDuration = Math.random() * 5 + 9 + "s";
 
+    // Ralentir l'effet
+    heart.style.animationTimingFunction = "ease-in";
+    const heartContent = document.createElement("span");
+
+    let counter = 0;
+    setInterval(() => {
+      if (counter % 2 === 0) {
+        heartContent.textContent = "♡";
+      } else {
+        heartContent.textContent = "❤";
+      }
+      counter++;
+    }, 800);
+
+    heart.appendChild(heartContent);
+    Thisismatch.querySelector(".heart-container").appendChild(heart);
     setTimeout(() => {
-        heart.remove();
+      heart.remove();
     }, 5000);
-}
+  }
+
+
 
 //test
 
@@ -565,37 +586,72 @@ function toggleLike() {
   updateMoviesListUI();
 }
 
+let currentGroupIndex = 0;
+const moviesPerPage = 5;
+
 // Fonction pour mettre à jour l'interface utilisateur avec la liste des films likés
 function updateMoviesListUI() {
-    const moviesListContainer = document.getElementById('moviesListContainer');
+  const moviesListContainer = document.getElementById('moviesListContainer');
 
-    const moviesListHTML = moviesList
-  .map((movie, index) => `
+  // Calculez les index de début et de fin du groupe actuel
+  const startIndex = currentGroupIndex * moviesPerPage;
+  const endIndex = startIndex + moviesPerPage;
 
-    <div class="movie-item">
-    <img src="https://image.tmdb.org/t/p/w200/${movie.poster_path}" alt="${movie.title} Poster">
-      <p>${index + 1}. ${movie.title}</p>
-      <p class="movie-genre">${movie.genre}</p>
-      <button class="delete-button" onclick="deleteMovie(${index})">Delete</button>
-    </div>
-  `)
-  .join('');
+  // Filtrer la liste des films en fonction de l'index du groupe
+  const currentMoviesList = moviesList.slice(startIndex, endIndex);
 
-// Insérer le contenu HTML dans l'élément HTML
-moviesListContainer.innerHTML = moviesListHTML;
+  const moviesListHTML = currentMoviesList
+    .map((movie, index) => {
+      const truncatedTitle = movie.title.length > 20 ? movie.title.substring(0, 20) + "..." : movie.title;
 
-    // Sauvegarder la liste des films likés dans le stockage local
-    localStorage.setItem('moviesList', JSON.stringify(moviesList));
+      return `
+        <div class="movie-item">
+          <img src="https://image.tmdb.org/t/p/w200/${movie.poster_path}" alt="${movie.title} Poster">
+          <button class="delete-button" onclick="deleteMovie(${index + startIndex})">x</button>
+          <p>${truncatedTitle}</p>
+        </div>
+      `;
+    })
+    .join('');
+
+  moviesListContainer.innerHTML = moviesListHTML;
+
+  // Sauvegarder la liste des films likés dans le stockage local
+  localStorage.setItem('moviesList', JSON.stringify(moviesList));
+}
+
+// Fonction pour afficher le groupe précédent de films
+function showPreviousGroup() {
+  if (currentGroupIndex > 0) {
+    currentGroupIndex--;
+    updateMoviesListUI();
   }
+}
 
-  // Au chargement de la page, restaurer la liste des films likés depuis le stockage local
-  window.addEventListener('load', () => {
-    const storedMoviesList = localStorage.getItem('moviesList');
-    if (storedMoviesList) {
-      moviesList = JSON.parse(storedMoviesList);
-      updateMoviesListUI();
-    }
-  });
+// Fonction pour afficher le groupe suivant de films
+function showNextGroup() {
+  const totalGroups = Math.ceil(moviesList.length / moviesPerPage);
+  if (currentGroupIndex < totalGroups - 1) {
+    currentGroupIndex++;
+    updateMoviesListUI();
+  }
+}
+
+// Au chargement de la page, restaurer la liste des films likés depuis le stockage local
+window.addEventListener('load', () => {
+  const storedMoviesList = localStorage.getItem('moviesList');
+  if (storedMoviesList) {
+    moviesList = JSON.parse(storedMoviesList);
+    updateMoviesListUI();
+  }
+});
+
+// Ajoutez des boutons "prev" et "next" pour naviguer entre les groupes de films
+const prevButton = document.getElementById('prevButton');
+prevButton.addEventListener('click', showPreviousGroup);
+
+const nextButton = document.getElementById('nextButton');
+nextButton.addEventListener('click', showNextGroup);
 
 
   function deleteMovie(index) {
@@ -617,5 +673,7 @@ moviesListContainer.innerHTML = moviesListHTML;
     localStorage.setItem('moviesList', moviesListJSON);
   }
 
-
-
+  function toggleSeemore() {
+    const seemoreContainer = document.querySelector('.seemore');
+    seemoreContainer.classList.toggle('visible');
+  }
