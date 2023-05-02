@@ -7,9 +7,10 @@
   --colors3: #f14141;
   --colors4: #D2153B;
 
-  --colorbg: linear-gradient(0deg, #f14141 0%, #D2153B 100%);
-  --colorbg90: linear-gradient(90deg, #f14141 0%, #D2153B 100%);
-  --colorsbg_round: radial-gradient(circle, #f14141 0%, #D2153B 100%);
+  --colorbg: linear-gradient(0deg, var(--colors3) 0%, var(--colors4) 100%);
+  --colorbg90: linear-gradient(90deg, var(--colors3) 0%, var(--colors4) 100%);
+  --colorsbg_round: radial-gradient(circle, var(--colors3) 0%, var(--colors4) 100%);
+  --colorbglack : linear-gradient(90deg, var(--colors2) 0%, var(--colorblack) 100%);
   --colorwhite: #F5F5F5;
   --colorblack: #000000;
 }
@@ -92,8 +93,11 @@ option {
 }
 
 .profile-pic {
-  border: 3px solid var(--colors1);
-  background-color: var(--colors1);
+  border: 3px solid var(--colors2);
+  background-color: var(--colors2);
+
+  background-image: url(../images/popcorn-logo__white.png)
+
 }
 
 .gauge__body {
@@ -121,6 +125,7 @@ option {
   background: #9e988d;
   color: var(--colorwhite);
 }
+
 
 .card__header {
   background: var(--colorbg90);
@@ -265,8 +270,22 @@ option:checked {
   color: var(--colors1);
 }
 
+.prev_next button:hover{
+  border-bottom: 1px solid var(--colors3);
+  border-radius: 0%;
+  transition: opacity 3s ease-in-out;
+}
+
 form h1 {
   color: var(--colorwhite);
   font-weight: 400;
   font-size: larger;
+}
+
+.card__status {
+  background-image: var(--colorbglack);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }

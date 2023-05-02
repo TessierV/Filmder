@@ -7,6 +7,8 @@ const genreInput = document.querySelector('#genre');
 const displayMovie2 = document.querySelector('.display-movie2');
 const displayMovie = document.querySelector('.display-movie');
 const footerUi = document.querySelector('footer');
+
+// Test this is a match
 const Thisismatch = document.querySelector('.thisismatch');
 
 // Hide 'match' UI
@@ -28,9 +30,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
     startUI.style.display = 'none';
     footerUi.style.display = 'none';
     Thisismatch.style.display = 'none';
-    document.querySelector('header').style.display = 'none';
     setTimeout(getMovies, 5000);
-
 });
 
 document.querySelector('.next-movie').addEventListener('click', getMovies)
@@ -40,8 +40,10 @@ document.querySelector('.ismatch').addEventListener('click', displayMatch)
 let genreID;
 let moviesList = [];
 
+
 async function getMovies() {
     assignID();
+
   // Vérifier si la liste des films existe dans le stockage local
     try {
         // Generate random page number
@@ -61,20 +63,20 @@ async function getMovies() {
         // Generate a random index number
         const randomNumber = Math.floor(Math.random() * (resData.results.length));
         // Hide loader
-        document.querySelector('header').style.display = 'block';
-        document.querySelector('.loader').style.display = 'none';
-        document.querySelector('.thisismatch').style.display = 'none';
-        document.querySelector('.center-content').style.display = 'flex';
+        document.querySelector('.loader').style.display = 'none'
+        document.querySelector('.thisismatch').style.display = 'none'
+
         footerUi.style.display = 'none';
         const movie = resData.results[randomNumber];
 
         currentMovie = {
             title: movie.title,
-            genre: await getGenre(movie.genre_ids),
-            poster_path: movie.poster_path,
+    genre: await getGenre(movie.genre_ids),
+    poster_path: movie.poster_path,
             // Ajoutez d'autres propriétés nécessaires du film
           };
-        updateMoviesListUI();
+          updateMoviesListUI();
+
         displayMatch(movie.title);
         displayMatchUI();
 
@@ -115,6 +117,7 @@ function showMovie(movie) {
 }
 
 /*Gauge*/
+
 const gaugeElement = document.querySelector(".gauge");
 
 function setGaugeValue(gauge, value, vote_count, popularity, adult, backdrop_path) {
@@ -127,27 +130,26 @@ function setGaugeValue(gauge, value, vote_count, popularity, adult, backdrop_pat
 
 //TESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSST
 const genreColors = {
-    action: "#FFFFB5",
-    comedy: "#ABDEE6",
-    drama: "#FFC8A2",
-    romance: "#FEE1E8",
-    thriller: "#C6DBDA",
-    fantasy: "#EEC9E8",
-    animation: "#FFDBCC",
-    crime: "#E5E5E5",
-    adventure: "#FFC296",
-    horror: "#ECD5E3",
-    'science fiction': "#D5EDB9",
-    mystery: "#ADCCDE",
-    family: "#D4F0F0",
-    documentary: "#FFDBCC",
-    history: "#B8DEC6",
-    war: "#FF968A",
-    music: "#55CBCD",
-    western: "#FFCCB6",
-    biography: "#F3B0C3",
-    sport: "#A2E1DB",
-    'tv movie': "#C2C8E5",
+    action: "#FF7F7F",
+    comedy: "#FFFF99",
+    drama: "#B3B3FF",
+    romance: "#FFD1DC",
+    thriller: "#CC99FF",
+    fantasy: "#FFD700",
+    animation: "#ADEAEA",
+    crime: "#FFB266",
+    adventure: "#99FF99",
+    horror: "#FF9999",
+    'science fiction': "#CCCCCC",
+    mystery: "#DCB3FF",
+    family: "#FFEDB3",
+    documentary: "#E6E6E6",
+    history: "#D2B48C",
+    war: "#B30000",
+    music: "#FFB3FF",
+    western: "#FFC299",
+    biography: "#C2A2C2",
+    sport: "#99FF99",
   };
 
   function showMovie2(movie) {
@@ -162,29 +164,23 @@ const releaseDate = new Date(movie.release_date);
 const formattedReleaseDate = `${(releaseDate.getMonth() + 1).toString().padStart(2, '0')}/${releaseDate.getDate().toString().padStart(2, '0')}/${releaseDate.getFullYear()}`;
 
 
-let releaseYearText;
-  if (releaseDate > new Date()) {
-    releaseYearText = "SOON";
-  } else {
-    const diffInYears = currentYear - movieYear;
-  if (diffInYears < 1 && releaseDate < new Date()) {
-    releaseYearText = "RECENT";
-  } else {
-    releaseYearText = diffInYears;
-    if (releaseYearText === 1) {
-      releaseYearText += " age";
-    } else {
-      releaseYearText += " ages";
-    }
-    }
-  }
+let releaseYearText = currentYear - movieYear;
+if (releaseYearText < 1) {
+  releaseYearText = "SOON";
+} else if (releaseYearText === 1) {
+  releaseYearText = releaseYearText + " age";
+} else {
+  releaseYearText = releaseYearText + " ages";
+}
+
+
+
     displayMovie2.innerHTML = `
     <div class="card">
     <div class="card__image" alt="">
-
     <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
-    <div style="flex-basis: 40%; display: flex;  justify-content: center; align-items: center; margin-left: 5%;">
-                <p style="font-size: 10px;  text-align: left;"><b>vote average</b>: ${movie.vote_average} / 10<br>${movie.vote_count} voted</p>
+            <div style="flex-basis: 40%; display: flex;  justify-content: center; align-items: center;">
+                <p style="font-size: 10px; text-align: left;"><b>vote average</b>: ${movie.vote_average} / 10<br>${movie.vote_count} voted</p>
             </div>
             <div style="margin-left: 5px; flex-basis: 60%; display: flex; justify-content: center; align-items: center;">
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; ">
@@ -222,7 +218,7 @@ let releaseYearText;
             <p><b>Overview:</b></p>
             <p class="scroller">${movie.overview}</p>
             <p><b>Genres</b>:</p>
-            <ul class="genre-list" style="width: 420px; list-style-type: none; padding: 0; display: flex; flex-wrap: wrap;">
+            <ul class="genre-list" style="list-style-type: none; padding: 0; display: flex; flex-wrap: wrap;">
             ${genreListHTML}
             </ul>
           </div>
@@ -265,7 +261,6 @@ function getGenreImage(genre) {
         case 'Documentary':
             image = '<a class="card__thumb"  ><svg enable-background="new 0 0 512 512" height="100%" viewBox="0 0 512 512" width="100%" xmlns="http://www.w3.org/2000/svg"><g id="_x30_6_Natural_Product"><path d="m481.212 20.855c-1.375-10.584-10.933-18.023-21.531-16.756-33.56 4.013-104.68 18.335-144.047 68.895-41.854 53.755-35.142 132.293-30.602 162.378-10.695 32.231-16.875 66.764-20.382 97.902-6.199-36.244-20.259-78.418-51.22-108.934-49.429-48.72-127.865-53.99-164.481-53.528-11.558.146-20.764 9.49-20.737 21.049.087 36.605 6.528 114.91 55.952 163.626 52.762 52.005 138.568 54.49 171.206 53.362 7.056 24.909 9.584 54.688 4.591 90.171-.665 4.733 2.994 9.021 7.851 9.021 3.884 0 7.273-2.858 7.83-6.814 3.626-25.766-1.538-49.281 6.04-75.917 24.423.127 79.7-3.723 113.804-38.321 33.443-33.928 37.063-87.766 36.746-112.899-.1-7.934-6.513-14.253-14.447-14.234-25.125.059-78.874 4.481-112.314 38.405-11.702 11.871-19.726 26.187-25.234 40.854 3.122-29.198 8.56-61.646 17.884-92.073 29.015-2.654 109.029-14.827 151.67-69.594 39.37-50.565 35.778-123.063 31.421-156.593z"/></g></svg></a>';
             break;
-
         case 'Drama':
             image = '<a class="card__thumb"  ><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="100%" height="100%" x="0" y="0" viewBox="0 0 489.152 489.152" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M488.811 168.756a434.91 434.91 0 0 0-205.21-26.79 434.388 434.388 0 0 0-109.45 26.79c0 112.57-15.2 278.04 157.33 318.73 172.53-40.69 157.33-206.16 157.33-318.73zm-271.97 89.79c3.52-5.12 7.84-9.65 12.79-13.38 7.94 6 17.51 9.98 27.92 11.15 2.13.25 4.3.37 6.49.37 12.91 0 24.83-4.29 34.41-11.52 4.95 3.73 9.27 8.26 12.78 13.38-10.31 15.03-27.6 24.89-47.19 24.89-2.15 0-4.27-.12-6.36-.36-16.95-1.87-31.66-11.15-40.84-24.53zm114.63 105.03c-21.59 0-41.93 5.36-59.75 14.81a127.98 127.98 0 0 0-28.98 21.04c1.2-20.37 9.24-38.89 21.87-53.3 16.29-18.59 40.2-30.32 66.86-30.32 47.33 0 86 36.98 88.73 83.62-22.98-22.19-54.25-35.85-88.73-35.85zm67.44-80.14c-19.6 0-36.89-9.86-47.19-24.89 3.51-5.12 7.83-9.65 12.78-13.38a56.89 56.89 0 0 0 34.41 11.52c12.92 0 24.84-4.29 34.42-11.52 4.95 3.73 9.27 8.26 12.78 13.38-10.31 15.03-27.6 24.89-47.2 24.89z" style="" fill="#000000" data-original="#91cdf2" class=""></path><path d="M331.481 487.486c-172.53-40.69-157.33-206.16-157.33-318.73a434.388 434.388 0 0 1 109.45-26.79c-17.03 32.95-24.86 73.13-26.05 114.35a56.781 56.781 0 0 1-27.92-11.15 57.642 57.642 0 0 0-12.79 13.38c9.18 13.38 23.89 22.66 40.84 24.53.81 21.38 3.23 42.68 6.93 63.05-12.63 14.41-20.67 32.93-21.87 53.3 8.59-8.3 18.34-15.4 28.98-21.04 14 53.73 36.53 96.41 59.76 109.1z" style="" fill="#000000" data-original="#4bb0e3" class=""></path><path d="M315.001 31.106a434.91 434.91 0 0 0-157.33-29.44c-21.65 0-43.3 1.61-64.75 4.84v.01a434.007 434.007 0 0 0-92.58 24.59c0 111.3-14.86 274.31 151.56 317.3 1.9.5 3.82.97 5.77 1.43 172.53-40.69 157.33-206.16 157.33-318.73zm-271.97 91.3c7.49-10.92 18.66-19.11 31.73-22.76a56.827 56.827 0 0 1 15.47-2.13c19.6 0 36.89 9.86 47.19 24.89a57.394 57.394 0 0 1-12.78 13.38 56.89 56.89 0 0 0-34.41-11.52c-5.37 0-10.56.74-15.48 2.12a56.985 56.985 0 0 0-18.94 9.4 57.394 57.394 0 0 1-12.78-13.38zm114.64 151.32c-22.02 0-42.49-6.66-59.49-18.08-26.95-18.07-45.21-48.1-47.23-82.49a154.22 154.22 0 0 0 31.92 23.71c22.14 12.36 47.64 19.41 74.8 19.41 41.46 0 79.07-16.43 106.71-43.12-3.28 56.09-49.8 100.57-106.71 100.57zm101.84-137.94a56.89 56.89 0 0 0-34.41-11.52c-12.91 0-24.83 4.29-34.41 11.52a57.394 57.394 0 0 1-12.78-13.38c10.31-15.03 27.6-24.89 47.19-24.89 19.6 0 36.89 9.86 47.2 24.89a57.642 57.642 0 0 1-12.79 13.38z" style="" fill="#757575" data-original="#ffe257" class=""></path><path d="M151.901 348.406c-166.42-42.99-151.56-206-151.56-317.3a434.007 434.007 0 0 1 92.58-24.59c-11.47 29.06-16.97 60.91-18.16 93.13-13.07 3.65-24.24 11.84-31.73 22.76 3.51 5.12 7.83 9.65 12.78 13.38 5.6-4.23 12-7.45 18.94-9.4.79 23.99 3.73 47.82 8.12 70.48a154.22 154.22 0 0 1-31.92-23.71c2.02 34.39 20.28 64.42 47.23 82.49 16.25 49.16 37.71 85.29 53.72 92.76z" style="" fill="#757575" data-original="#ffad42" class=""></path></g></svg></a>';
             break;
@@ -306,7 +301,7 @@ function getGenreImage(genre) {
             image = '<a class="card__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="100%" height="100%"><g id="_02-horseshoe" data-name="02-horseshoe"><g id="Glyph"><path d="M160.544,32H172a4,4,0,0,0,4-4V4a4,4,0,0,0-4-4H128a16.005,16.005,0,0,0-11.4,27.225C117.771,28.546,152,67.721,152,108c0,31.26-33.706,52-56,52s-56-20.74-56-52c0-40.2,34.149-79.364,35.386-80.759A16,16,0,0,0,64,0H20a4,4,0,0,0-4,4V28a4,4,0,0,0,4,4H31.456C19.858,50.87,8,79.826,8,108c0,24.623,11.539,48.985,30.115,63.582C54.387,184.367,76.027,192,96,192s41.613-7.633,57.885-20.419C172.461,156.985,184,132.623,184,108,184,79.826,172.142,50.87,160.544,32ZM40,40a8,8,0,1,1-8,8A8,8,0,0,1,40,40ZM16,96a8,8,0,1,1,8,8A8,8,0,0,1,16,96Zm16,56a8,8,0,1,1,8-8A8,8,0,0,1,32,152Zm32,24a8,8,0,1,1,8-8A8,8,0,0,1,64,176Zm64,0a8,8,0,1,1,8-8A8,8,0,0,1,128,176ZM144,48a8,8,0,1,1,8,8A8,8,0,0,1,144,48Zm16,104a8,8,0,1,1,8-8A8,8,0,0,1,160,152Zm8-48a8,8,0,1,1,8-8A8,8,0,0,1,168,104Z"/></g></g></svg></a>';
             break;
         default:
-            image = '<a class="card__thumb"><svg id="Layer_1" enable-background="new 0 0 32 32" height="100%" viewBox="0 0 32 32" width="100%" xmlns="http://www.w3.org/2000/svg"><g fill="rgb(0,0,0)"><path d="m3.999 18.786c.3 0 .597-.134.793-.39l.435-.565c.651 3.862 3.356 7.166 7.196 8.499 1.182.41 2.395.607 3.592.607 3.584 0 7.033-1.768 9.098-4.881.305-.46.179-1.081-.281-1.386-.462-.307-1.08-.179-1.387.281-2.249 3.394-6.512 4.83-10.365 3.49-3.197-1.11-5.427-3.893-5.903-7.125l.856.659c.439.335 1.066.255 1.402-.183.337-.438.256-1.065-.182-1.402 0 0-2.365-1.821-2.371-1.825-.497-.383-1.204-.598-1.654-.011l-2.02 2.623c-.337.438-.256 1.065.182 1.402.181.139.396.207.609.207z"/><path d="m7.169 11.331c.459.305 1.08.179 1.387-.281 2.249-3.393 6.516-4.829 10.365-3.49 3.197 1.11 5.427 3.893 5.903 7.125l-.856-.659c-.439-.336-1.066-.256-1.402.183-.337.438-.256 1.065.182 1.402 0 0 2.365 1.82 2.371 1.825.506.389 1.197.607 1.654.011l2.02-2.623c.337-.438.256-1.065-.182-1.402s-1.066-.255-1.402.183l-.435.565c-.651-3.862-3.356-7.166-7.196-8.499-4.72-1.638-9.936.119-12.69 4.273-.305.461-.179 1.081.281 1.387z"/></g></svg></a>';
+            image = '<a class="card__thumb"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="navy" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>';
             break;
     }
     return image;
@@ -391,13 +386,13 @@ function displayStartUI() {
     footerUi.style.display = "none";
 }
 
-let lastLikedMovieIndex = -1;
 function displayMatch(movie) {
     matchUI.classList.add("none");
     startUI.style.display = "none";
     Thisismatch.style.display = "block";
     footerUi.style.display = "block";
     const lastMovie = moviesList[moviesList.length - 1];
+
     Thisismatch.innerHTML = `
       <center>
         <div class="NTMatch">
@@ -407,11 +402,21 @@ function displayMatch(movie) {
 
         </div>
         </div>
+
+
         <div class="NTMText">
           <h1>This is a match</h1>
           <h3>You and ${lastMovie.title}<br> have liked each other.</h3>
           <button class="button_returnback">Return back</button>
-
+            <div class="share">
+                <span>Share</span>
+                <nav>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+                </nav>
+            </div>
         </div>
         <div class="heart-container"></div> <!-- new div to contain heart animations -->
       </center>
@@ -420,7 +425,8 @@ function displayMatch(movie) {
     /*return back*/
     document.querySelector('.button_returnback').addEventListener('click', (e) => {
         e.preventDefault();
-        location.reload();
+        document.querySelector('.thisismatch').style.display = 'none';
+        document.querySelector('.start-ui').style.display = 'block';
     });
 }
 
@@ -530,30 +536,14 @@ function createheart() {
     heart.classList.add("heart");
     heart.classList.add("purple-heart"); // add purple-heart class
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = Math.random() * 5 + 9 + "s";
-
-    // Ralentir l'effet
-    heart.style.animationTimingFunction = "ease-in";
-    const heartContent = document.createElement("span");
-
-    let counter = 0;
-    setInterval(() => {
-      if (counter % 2 === 0) {
-        heartContent.textContent = "♡";
-      } else {
-        heartContent.textContent = "❤";
-      }
-      counter++;
-    }, 800);
-
-    heart.appendChild(heartContent);
+    heart.style.animationDuration = Math.random() * 2 + 9 + "s";
     Thisismatch.querySelector(".heart-container").appendChild(heart);
+    heart.innerText = "♡";
+
     setTimeout(() => {
-      heart.remove();
+        heart.remove();
     }, 5000);
-  }
-
-
+}
 
 //test
 
@@ -575,72 +565,37 @@ function toggleLike() {
   updateMoviesListUI();
 }
 
-let currentGroupIndex = 0;
-const moviesPerPage = 5;
-
 // Fonction pour mettre à jour l'interface utilisateur avec la liste des films likés
 function updateMoviesListUI() {
-  const moviesListContainer = document.getElementById('moviesListContainer');
+    const moviesListContainer = document.getElementById('moviesListContainer');
 
-  // Calculez les index de début et de fin du groupe actuel
-  const startIndex = currentGroupIndex * moviesPerPage;
-  const endIndex = startIndex + moviesPerPage;
+    const moviesListHTML = moviesList
+  .map((movie, index) => `
 
-  // Filtrer la liste des films en fonction de l'index du groupe
-  const currentMoviesList = moviesList.slice(startIndex, endIndex);
+    <div class="movie-item">
+    <img src="https://image.tmdb.org/t/p/w200/${movie.poster_path}" alt="${movie.title} Poster">
+      <p>${index + 1}. ${movie.title}</p>
+      <p class="movie-genre">${movie.genre}</p>
+      <button class="delete-button" onclick="deleteMovie(${index})">Delete</button>
+    </div>
+  `)
+  .join('');
 
-  const moviesListHTML = currentMoviesList
-    .map((movie, index) => {
-      const truncatedTitle = movie.title.length > 20 ? movie.title.substring(0, 20) + "..." : movie.title;
+// Insérer le contenu HTML dans l'élément HTML
+moviesListContainer.innerHTML = moviesListHTML;
 
-      return `
-        <div class="movie-item">
-          <img src="https://image.tmdb.org/t/p/w200/${movie.poster_path}" alt="${movie.title} Poster">
-          <button class="delete-button" onclick="deleteMovie(${index + startIndex})">✖</button>
-          <p>${truncatedTitle}</p>
-        </div>
-      `;
-    })
-    .join('');
-
-  moviesListContainer.innerHTML = moviesListHTML;
-
-  // Sauvegarder la liste des films likés dans le stockage local
-  localStorage.setItem('moviesList', JSON.stringify(moviesList));
-}
-
-// Fonction pour afficher le groupe précédent de films
-function showPreviousGroup() {
-  if (currentGroupIndex > 0) {
-    currentGroupIndex--;
-    updateMoviesListUI();
+    // Sauvegarder la liste des films likés dans le stockage local
+    localStorage.setItem('moviesList', JSON.stringify(moviesList));
   }
-}
 
-// Fonction pour afficher le groupe suivant de films
-function showNextGroup() {
-  const totalGroups = Math.ceil(moviesList.length / moviesPerPage);
-  if (currentGroupIndex < totalGroups - 1) {
-    currentGroupIndex++;
-    updateMoviesListUI();
-  }
-}
-
-// Au chargement de la page, restaurer la liste des films likés depuis le stockage local
-window.addEventListener('load', () => {
-  const storedMoviesList = localStorage.getItem('moviesList');
-  if (storedMoviesList) {
-    moviesList = JSON.parse(storedMoviesList);
-    updateMoviesListUI();
-  }
-});
-
-// Ajoutez des boutons "prev" et "next" pour naviguer entre les groupes de films
-const prevButton = document.getElementById('prevButton');
-prevButton.addEventListener('click', showPreviousGroup);
-
-const nextButton = document.getElementById('nextButton');
-nextButton.addEventListener('click', showNextGroup);
+  // Au chargement de la page, restaurer la liste des films likés depuis le stockage local
+  window.addEventListener('load', () => {
+    const storedMoviesList = localStorage.getItem('moviesList');
+    if (storedMoviesList) {
+      moviesList = JSON.parse(storedMoviesList);
+      updateMoviesListUI();
+    }
+  });
 
 
   function deleteMovie(index) {
@@ -662,20 +617,5 @@ nextButton.addEventListener('click', showNextGroup);
     localStorage.setItem('moviesList', moviesListJSON);
   }
 
-  function toggleSeemore() {
-    const seemoreContainer = document.querySelector('.seemore');
-    seemoreContainer.classList.toggle('visible');
-  }
-
-  //SHARE
-//   const twitterShare = document.getElementById('twitterShare');
-
-//   twitterShare.addEventListener('click', () => {
-//     const tweetText = `Check out this movie: ${lastMovie.title}`;
-//     const tweetUrl = 'https://example.com'; // Remplacez par l'URL de votre site ou de la page du film
-//     const tweetShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(tweetUrl)}`;
-//     window.open(tweetShareUrl);
-//   });
 
 
-// Faites de même pour les autres réseaux sociaux

@@ -13,6 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmdeur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-dT8W6NarixHx+aT6UZp6fR1wPt72G6TjT6lVkIvR8yLyGxPx6onxppEe3q3ugQZw+jk0uvLUocL40rX5r5bggQ==" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="/style/header.css">
@@ -29,7 +30,7 @@
             <div class="center-content">
                 <div class="share2">
                   <span>theme</span>
-                  <button id="toggleSeemoreButton" onclick="toggleSeemore()">messenger</button>
+                  <button id="toggleSeemoreButton" onclick="toggleSeemore()">messenger &#11167;</button>
                   <nav>
                     <a href="#" onclick="setRed()"><i class="fa fa-github"></i></a>
                     <a href="#" onclick="setGreen()"><i class="fa fa-github"></i></a>
@@ -49,6 +50,7 @@
         <section href='#' class="swipper-start">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
+
                     <div class="slider-item swiper-slide">
                         <div class="slider-image-wrapper slider1">
                             <img src="images/tutorial_1.svg" alt="SliderImg">
@@ -124,6 +126,7 @@
                             <option value="Mystery">Mystery</option>
                             <option value="Romance">Romance</option>
                             <option value="Sci fi">Sci Fi</option>
+                            <option value>Surprise</option>
                             <option value="TV Movie">TV Movie</option>
                             <option value="Thriller">Thriller</option>
                             <option value="War">War</option>
@@ -132,13 +135,15 @@
                         <input id="start-btn" value="Start" type="submit">
                     </div>
                 </form>
+
             </div>
         </section>
 
         <section class="loader">
             <div class="loading center">
-                <div class="profile-pic center" style="background-image: url(images/popcorn-logo.png)"></div>
-                <h3 class="text_loader">Filmder is searching your perfect <b>Match</b></h3>
+                <div class="profile-pic center"></div>
+                <h1>Filmdeur</h1>
+                <h3 class="text_loader">is searching your perfect <b>Match</b></h3>
                 <div class="sonar-container center">
                     <div class="sonar center"></div>
                     <div class="sonar center delay"></div>

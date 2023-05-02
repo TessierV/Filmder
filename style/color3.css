@@ -104,9 +104,14 @@ option {
   box-shadow: inset 0px 0px 0px 3px var(--colors1), inset 0px 0px 0px 6px var(--colors2);
 }
 
+.loading h1{
+  color: var(--colorwhite);
+}
+
 .profile-pic {
   border: 3px solid var(--colors1);
-  background-color: var(--colors1);
+  background-color: var(--colorbg90);
+  background-image: url(../images/popcorn-logo.png)
 }
 
 .text_loader {
@@ -132,6 +137,8 @@ option {
 }
 
 /*Title + description*/
+
+
 
 .card__image {
   background: var(--colors4);
@@ -296,7 +303,7 @@ option:checked {
 
 /*Share button*/
 .share2 a {
-  background: var(--colors3);
+  background: var(--colorblack);
 }
 
 .share2 span {
@@ -318,6 +325,12 @@ option:checked {
 
 .prev_next button{
   color: var(--colorwhite);
+}
+
+.prev_next button:hover{
+  border-bottom: 1px solid var(--colors2);
+  border-radius: 0%;
+  transition: opacity 3s ease-in-out;
 }
 
 

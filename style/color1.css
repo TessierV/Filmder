@@ -105,7 +105,9 @@ option {
 
 .profile-pic {
   border: 3px solid var(--colors1);
-  background-color: var(--colors1);
+  background-color: var(--colorsbg_round);
+  background-image: url(../images/popcorn-logo.png);
+
 }
 
 .gauge__body {
@@ -212,6 +214,10 @@ footer a:hover {
   background: var(--colorbg);
 
   z-index: -1;
+}
+
+.slider-item-title{
+  color: #000000;
 }
 
 .slider-item {

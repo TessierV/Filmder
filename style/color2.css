@@ -128,8 +128,15 @@ option {
   box-shadow: inset 0px 0px 0px 3px var(--colors2), inset 0px 0px 0px 6px var(--colors5);
 }
 
+.loading h1{
+  color: var(--colorblack);
+}
+
+
 .profile-pic {
-  border: 3px solid var(--colors5);
+  border: 3px solid var(--colors1);
+  background-image: url(../images/popcorn-logo.png);
+  background-color: var(--colorbg);
 }
 
 /*Gauge Test*/
@@ -349,4 +356,12 @@ form h1 {
   color: var(--colorblack);
   font-weight: 400;
   font-size: larger;
+}
+
+.card__age{
+  color: var(--colorblack);
+}
+
+.card__status {
+  background-image: var(--colorbg);
 }
