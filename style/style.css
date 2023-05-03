@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Squada+One&display=swap");
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;800&display=swap');
 
 
 body {
@@ -11,16 +12,17 @@ body {
 
 /*HEADING*/
 h1 {
-  font-family: "Squada One", cursive;
-  color: black;
+  font-family: 'Montserrat', sans-serif;
+  color: #283238;
   font-size: 3.5rem;
   margin: 0;
   text-align: center;
+  font-weight: 600;
 }
 
 h2 {
-  font-family: "Squada One", cursive;
-  color: black;
+  font-family: 'Montserrat', sans-serif;
+  color: #283238;
   font-size: 15px;
   margin: 0;
   text-align: center;
@@ -29,20 +31,23 @@ h2 {
 
 
 .header_title {
-  font-family: "Squada One", cursive;
+  font-family: 'Montserrat', sans-serif;
   font-size: 3.5rem;
   margin: 0;
   text-align: center;
   position: relative;
   z-index: 3;
+  color: #283238;
+  letter-spacing: -4px;
 }
 
 .subheading {
   max-width: 200px;
   text-align: left;
   text-transform: uppercase;
-  font-weight: light;
+  font-weight: 600;
   margin-left: 12px;
+  font-size: smaller;
 }
 
 .card__age{
@@ -462,6 +467,10 @@ label:hover,
 .NTMText h1 {
   color: #D7E1E1;
   font-size: xx-large;
+  letter-spacing: -2px;
+  padding-top: 6%;
+
+
 
 }
 
@@ -488,9 +497,10 @@ label:hover,
 
 .loading h1{
   position: relative;
-  margin-top: -50%;
   color: black;
   z-index: 4;
+  letter-spacing: -4px;
+  transform: translate(-20%, -90%);
 }
 
 .random-fact {
@@ -548,7 +558,7 @@ label:hover,
 }
 
 .text_loader {
-  margin-top: 115%;
+  margin-top: 55%;
   position: relative;
   z-index: 1;
   margin-left: auto;
@@ -609,6 +619,10 @@ label:hover,
 .form {
   max-width: 610px;
   margin: 60px auto;
+}
+
+.test32 h1{
+  font-weight: 600;
 }
 
 .form__header {
@@ -1207,32 +1221,7 @@ select option:hover {
   left: 50%;
   transform: translate(-50%, -50%);*/
 
-  .itsmatch_imglogo {
-    position: absolute;
-    z-index: 1;
-    width: 25%; /* Ajustez la taille en pourcentage selon vos besoins */
-    max-width: 85px; /* Limitez la largeur maximale de l'image */
-    top: 60%;
-    transform: translateX(-50%);
-    background: var(--colorbg);
-    border-radius: 50%;
-    transition: opacity 0.3s ease-in-out;
 
-  }
-
-  .itsmatch_movie {
-    position: absolute;/* Ajustez la taille en pourcentage selon vos besoins */
-    width: 35%;
-    max-height: 200px;
-    max-width: 100px;
-    border-radius: 5px;
-    left: 14%;
-    top: 6%;
-    background-size: contain;
-    transform: rotate(-8deg);
-    border: 5px solid var(--colors1);
-    border-radius: 15px;
-  }
 
 
 /*Footer*/
@@ -1267,7 +1256,7 @@ footer p {
 
 .slider-item-title {
   margin: 0;
-  font-weight: 400;
+  font-weight: 600;
   transform: translateY(20px);
   transition: all .4s ease;
   transition-delay: .2s;
@@ -1737,7 +1726,6 @@ option:checked {
   color: #000000;
 }
 
-
 .card__status {
   background-image: var(--colorbg);
   -webkit-background-clip: text;
@@ -1746,3 +1734,27 @@ option:checked {
   -moz-text-fill-color: transparent;
 }
 
+.itsmatch_imglogo {
+  position: absolute;
+  z-index: 1;
+  width: 25%; /* Ajustez la taille en pourcentage selon vos besoins */
+  max-width: 85px; /* Limitez la largeur maximale de l'image */
+  top: 60%;
+  background: var(--colorbg);
+  border-radius: 50%;
+  transition: opacity 0.3s ease-in-out;
+  transform: translate(3%, 8%);
+
+}
+
+.itsmatch_movie {
+  position: absolute;/* Ajustez la taille en pourcentage selon vos besoins */
+  width: 35%;
+  max-height: 200px;
+  max-width: 100px;
+  border-radius: 5px;
+  background-size: contain;
+  border: 5px solid var(--colors1);
+  border-radius: 15px;
+  transform: translate(-80%, -40%) rotate(-8deg);
+}

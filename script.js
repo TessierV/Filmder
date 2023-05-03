@@ -402,16 +402,14 @@ function displayMatch(movie) {
       <center>
         <div class="NTMatch">
         <div class="itsmatch_logo">
-        <img class="center itsmatch_imglogo" src='images/popcorn-logo__white.png'>
-        <img class="center itsmatch_movie" src="https://image.tmdb.org/t/p/w200/${lastMovie.poster_path}" alt="${lastMovie.title} Poster">
-
+          <img class="center itsmatch_imglogo" src='images/popcorn-logo__white.png'>
+          <img class="center itsmatch_movie" src="https://image.tmdb.org/t/p/w200/${lastMovie.poster_path}" alt="${lastMovie.title} Poster">
         </div>
         </div>
         <div class="NTMText">
           <h1>This is a match</h1>
-          <h3>You and ${lastMovie.title}<br> have liked each other.</h3>
+          <h3>You and <b>${lastMovie.title}</b><br> have liked each other.</h3>
           <button class="button_returnback">Return back</button>
-
         </div>
         <div class="heart-container"></div> <!-- new div to contain heart animations -->
       </center>

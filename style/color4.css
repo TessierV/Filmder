@@ -12,7 +12,7 @@
   --colorsbg_round: radial-gradient(circle, var(--colors3) 0%, var(--colors4) 100%);
   --colorbglack : linear-gradient(90deg, var(--colors2) 0%, var(--colorblack) 100%);
   --colorwhite: #F5F5F5;
-  --colorblack: #000000;
+  --colorblack: #283238;
 }
 
 body {
@@ -33,6 +33,10 @@ select:hover {
 
 header {
   padding-top: 4%;
+}
+
+.header_title {
+  color: var(--colors2);
 }
 
 option {

@@ -12,7 +12,7 @@
   --colorsbg_round: radial-gradient(circle, #ff7951 0%, #f64790 100%);
 
   --colorwhite: #F5F5F5;
-  --colorblack: #000000;
+  --colorblack: #283238;
 
 }
 
@@ -35,7 +35,9 @@ select:hover {
   color: var(--colors3);
 }
 
-
+.header_title {
+  color: #283238;
+}
 
 header {
   padding-top: 4%;
