@@ -11,7 +11,7 @@ imgInput.addEventListener('change', function() {
         const reader = new FileReader();
 
         reader.addEventListener('load', function() {
-            
+
             imgUser.forEach(img => {
                 img.setAttribute('src', this.result);
             })

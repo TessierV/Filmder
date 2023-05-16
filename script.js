@@ -391,36 +391,50 @@ function displayStartUI() {
     footerUi.style.display = "none";
 }
 
-let lastLikedMovieIndex = -1;
 function displayMatch(movie) {
-    matchUI.classList.add("none");
-    startUI.style.display = "none";
-    Thisismatch.style.display = "block";
-    footerUi.style.display = "block";
+  matchUI.classList.add("none");
+  startUI.style.display = "none";
+  Thisismatch.style.display = "block";
+  footerUi.style.display = "block";
+
+  if (moviesList.length > 0) {
     const lastMovie = moviesList[moviesList.length - 1];
-    Thisismatch.innerHTML = `
-      <center>
-        <div class="NTMatch">
-        <div class="itsmatch_logo">
-          <img class="center itsmatch_imglogo" src='images/popcorn-logo__white.png'>
-          <img class="center itsmatch_movie" src="https://image.tmdb.org/t/p/w200/${lastMovie.poster_path}" alt="${lastMovie.title} Poster">
-        </div>
-        </div>
-        <div class="NTMText">
-          <h1>This is a match</h1>
-          <h3>You and <b>${lastMovie.title}</b><br> have liked each other.</h3>
-          <button class="button_returnback">Return back</button>
-        </div>
-        <div class="heart-container"></div> <!-- new div to contain heart animations -->
-      </center>
-    `;
-    setInterval(createheart, 150); // start heart animations
-    /*return back*/
-    document.querySelector('.button_returnback').addEventListener('click', (e) => {
+
+    if (lastMovie && lastMovie.poster_path) {
+      Thisismatch.innerHTML = `
+        <center>
+          <div class="NTMatch">
+            <div class="itsmatch_logo">
+              <img class="center itsmatch_imglogo" src='images/popcorn-logo__white.png'>
+              <img class="center itsmatch_movie" src="https://image.tmdb.org/t/p/w200/${lastMovie.poster_path}" alt="${lastMovie.title} Poster">
+            </div>
+          </div>
+          <div class="NTMText">
+            <h1>This is a match</h1>
+            <h3>You and <b>${lastMovie.title}</b><br> have liked each other.</h3>
+            <button class="button_returnback">Return back</button>
+          </div>
+          <div class="heart-container"></div> <!-- new div to contain heart animations -->
+        </center>
+      `;
+
+      setInterval(createheart, 150); // start heart animations
+
+      // Return back event listener
+      document.querySelector('.button_returnback').addEventListener('click', (e) => {
         e.preventDefault();
         location.reload();
-    });
+      });
+    } else {
+      // Gérer le cas où lastMovie est undefined ou où poster_path n'est pas défini
+      console.log("Le film n'a pas de chemin d'affiche (poster_path).");
+    }
+  } else {
+    // Gérer le cas où moviesList est vide
+    console.log("La liste de films est vide.");
+  }
 }
+
 
 /*Test slider beguinning*/
 var swiper = new Swiper('.swiper-container', {
