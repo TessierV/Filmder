@@ -4,6 +4,9 @@ const app = express();
 const port = 3000;
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const multer = require('multer');
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -15,8 +18,16 @@ app.use(session({
 }));
 
 app.get('/signin', (req, res) => {
-  res.sendFile(__dirname + '/public/signin.html');
+  // Vérifier si l'utilisateur est déjà connecté
+  if (isUserLoggedIn(req)) {
+    // Rediriger vers la page d'index si l'utilisateur est déjà connecté
+    res.redirect('/index.html');
+  } else {
+    // Afficher le formulaire de connexion
+    res.sendFile(__dirname + '/public/signin.html');
+  }
 });
+
 
 app.post('/signin', (req, res) => {
   const username = req.body.username;
@@ -51,8 +62,20 @@ app.get('/signup', (req, res) => {
   }
 });
 
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/uploads');
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, file.fieldname + '-' + uniqueSuffix + '.' + file.originalname.split('.').pop());
+  }
+});
 // Route pour gérer la soumission du formulaire d'inscription
-app.post('/signup', (req, res) => {
+const upload = multer({ storage: storage });
+
+app.post('/signup', upload.single('photo'), (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
@@ -75,12 +98,18 @@ app.post('/signup', (req, res) => {
     return;
   }
 
+  const photoPath = req.file.path;
+
   // Créer un objet contenant les données d'inscription
   const userData = {
     username: username,
     password: password,
-    email: email
+    email: email,
+    photo: photoPath
+
   };
+
+
 
   saveUserData(userData);
   res.redirect('/index.html');
@@ -152,3 +181,5 @@ function saveUserData(userData) {
 function isUserLoggedIn(req) {
   return req.session && req.session.isLoggedIn === true;
 }
+
+//TESTTTTTTTT
