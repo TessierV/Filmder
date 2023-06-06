@@ -1758,3 +1758,7 @@ option:checked {
   border-radius: 15px;
   transform: translate(-80%, -40%) rotate(-8deg);
 }
+
+.hidden {
+  display: none;
+}

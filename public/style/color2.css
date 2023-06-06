@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900');
 
 :root {
-  --colors1: #172026;
-  --colors4: #262d36;
-  --colors2: #f73083;
-  --colors6: #fb6132;
-  --colorbg: linear-gradient(60deg, #fb6132 0%, #f73083 100%);
-  --colorsbg_round: radial-gradient(circle, #fb6132 0%, #f73083 100%);
-  --colors3: #757575;
-  --colors5: #101214;
+  --colors4: #343434;
+  --colors1: #262d36;
+  --colors2: #30CD90;
+  --colors6: #21A6C4;
+  --colorbg: linear-gradient(60deg, #21A6C4 0%, #30CD90 100%);
+  --colorsbg_round: radial-gradient(circle, #21A6C4 0%, #30CD90 100%);
+  --colors3: #F5F5F5;
+  --colors5: #4A4A4A;
   --colorwhite: #000;
   --colorblack: #F5F5F5;
 
@@ -142,7 +142,7 @@ option {
 /*Gauge Test*/
 
 .gauge__body {
-  background: var(--colors4);
+  background: var(--colors3);
 }
 
 .gauge__fill {
@@ -150,11 +150,11 @@ option {
 }
 
 .gauge__cover {
-  background: var(--colorwhite);
+  background: var(--colors1);
 }
 
 .test {
-  background: var(--colorwhite);
+  background: var(--colors1);
 }
 
 .card {
