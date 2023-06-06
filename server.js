@@ -6,8 +6,6 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 
-
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -18,16 +16,12 @@ app.use(session({
 }));
 
 app.get('/signin', (req, res) => {
-  // Vérifier si l'utilisateur est déjà connecté
   if (isUserLoggedIn(req)) {
-    // Rediriger vers la page d'index si l'utilisateur est déjà connecté
     res.redirect('/index.html');
   } else {
-    // Afficher le formulaire de connexion
     res.sendFile(__dirname + '/public/signin.html');
   }
 });
-
 
 app.post('/signin', (req, res) => {
   const username = req.body.username;
@@ -36,32 +30,22 @@ app.post('/signin', (req, res) => {
   console.log('Nom d\'utilisateur :', username);
   console.log('Mot de passe :', password);
 
-  // Vérifier les informations de connexion
   if (checkCredentials(username, password)) {
-    // Stocker les informations de connexion dans la session
     req.session.username = username;
     req.session.isLoggedIn = true;
-
-    // Rediriger vers la page de succès de connexion
     res.redirect('/index.html');
   } else {
-    // Rediriger vers la page d'échec de connexion
     res.redirect('/failure.html');
   }
 });
 
-// Route pour afficher le formulaire d'inscription
 app.get('/signup', (req, res) => {
-  // Vérifier si l'utilisateur est déjà connecté (par exemple, en vérifiant l'état de la session)
   if (isUserLoggedIn(req)) {
-    // Rediriger vers la page d'index si l'utilisateur est déjà connecté
     res.redirect('/index.html');
   } else {
-    // Afficher le formulaire d'inscription
     res.sendFile(__dirname + '/public/signup.html');
   }
 });
-
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -72,7 +56,7 @@ const storage = multer.diskStorage({
     cb(null, file.fieldname + '-' + uniqueSuffix + '.' + file.originalname.split('.').pop());
   }
 });
-// Route pour gérer la soumission du formulaire d'inscription
+
 const upload = multer({ storage: storage });
 
 app.post('/signup', upload.single('photo'), (req, res) => {
@@ -86,95 +70,67 @@ app.post('/signup', upload.single('photo'), (req, res) => {
   console.log('Confirmer le mot de passe :', confirmPassword);
   console.log('Adresse e-mail :', email);
 
-  // Vérifier si le mot de passe correspond à la confirmation
   if (password !== confirmPassword) {
     res.send("Le mot de passe ne correspond pas à la confirmation.");
     return;
   }
 
-  // Vérifier si l'username existe déjà dans data.json
   if (checkUsernameExists(username)) {
     res.send("Ce pseudo est déjà pris.");
     return;
   }
 
-  const photoPath = req.file.path;
+  const photoPath = 'public/uploads/' + req.file.filename;
 
-  // Créer un objet contenant les données d'inscription
   const userData = {
     username: username,
     password: password,
     email: email,
     photo: photoPath
-
   };
-
-
 
   saveUserData(userData);
   res.redirect('/index.html');
 });
 
-// Route pour la déconnexion
 app.get('/logout', (req, res) => {
-  // Supprimer les informations de session
   req.session.destroy(err => {
     if (err) {
       console.error('Erreur lors de la destruction de la session :', err);
     } else {
       console.log('Déconnexion réussie.');
     }
-
-    // Rediriger vers la page d'index après la déconnexion réussie
     res.redirect('/index.html');
   });
 });
 
-
-
 app.use(express.static(__dirname + '/public'));
+
 app.listen(port, () => {
   console.log(`Serveur Express.js en cours d'exécution sur le port ${port}`);
 });
 
-// Fonction pour vérifier les informations de connexion
 function checkCredentials(username, password) {
-  // Lire le contenu du fichier JSON
   const jsonData = fs.readFileSync('data.json', 'utf8');
   const users = JSON.parse(jsonData);
-
-  // Rechercher l'utilisateur dans la liste
   const user = users.find(user => user.username === username && user.password === password);
-
-  // Retourner true si l'utilisateur est trouvé, sinon false
   return user !== undefined;
 }
 
-// Fonction pour vérifier si l'username existe déjà dans data.json
 function checkUsernameExists(username) {
-  // Lire le contenu du fichier JSON
   const jsonData = fs.readFileSync('data.json', 'utf8');
   const users = JSON.parse(jsonData);
-
-  // Rechercher l'utilisateur dans la liste
   const user = users.find(user => user.username === username);
-
-  // Retourner true si l'utilisateur est trouvé, sinon false
   return user !== undefined;
 }
 
-// Fonction pour sauvegarder les données d'inscription dans un fichier JSON
 function saveUserData(userData) {
-  // Lire le contenu du fichier JSON existant (s'il existe)
   let jsonData = [];
   if (fs.existsSync('data.json')) {
     const existingData = fs.readFileSync('data.json', 'utf8');
     jsonData = JSON.parse(existingData);
   }
-
-  // Ajouter les nouvelles données d'inscription à la liste
   jsonData.push(userData);
-
   fs.writeFileSync('data.json', JSON.stringify(jsonData, null, 2));
 }
 
@@ -182,4 +138,58 @@ function isUserLoggedIn(req) {
   return req.session && req.session.isLoggedIn === true;
 }
 
-//TESTTTTTTTT
+app.get('/index.html', (req, res) => {
+  const filePath = __dirname + '/public/index.html';
+
+  // Lire le contenu du fichier
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Erreur lors de la lecture du fichier :', err);
+      return res.status(500).send('Erreur de lecture du fichier.');
+    }
+
+    // Vérifier si l'utilisateur est connecté
+    if (isUserLoggedIn(req)) {
+      const username = req.session.username || '';
+      const userPhoto = req.session.photo || '';
+
+      // Modifier la balise img avec l'id "user-photo"
+      const modifiedData = data.replace('<img id="user-photo" src="" alt="Photo de profil">', '<img id="user-photo" src="' + userPhoto + '" alt="Photo de profil">');
+
+      // Envoyer le fichier modifié au client
+      res.send(modifiedData);
+    } else {
+      // Envoyer le fichier non modifié au client
+      res.send(data);
+    }
+  });
+});
+
+app.get('/user', (req, res) => {
+  if (isUserLoggedIn(req)) {
+    const username = req.session.username || '';
+    const photo = req.session.photo || '';
+
+    // Renvoyer les données de l'utilisateur en tant que réponse JSON
+    res.json({ username: username, photo: photo });
+  } else {
+    res.status(401).send('Utilisateur non connecté.');
+  }
+});
+
+app.get('/user-photo', (req, res) => {
+  if (isUserLoggedIn(req)) {
+    const photoPath = req.session.photo;
+    if (photoPath) {
+      const filePath = __dirname + '/' + photoPath;
+      res.sendFile(filePath);
+    } else {
+      res.status(404).send('Aucune photo de profil trouvée.');
+    }
+  } else {
+    res.status(401).send('Utilisateur non connecté.');
+  }
+});
+
+
+
