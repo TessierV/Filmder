@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Squada+One&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900');
+
+:root {
+  --colors1: #eaeaea;
+  --colors2: #ff7951;
+  --colors3: #f64790;
+
+  --colorbg: linear-gradient(0deg, #ff7951 0%, #f64790 100%);
+  --colorbg90: linear-gradient(90deg, #ff7951 0%, #f64790 100%);
+
+  --colorsbg_round: radial-gradient(circle, #ff7951 0%, #f64790 100%);
+
+  --colorwhite: #F5F5F5;
+  --colorblack: #283238;
+
+}
+
+body {
+  background-color: var(--colors1);
+  /*background: radial-gradient(circle, rgba(241,100,159,1) 0%, rgba(242,131,98,1) 100%);*/
+  /*background: linear-gradient(180deg, rgba(120,174,154,1) 0%, rgba(245,245,245,1) 100%);*/
+}
+
+
+
+/*HEADING*/
+h1,
+h2 {
+  color: var(--colorwhite);
+}
+
+
+select:hover {
+  color: var(--colors3);
+}
+
+.header_title {
+  color: #283238;
+}
+
+header {
+  padding-top: 4%;
+}
+
+.test32 h2,
+.test32 h1 {
+  color: var(--colorblack);
+}
+
+option {
+  color: var(--colorblack);
+}
+
+
+.start-ui {
+  background-color: var(--colorwhite);
+}
+
+#start-btn {
+  background-color: var(--colors2);
+  background: var(--colorbg90);
+  color: var(--colorwhite);
+}
+
+
+.overview::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/*This is a match*/
+.thisismatch {
+  background-color: var(--colorwhite);
+}
+
+.NTMText h1 {
+  color: var(--colors3);
+  font-size: xx-large;
+}
+
+.NTMText {
+  color: var(--colorblack);
+}
+
+
+.NTMText h1 {
+  background-image: var(--colorbg90);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+
+.err-msg {
+  background-color: var(--colors2);
+  color: var(--colors1);
+}
+
+/*LOADING TEST TINDER*/
+
+
+.sonar {
+  background: var(--colorsbg_round);
+  box-shadow: inset 0px 0px 0px 3px var(--colors1), inset 0px 0px 0px 6px var(--colors2);
+}
+
+.profile-pic {
+  border: 3px solid var(--colors1);
+  background-color: var(--colorsbg_round);
+  background-image: url(../images/popcorn-logo.png);
+
+}
+
+.gauge__body {
+  background: var(--colors1);
+}
+
+.gauge__fill {
+  background: linear-gradient(90deg, var(--colors2) 0%, var(--colors3) 100%);
+}
+
+
+.gauge__cover {
+  background: var(--colorwhite);
+}
+
+
+.test {
+  background: var(--colorwhite);
+}
+
+/*Title + description*/
+
+.subheading{
+  color: var(--colorblack);
+}
+
+.card__image {
+  background: linear-gradient(154deg, var(--colors2) 0%, var(--colors3) 50%, var(--colors1) 80%);
+
+  color: var(--colorwhite);
+}
+
+
+
+.card__header {
+  background-color: var(--colorwhite);
+}
+
+/*path corner*/
+.card__arc path {
+  fill: var(--colorwhite);
+}
+
+.card__thumb {
+  background-color: var(--colors5);
+  background: var(--colorbg90);
+
+}
+
+.card__status {
+  color: var(--colors3);
+}
+
+.card__description {
+  color: var(--colorblack);
+  background-color: var(--colorwhite);
+}
+
+.btn2 {
+  background-color: var(--colorwhite);
+}
+
+/*a changer*/
+.btn2 svg {
+  width: 50%;
+}
+
+
+#genre option:checked {
+  background-color: var(--colors5);
+  background: var(--colorbg90);
+  color: var(--colorwhite);
+}
+
+select option:hover {
+  background-color: var(--colors1);
+}
+
+.purple-heart {
+  color: var(--colors2);
+}
+
+.purple-heart:nth-child(even) {
+  color: var(--colors3);
+}
+
+/*Footer*/
+footer a {
+  background-image: var(--colorbg90);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+footer a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid var(--colors3);
+}
+
+
+.slider-image-wrapper::before {
+  background-color: var(--colors3);
+  background: var(--colorbg);
+
+  z-index: -1;
+}
+
+.slider-item-title{
+  color: #000000;
+}
+
+.slider-item {
+  background-color: var(--colorwhite);
+}
+
+.swiper-pagination-bullet {
+  background: var(--colors1);
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--colorbg90);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--colorblack);
+}
+
+/*swipper*/
+.swipper-start {
+  background-color: var(--colorwhite);
+}
+
+.button_swipper,
+.button_returnback {
+  background: var(--colorbg90);
+  color: var(--colorwhite);
+}
+
+
+.none {
+  display: none;
+}
+
+option:checked {
+  background-color: var(--colors3);
+}
+
+/*Share button*/
+.share2 a {
+  background: var(--colors2);
+}
+
+.share2 span {
+  color: var(--colorwhite);
+}
+
+#toggleSeemoreButton{
+  background: var(--colorbg90);
+  color: var(--colorwhite);
+}
+
+form h1 {
+  color: var(--colorblack);
+  font-weight: 400;
+  font-size: larger;
+}

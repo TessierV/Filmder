@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-9v9pV7AN/6P0Z6QFJLC44BBuN7z50RdM/pL7z8v9h9fui0/Om5S5w7e8xdvGc0Q+4fv4y4Weyia8vzz0SDQ2dQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"
+        integrity="sha384-VJvy4gloAEdY1WmscKT7ndCwz5r5x5eBk5DW8Dddg0Jc+SB9kmCUGPZAMvxW0o+z" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmdeur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-dT8W6NarixHx+aT6UZp6fR1wPt72G6TjT6lVkIvR8yLyGxPx6onxppEe3q3ugQZw+jk0uvLUocL40rX5r5bggQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="../style/color1.css" id="css">
+    <script>
+        // Fonction pour vérifier si l'utilisateur est connecté
+        function isUserLoggedIn() {
+          // Vous devez implémenter la logique pour vérifier l'état de connexion ici
+          // Retournez true si l'utilisateur est connecté, sinon false
+          return false;
+        }
+      </script>
+</head>
+
+
+<body>
+    <main>
+
+        <header>
+            <div class="center-content">
+
+                <div id="loginSignupButtons">
+                    <a href="/signin">Login</a>
+                    <a href="/signup">Signup</a>
+                    <a href="/logout">Log out</a>
+                </div>
+
+                <!-- Afficher le bouton de déconnexion uniquement si l'utilisateur est connecté -->
+                <div id="logoutButton" style="display: none;">
+                    <form action="/logout" method="get">
+                        <button type="submit">Déconnexion</button>
+                    </form>
+                </div>
+            <h1 class="header_title">Filmdeur</h1>
+
+            <div class="center-content">
+                <div class="share2">
+                  <span>theme</span>
+                  <button id="toggleSeemoreButton" onclick="toggleSeemore()">messenger &#11167;</button>
+                  <nav>
+                    <a href="#" onclick="setRed()"><i class="fa fa-github"></i></a>
+                    <a href="#" onclick="setGreen()"><i class="fa fa-github"></i></a>
+                    <a href="#" onclick="setYellow()"><i class="fa fa-github"></i></a>
+                    <a href="#" onclick="setBlue()"><i class="fa fa-github"></i></a>
+                  </nav>
+                </div>
+              </div>
+
+            <div class="seemore">
+                <div id="moviesListContainer"></div>
+                <div class="prev_next">
+                    <button id="prevButton">Prev</button>
+                    <button id="nextButton">Next</button></div>
+            </div>
+        </header>
+        <section href='#' class="swipper-start">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+
+                    <div class="slider-item swiper-slide">
+                        <div class="slider-image-wrapper slider1">
+                            <img src="images/tutorial_1.svg" alt="SliderImg">
+                        </div>
+                        <div class="slider-item-content">
+                            <h2 class="slider-item-title">Select</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore</p>
+                        </div>
+                    </div>
+                    <div class="slider-item swiper-slide">
+                        <div class="slider-image-wrapper slider2">
+                            <img src="images/tutorial_2.svg" alt="SliderImg">
+                        </div>
+                        <div class="slider-item-content">
+                            <h2 class="slider-item-title">Discover</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore</p>
+                        </div>
+                    </div>
+                    <div class="slider-item swiper-slide">
+                        <div class="slider-image-wrapper slider3">
+                            <img src="images/tutorial_3.svg" alt="SliderImg">
+                        </div>
+                        <div class="slider-item-content ">
+                            <h2 class="slider-item-title">Skip</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore</p>
+                        </div>
+                    </div>
+                    <div class="slider-item swiper-slide">
+                        <div class="slider-image-wrapper slider4">
+                            <img src="images/tutorial_4.svg" alt="SliderImg">
+                        </div>
+                        <div class="slider-item-content">
+                            <h2 class="slider-item-title">Enjoy</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-buttons">
+                    <button class="swiper-button-prev">Prev</button>
+                    <button class="swiper-button-next">Next</button>
+                </div>
+                <div class="swiper-pagination"></div>
+                <button class="button_swipper">Enter</button>
+            </div>
+        </section>
+
+        <section href='#' class="start-ui">
+            <div class="test32">
+                <form>
+                    <h1>Welcome!</h1>
+                    <h2>What are you looking for?</h2>
+                    <div class="movie-data">
+                        <!--<label for="genre">Select a genre:</label>-->
+                        <br>
+                        <select name="genre" id="genre" size="3" required>
+                            <option disabled selected value> Select an option <i class="bar"></i></option>
+                            <option value="Action">Action</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Animated">Animation</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Crime">Crime</option>
+                            <option value="Documentary">Documentary</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Family">Family</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="History">History</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Music">Music</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Sci fi">Sci Fi</option>
+                            <option value>Surprise</option>
+                            <option value="TV Movie">TV Movie</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="War">War</option>
+                            <option value="Western">Western</option>
+                        </select>
+                        <input id="start-btn" value="Start" type="submit">
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+        <section class="loader">
+            <div class="loading center">
+                <div class="profile-pic center"></div>
+                <h1>Filmdeur</h1>
+                <h3 class="text_loader">is searching your perfect <b>Match</b></h3>
+                <div class="sonar-container center">
+                    <div class="sonar center"></div>
+                    <div class="sonar center delay"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game section -->
+        <section class="match-ui">
+            <div class="show-match">
+                <div class="test">
+                    <div class="match-elem display-movie">
+                        <!-- Poster are added here -->
+                    </div>
+                    <!-- Gauge -->
+                    <div class="gauge">
+                        <div class="gauge__body">
+                            <div class="gauge__fill"></div>
+                            <div class="gauge__cover"></div>
+                        </div>
+
+                        <div class="gauge__text_content"></div>
+                    </div>
+                    <div class="match-elem display-movie2">
+                        <!-- More Info are added here -->
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="next-movie btn2"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                        viewBox="0 0 24 24" fill="none" stroke="#EC5E65" stroke-width="3.5" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-x">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg></button>
+                <button class="change-cat btn2"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                        viewBox="0 0 24 24" fill="none" stroke="#E0C889" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-grid">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg></button>
+                <!--<button class="ismatch btn2"></button>-->
+                <button id="likeButton" onclick="toggleLike()" class="ismatch btn2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                         stroke="#8EDFC2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-heart" id="heartIcon">
+                         <defs>
+                            <linearGradient id="heartGradient" gradientTransform="rotate(45)">
+                              <stop offset="0%" stop-color="#A6E8D1"></stop>
+                              <stop offset="100%" stop-color="#64CEA7"></stop>
+                            </linearGradient>
+                          </defs>
+                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                  </button>
+            </div>
+        </section>
+
+        <section class="thisismatch bg_heart">
+
+        </section>
+
+        <footer>
+            made with ♡ by <a href="https://github.com/TessierV"><b>Vanessa</b></a><br>
+            <p>Portfolio Project HolbertonSchool TOULOUSE C#19</p>
+        </footer>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>
