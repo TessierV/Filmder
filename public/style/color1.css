@@ -261,17 +261,17 @@ option:checked {
 
 /*Share button*/
 .share2 a {
-  background: var(--colors2);
+  background: transparent;
 }
 
 .share2 span {
   color: var(--colorwhite);
 }
 
-#toggleSeemoreButton{
+/*#toggleSeemoreButton{
   background: var(--colorbg90);
   color: var(--colorwhite);
-}
+}*/
 
 form h1 {
   color: var(--colorblack);

@@ -338,10 +338,10 @@ option:checked {
   color: var(--colorwhite);
 }
 
-#toggleSeemoreButton{
+/*#toggleSeemoreButton{
   background: var(--colorbg);
   color: var(--colorwhite);
-}
+}*/
 
 .movie-item {
   color: var(--colorblack);

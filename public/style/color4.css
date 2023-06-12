@@ -269,10 +269,10 @@ option:checked {
   color: var(--colorwhite);
 }
 
-#toggleSeemoreButton{
+/*#toggleSeemoreButton{
   background: var(--colorbg90);
   color: var(--colors1);
-}
+}*/
 
 .prev_next button:hover{
   border-bottom: 1px solid var(--colors3);

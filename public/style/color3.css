@@ -7,7 +7,7 @@
   --colors2: #ffd92f;
   --colors3: #757575;
   --colors4: #262d36;
-
+--colors5: #516371;
 
   --colorbg: linear-gradient(0deg, #fff52f 0%, #d2a800 100%);
   --colorbg90: linear-gradient(60deg, #fff52f 0%, #d2a800 100%);
@@ -20,7 +20,7 @@
 }
 
 body {
-  background-color: var(--colors1);
+  background-color: var(--colors5);
   /*background: radial-gradient(circle, rgba(241,100,159,1) 0%, rgba(242,131,98,1) 100%);*/
   /*background: linear-gradient(180deg, rgba(120,174,154,1) 0%, rgba(245,245,245,1) 100%);*/
 }
@@ -310,10 +310,10 @@ option:checked {
   color: var(--colors2);
 }
 
-#toggleSeemoreButton{
+/*#toggleSeemoreButton{
   background: var(--colorbg);
   color: var(--colors1);
-}
+}*/
 
 .delete-button {
   color: var(--colors1);

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../style/style.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../style/style.css">
+
+  <link rel="stylesheet" href="../style/color1.css" id="css">
+
+  <title>Profil</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #eaeaea;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    header {
+      background-color: #F5F5F5;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+    }
+
+    .rond {
+      border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
+      background-color: #F5F5F5;
+      height: 15px;
+    }
+
+    .logo {
+      margin: 0 auto;
+    }
+
+    .red-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      opacity: 0.2;
+      margin-right: 20px;
+    }
+
+    .red-circle:hover {
+      opacity: 0.5;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    form>div {
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    form input[type="text"],
+    form input[type="password"] {
+      width: 100%;
+    }
+
+    form input[type="submit"] {
+      align-self: center;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 20px;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .grid-item {
+      background-color: #F5F5F5;
+      border-radius: 5px;
+    }
+
+    .grid-item_text {
+      transform: translate(0%, -10%);
+      font-size: smaller;
+    }
+
+
+    .form_container {
+      display: grid;
+      grid-template-columns: 0.5fr 2fr 0.5fr;
+      background-color: #F5F5F5;
+      padding: 10px;
+      border-radius: 5px;
+      width: 90%;
+    }
+
+    .circle-orange {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: pink;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+    }
+
+    .circle-plum {
+      display: flex;
+      background-color: plum;
+      border-radius: 50%;
+      padding: 3%;
+      width: 50px;
+      height: 50px;
+      transform: translate(0%, -50%);
+      margin: 0 auto;
+    }
+
+
+    .circle-yellow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: yellow;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      margin: 0 auto;
+    }
+
+    .circle-blue {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: blue;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      margin: 0 auto;
+    }
+
+    .button_input {
+      border-radius: 10px;
+      border: none;
+      padding: 15px 100px;
+      background-color: aquamarine;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .relocate {
+      text-decoration: underline;
+      text-transform: none;
+      color: black;
+
+    }
+
+
+
+    .nav {
+      width: 250px;
+      height: 250px;
+      opacity: 0;
+      -webkit-transform: scale(0);
+      -moz-transform: scale(0);
+      -transform: scale(0);
+
+      -webkit-transition: all 0.5s ease-out;
+      -moz-transition: all 0.5s ease-out;
+      transition: all 0.5s ease-out;
+    }
+
+    .open.nav {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -transform: scale(1);
+    }
+
+    .nav a {
+      display: block;
+      text-decoration: none;
+      text-align: center;
+      color: #C4C4C4;
+      height: 30px;
+      width: 30px;
+      line-height: 40px;
+      margin-left: -25px;
+      margin-top: 7px;
+      position: absolute;
+    }
+
+    .nav a:hover {
+      color: black;
+    }
+
+    .MainBtn {
+      position: absolute;
+      top: calc(50% - 30px);
+      left: calc(50% - 55px);
+      text-decoration: none;
+      text-align: center;
+      display: block;
+      height: 50px;
+      width: 50px;
+      line-height: 40px;
+      padding: 10px;
+      cursor: pointer;
+      color: black;
+      opacity: 0.2;
+    }
+
+    .MainBtn:hover {
+      color: black;
+      opacity: 1;
+    }
+
+    .BrushBtn {
+      position: absolute;
+      top: calc(50% - 35px);
+      left: calc(90% - 60px);
+      text-decoration: none;
+      text-align: center;
+      display: block;
+      height: 40px;
+      width: 40px;
+      line-height: 20px;
+      padding: 10px;
+      cursor: pointer;
+      color: #C4C4C4;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <p class="log_title">Profil</p>
+    </div>
+
+    <a href="/filmdeur.html"><img class="red-circle" src="images/popcorn-logo.png" alt="SliderImg"></a>
+  </header>
+
+
+  <div class="rond"></div>
+
+
+  <div class="container">
+    <div class="grid-container">
+      <div class="grid-item">
+        <img class="circle-plum" src="images/popcorn-logo.png" alt="SliderImg">
+        <div class="grid-item_text">
+          <h2>Categories</h2>
+          <p>By suscribing get more exclusive categories</p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-item_text">
+          <nav class="circular-menu">
+            <div class="nav">
+              <a href="#" onclick="setRed()"></a>
+              <a href="#" onclick="setGreen()"></a>
+              <a href="#" onclick="setYellow()"></a>
+              <a href="#" onclick="setBlue()"></a>
+              <a href="#" onclick="setBlue()"></a>
+              <a href="#" onclick="setBlue()"></a>
+
+
+            </div>
+            <div class="MainBtn">
+              <span class="fa-stack fa-3x">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <svg class="BrushBtn" height="512pt" viewBox="-52 0 512 512.00139" width="512pt"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="m389.867188 258.042969c-22.453126-50.421875-64.011719-91.335938-117.015626-115.203125-13.59375-6.121094-27.761718-11.074219-42.117187-14.730469-4.019531-1.023437-8.097656 1.402344-9.121094 5.414063-1.019531 4.015624 1.40625 8.097656 5.417969 9.121093 13.515625 3.441407 26.859375 8.109375 39.660156 13.875 102.179688 46.007813 152.042969 157.3125 111.152344 248.117188-20.351562 45.199219-64.015625 96.433593-120.085938 92.113281-63.148437-4.878906-89.523437-70.601562-100.53125-124.875-5.796874-28.605469-21.480468-54.632812-44.15625-73.289062v-.003907c-10.867187-8.9375-23.054687-16.027343-36.222656-21.070312-1.199218-.457031-2.4375-.96875-3.78125-1.554688h-.003906c-21.269531-9.289062-35.707031-25.933593-39.613281-45.664062-3.421875-17.28125 1.78125-34.613281 14.277343-47.554688 10.9375-11.320312 23.949219-20.847656 38.675782-28.320312 3.695312-1.871094 5.171875-6.386719 3.296875-10.078125-1.875-3.695313-6.386719-5.171875-10.082031-3.296875-16.222657 8.226562-30.582032 18.75-42.679688 31.273437-15.957031 16.527344-22.59375 38.71875-18.203125 60.890625 4.46875 22.566407 19.644531 41.742188 42.039063 53.476563l-59.550782 170.882812c-3.835937 11 1.648438 22.976563 12.484375 27.261719 2.625 1.039063 5.332031 1.53125 7.996094 1.53125 8.3125 0 16.175781-4.816406 19.753906-12.882813l69.511719-156.617187c16.015625 15.75 27.101562 36.007813 31.558594 57.996094 17.257812 85.09375 56.703125 132.417969 114.078125 136.851562 2.550781.195313 5.101562.292969 7.652343.292969 25.691407 0 51.164063-9.96875 74.117188-29.097656 21.347656-17.796875 40.226562-43.402344 53.148438-72.105469 21.519531-47.789063 20.929687-102.039063-1.65625-152.753906zm-362.121094 209.347656c-1.449219 3.269531-5.195313 4.804687-8.523438 3.488281-3.332031-1.316406-5.015625-4.996094-3.835937-8.375l59.160156-169.761718c8.738281 3.632812 16.957031 8.300781 24.53125 13.933593zm0 0" />
+                  <path
+                    d="m75.199219 220.539062c1.042969 5.609376 3.058593 10.925782 5.992187 15.792969 8.636719 14.332031 24.28125 22.90625 40.660156 22.90625 2.835938 0 5.699219-.257812 8.546876-.785156 1.21875-.226563 2.484374-.519531 3.859374-.898437h.015626c23.550781-6.433594 38.503906-30.289063 34.042968-54.308594-.597656-3.210938-1.527344-6.34375-2.769531-9.359375l16.492187-37.160157c6.804688-.636718 13.023438-4.972656 15.703126-11.746093l3.070312-7.765625c1.839844-4.652344 1.757812-9.738282-.230469-14.324219-.390625-.90625-.867187-1.757813-1.382812-2.578125 12.222656-7.535156 25.914062-20.726562 28.722656-42.75 4.832031-37.902344-18.273437-72.78125-19.261719-74.246094-1.730468-2.578125-4.875-3.820312-7.902344-3.125-1.71875.394532-42.429687 10.039063-64.824218 41-13.011719 17.988282-12.046875 36.976563-8.28125 50.832032-.9375.246093-1.867188.542968-2.773438.933593-4.585937 1.988281-8.125 5.644531-9.964844 10.292969l-3.070312 7.765625c-2.679688 6.777344-1.097656 14.183594 3.429688 19.300781l-13.46875 38.644532c-19.5 9.015624-30.589844 30.125-26.605469 51.578124zm72.886719-170.558593c14.746093-20.382813 40.042968-30.238281 50.875-33.6875 5.542968 9.925781 17.261718 34.417969 14.078124 59.371093-2.527343 19.839844-17.507812 30.296876-27.882812 35.230469l-40.816406-16.136719c-4.195313-10.699218-7.972656-28.574218 3.746094-44.777343zm-22.292969 66.550781 3.070312-7.765625c.492188-1.246094 1.453125-1.816406 1.980469-2.042969.527344-.230468 1.597656-.539062 2.84375-.046875l51.085938 20.199219c1.246093.492188 1.816406 1.449219 2.042968 1.976562.226563.53125.539063 1.601563.046875 2.847657l-3.070312 7.765625c-.753907 1.90625-2.917969 2.84375-4.824219 2.089844l-51.085938-20.199219c-1.90625-.753907-2.84375-2.917969-2.089843-4.824219zm2.769531 21.222656 38.695312 15.300782-40.285156 90.769531c-11.851562 1.929687-23.867187-2.964844-31.042968-12.4375zm0 0" />
+                  <path
+                    d="m229.34375 422.101562c0 26.679688 21.703125 48.382813 48.382812 48.382813 26.679688 0 48.382813-21.703125 48.382813-48.382813 0-26.675781-21.703125-48.382812-48.382813-48.382812-26.679687 0-48.382812 21.707031-48.382812 48.382812zm48.382812-33.382812c18.40625 0 33.382813 14.976562 33.382813 33.382812 0 18.410157-14.976563 33.382813-33.382813 33.382813s-33.382812-14.972656-33.382812-33.382813c0-18.40625 14.976562-33.382812 33.382812-33.382812zm0 0" />
+                  <path
+                    d="m288.964844 328.164062c0 22.492188 18.296875 40.792969 40.792968 40.792969 22.492188 0 40.792969-18.300781 40.792969-40.792969 0-22.492187-18.300781-40.792968-40.792969-40.792968-22.492187 0-40.792968 18.300781-40.792968 40.792968zm40.792968-25.792968c14.222657 0 25.792969 11.570312 25.792969 25.792968 0 14.222657-11.570312 25.792969-25.792969 25.792969-14.222656 0-25.792968-11.570312-25.792968-25.792969 0-14.222656 11.570312-25.792968 25.792968-25.792968zm0 0" />
+                  <path
+                    d="m296.464844 205.898438c-19.304688 0-35.011719 15.703124-35.011719 35.007812s15.707031 35.011719 35.011719 35.011719c19.304687 0 35.007812-15.707031 35.007812-35.011719s-15.703125-35.007812-35.007812-35.007812zm0 55.019531c-11.035156 0-20.011719-8.976563-20.011719-20.011719 0-11.03125 8.976563-20.011719 20.011719-20.011719s20.007812 8.980469 20.007812 20.011719c.003906 11.035156-8.972656 20.011719-20.007812 20.011719zm0 0" />
+                  <path
+                    d="m229.558594 161.703125c-17.234375 0-31.257813 14.023437-31.257813 31.261719 0 17.238281 14.023438 31.261718 31.257813 31.261718 17.238281 0 31.261718-14.023437 31.261718-31.261718 0-17.238282-14.023437-31.261719-31.261718-31.261719zm0 47.523437c-8.964844 0-16.257813-7.292968-16.257813-16.261718 0-8.964844 7.292969-16.261719 16.257813-16.261719 8.96875 0 16.261718 7.296875 16.261718 16.261719 0 8.96875-7.292968 16.261718-16.261718 16.261718zm0 0" />
+                </svg>
+              </span>
+            </div>
+
+          </nav>
+          <script>var items = document.querySelectorAll('.nav a');
+
+            for (var i = 0, l = items.length; i < l; i++) {
+              items[i].style.left = (50 - 35 * Math.cos(-0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+
+              items[i].style.top = (50 + 35 * Math.sin(-0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+            }
+
+            document.querySelector('.MainBtn').onclick = function (e) {
+              e.preventDefault(); document.querySelector('.nav').classList.toggle('open');
+            }
+          </script>
+        </div>
+      </div>
+      <div class="grid-item">
+        <img class="circle-plum" src="images/popcorn-logo.png" alt="SliderImg">
+        <div class="grid-item_text">
+
+          <h2>Text2</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div>
+    <a href="/logout" class="button_input" type="submit">Disconnect</a>
+
+  </div>
+</body>
+<script src="../script.js"></script>
+
+
+</html>

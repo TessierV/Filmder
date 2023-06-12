@@ -22,16 +22,16 @@ document.querySelector('.button_swipper').addEventListener('click', (e) => {
 });
 
 // Event listeners
-document.querySelector('form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    document.querySelector('.loader').style.display = 'block';
-    startUI.style.display = 'none';
-    footerUi.style.display = 'none';
-    Thisismatch.style.display = 'none';
-    document.querySelector('header').style.display = 'none';
-    setTimeout(getMovies, 5000);
-
+document.querySelector('#start-btn').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.querySelector('.loader').style.display = 'block';
+  startUI.style.display = 'none';
+  footerUi.style.display = 'none';
+  Thisismatch.style.display = 'none';
+  document.querySelector('header').style.display = 'none';
+  setTimeout(getMovies, 5000);
 });
+
 
 document.querySelector('.next-movie').addEventListener('click', getMovies)
 document.querySelector('.change-cat').addEventListener('click', displayStartUI)
@@ -690,4 +690,4 @@ nextButton.addEventListener('click', showNextGroup);
 //   });
 
 
-// Faites de même pour les autres réseaux sociaux
+

@@ -1310,3 +1310,40 @@ footer p{
   border-radius: 5px;
 
 }
+
+
+/*PROFIL*/
+
+.BrushBtn {
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(90% - 60px);
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  height: 40px;
+  width: 40px;
+  line-height: 20px;
+  padding: 10px;
+  cursor: pointer;
+  color: #C4C4C4;
+}
+
+.circular-menu {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#author {
+  font-family: 'Squada One';
+  top: calc(50% + 50px);
+  left: calc(50% - 225px);
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+  display: block;
+  position: absolute;
+  text-align: center;
+}

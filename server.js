@@ -17,7 +17,7 @@ app.use(session({
 
 app.get('/signin', (req, res) => {
   if (isUserLoggedIn(req)) {
-    res.redirect('/index.html');
+    res.redirect('/filmdeur.html');
   } else {
     res.sendFile(__dirname + '/public/signin.html');
   }
@@ -33,15 +33,15 @@ app.post('/signin', (req, res) => {
   if (checkCredentials(username, password)) {
     req.session.username = username;
     req.session.isLoggedIn = true;
-    res.redirect('/index.html');
+    res.redirect('/filmdeur.html');
   } else {
-    res.redirect('/failure.html');
+    res.redirect('/index.html');
   }
 });
 
 app.get('/signup', (req, res) => {
   if (isUserLoggedIn(req)) {
-    res.redirect('/index.html');
+    res.redirect('/filmdeur.html');
   } else {
     res.sendFile(__dirname + '/public/signup.html');
   }
@@ -68,7 +68,6 @@ app.post('/signup', upload.single('photo'), (req, res) => {
   console.log('Nom d\'utilisateur :', username);
   console.log('Mot de passe :', password);
   console.log('Confirmer le mot de passe :', confirmPassword);
-  console.log('Adresse e-mail :', email);
 
   if (password !== confirmPassword) {
     res.send("Le mot de passe ne correspond pas à la confirmation.");
@@ -80,17 +79,14 @@ app.post('/signup', upload.single('photo'), (req, res) => {
     return;
   }
 
-  const photoPath = 'public/uploads/' + req.file.filename;
-
   const userData = {
     username: username,
     password: password,
-    email: email,
-    photo: photoPath
+
   };
 
   saveUserData(userData);
-  res.redirect('/index.html');
+  res.redirect('/filmdeur.html');
 });
 
 app.get('/logout', (req, res) => {
