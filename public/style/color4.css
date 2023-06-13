@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900');
 
 :root {
-  --colors1: #EAE5DD;
+  --colors1: #EEEEF0;
   --colors2: #262d36;
   --colors3: #f14141;
   --colors4: #D2153B;
@@ -292,4 +292,49 @@ form h1 {
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
+}
+
+/*PROFIL*/
+
+.button_input {
+  background: var(--colorbg90);
+  color: white;
+}
+
+
+.headerProfil {
+  background-color: var(--colorwhite);
+}
+
+.rond {
+  background-color: var(--colorwhite);
+}
+
+.grid-item {
+  background-color: var(--colors2);
+  color: var(--colorwhite);
+}
+
+.grid-item h2{
+  color: var(--colorwhite);
+}
+
+.form_container {
+  background-color: var(--colors2);
+}
+
+.circle-orange {
+  background-color: pink;
+}
+
+.circle-plum {
+  background-color: var(--colors2);
+}
+
+.circle-yellow {
+  background-color: yellow;
+}
+
+.circle-blue {
+  background-color: blue;
 }

@@ -4,11 +4,11 @@
 :root {
   --colors4: #36363C;
   --colors1: #1E1F22;
-  --colors2: #30CD90;
-  --colors6: #21A6C4;
-  --colorbg: linear-gradient(60deg, #21A6C4 0%, #30CD90 100%);
-  --colorbg90: linear-gradient(90deg, #21A6C4 0%, #30CD90 100%);
-  --colorsbg_round: radial-gradient(circle, #21A6C4 0%, #30CD90 100%);
+  --colors2: #ff7951;
+  --colors6: #f64790;
+  --colorbg: linear-gradient(60deg, #f64790 0%, #ff7951 100%);
+  --colorbg90: linear-gradient(90deg, #f64790 0%, #ff7951 100%);
+  --colorsbg_round: radial-gradient(circle, #f64790 0%, #ff7951 100%);
   --colors3: #F5F5F5;
   --colors5: #2B2D31;
   --colorwhite: #000;
@@ -371,7 +371,7 @@ form h1 {
 
 .button_input {
   background: var(--colorbg90);
-  color: white;
+  color: var(--colorblack);
 }
 
 
@@ -384,7 +384,8 @@ form h1 {
 }
 
 .grid-item {
-  background-color: var(--colors4);
+  background-color: var(--colors1);
+  color: var(--colorblack);
 }
 
 .form_container {

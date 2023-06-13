@@ -1813,10 +1813,19 @@ option:checked {
   background: linear-gradient(90deg, #f14141 0%, #d10b33 100%);
 }
 
+.nav a:nth-child(5) {
+  background: linear-gradient(90deg, #ff7951 0%, #f64790 100%);
+}
+
+.nav a:nth-child(6) {
+  background: linear-gradient(90deg, #30CD90 0%, #21A6C4 100%);
+}
+
+
 /*Login page*/
 
 .button_input {
-  background: linear-gradient(60deg, #ff7951 0%, #f64790 100%);
+  background: var(--colorbg90);
   text-transform: uppercase;
   justify-content: center;
   align-items: center;
@@ -1832,8 +1841,214 @@ option:checked {
   border-radius: 10px;
   border: none;
   transition: all 300ms ease-in-out;
+  text-decoration: none;
 }
 
 .button_input:hover {
-  transform: scale(1.1);
+  transform: scale(1.09);
+}
+
+/*Profil*/
+
+.BrushBtn {
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(90% - 60px);
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  height: 40px;
+  width: 40px;
+  line-height: 20px;
+  padding: 10px;
+  cursor: pointer;
+  color: #C4C4C4;
+}
+
+.MainBtn {
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 55px);
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  height: 50px;
+  width: 50px;
+  line-height: 40px;
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+  opacity: 0.2;
+}
+
+.MainBtn:hover {
+  color: black;
+  opacity: 1;
+}
+
+
+/*PROFIL*/
+
+.log_title{
+  color: var(--colorblack);
+}
+
+.BrushBtn {
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(90% - 60px);
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  height: 40px;
+  width: 40px;
+  line-height: 20px;
+  padding: 10px;
+  cursor: pointer;
+  color: #C4C4C4;
+}
+
+.circular-menu {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#author {
+  font-family: 'Squada One';
+  top: calc(50% + 50px);
+  left: calc(50% - 225px);
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+  display: block;
+  position: absolute;
+  text-align: center;
+}
+
+.headerProfil {
+  background-color: var(--colors1);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.rond {
+  border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
+  background-color: var(--colors1);
+  height: 15px;
+}
+
+.grid-item {
+  background-color: var(--colors1);
+  border-radius: 5px;
+}
+
+.grid-item_text {
+  transform: translate(0%, -10%);
+  font-size: smaller;
+}
+
+.grid-item_text h2{
+  color: var(--colorblack);
+}
+
+
+.form_container {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
+  background-color: #F5F5F5;
+  padding: 10px;
+  border-radius: 5px;
+  width: 90%;
+}
+
+.circle-orange {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.circle-plum {
+  display: flex;
+  background-color: plum;
+  border-radius: 50%;
+  padding: 3%;
+  width: 50px;
+  height: 50px;
+  transform: translate(0%, -50%);
+  margin: 0 auto;
+}
+
+
+.circle-yellow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.circle-blue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.relocate {
+  text-decoration: underline;
+  text-transform: none;
+  color: var(--colorblack);
+
+}
+
+.nav {
+  width: 250px;
+  height: 250px;
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -transform: scale(0);
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.open.nav {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -transform: scale(1);
+}
+
+.nav a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: #C4C4C4;
+  height: 30px;
+  width: 30px;
+  line-height: 40px;
+  margin-left: -25px;
+  margin-top: 7px;
+  position: absolute;
+}
+
+.nav a:hover {
+  color: black;
 }

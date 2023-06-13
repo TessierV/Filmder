@@ -7,10 +7,10 @@
   --colors2: #ffd92f;
   --colors3: #757575;
   --colors4: #262d36;
---colors5: #516371;
+  --colors5: #516371;
 
   --colorbg: linear-gradient(0deg, #fff52f 0%, #d2a800 100%);
-  --colorbg90: linear-gradient(60deg, #fff52f 0%, #d2a800 100%);
+  --colorbg90: linear-gradient(90deg, #fff52f 0%, #d2a800 100%);
 
   --colorsbg_round: radial-gradient(circle, #fff52f 0%, #d2a800 100%);
 
@@ -338,4 +338,44 @@ form h1 {
   color: var(--colorblack);
   font-weight: 400;
   font-size: larger;
+}
+
+/*PROFIL*/
+
+.button_input {
+  background: var(--colorbg90);
+  color: white;
+}
+
+
+.headerProfil {
+  background-color: var(--colorwhite);
+}
+
+.rond {
+  background-color: var(--colorwhite);
+}
+
+.grid-item {
+  background-color: var(--colorwhite);
+}
+
+.form_container {
+  background-color: var(--colorwhite);
+}
+
+.circle-orange {
+  background-color: pink;
+}
+
+.circle-plum {
+  background-color: var(--colorwhite);
+}
+
+.circle-yellow {
+  background-color: yellow;
+}
+
+.circle-blue {
+  background-color: blue;
 }
