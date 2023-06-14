@@ -27,6 +27,7 @@
             return false;
         }
     </script>
+
 </head>
 
 
@@ -152,42 +153,96 @@
         </section>
 
         <section href='#' class="start-ui">
-            <div class="test32">
-                <form>
-                    <h1>Welcome!</h1>
-                    <h2>What are you looking for?</h2>
-                    <div class="movie-data">
-                        <!--<label for="genre">Select a genre:</label>-->
-                        <br>
-                        <select name="genre" id="genre" size="3" required>
-                            <option disabled selected value>Random<i class="bar"></i></option>
-                            <option value="Action">Action</option>
-                            <option value="Adventure">Adventure</option>
-                            <option value="Animated">Animation</option>
-                            <option value="Comedy">Comedy</option>
-                            <option value="Crime">Crime</option>
-                            <option value="Documentary">Documentary</option>
-                            <option value="Drama">Drama</option>
-                            <option value="Family">Family</option>
-                            <option value="Fantasy">Fantasy</option>
-                            <option value="History">History</option>
-                            <option value="Horror">Horror</option>
-                            <option value="Music">Music</option>
-                            <option value="Mystery">Mystery</option>
-                            <option value="Romance">Romance</option>
-                            <option value="Sci fi">Sci Fi</option>
-                            <option value>Surprise</option>
-                            <option value="TV Movie">TV Movie</option>
-                            <option value="Thriller">Thriller</option>
-                            <option value="War">War</option>
-                            <option value="Western">Western</option>
-                        </select>
-                        <input id="start-btn" value="Start" type="button">
-                    </div>
-                </form>
+            <div class="web-crawler-results"></div>
 
+                <div class="movie-grid" id="movieGrid"></div>
+
+                <script>
+                    function toggleSummary(index) {
+                      const summaryElement = document.getElementById(`summary-${index}`);
+                      summaryElement.classList.toggle('show-summary');
+                    }
+
+                    function getTopMovies() {
+                      const apiKey = 'api_key=4898aec2424aaa52b8e4e628ec9b9e04';
+                      const apiUrl = `https://api.themoviedb.org/3/movie/top_rated?${apiKey}&language=en-US&page=1`;
+
+                      fetch(apiUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                          const movieResults = data.results.slice(0, 9);
+                          const movieData = movieResults.map((movie, index) => {
+                            return {
+                              title: movie.title,
+                              image: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
+                              summary: movie.overview,
+                              year: movie.release_date.split('-')[0],
+                              publicRating: movie.vote_average,
+                              pressRating: movie.vote_count,
+                              genres: movie.genre_ids.join(', '),
+                              index: index
+                            };
+                          });
+
+                          const movieGrid = document.getElementById('movieGrid');
+                          const html = movieData.map(movie => `
+                            <div class="movie-item">
+                              <button onclick="toggleSummary(${movie.index})">
+                                <img class="movie-image" src="${movie.image}" alt="${movie.title}">
+                                <h3 class="movie-item-title">${movie.title} #${movie.index >= 0 && movie.index <= 8 ? `<span class="position">${movie.index + 1}</span>` : ''}
+</h3>
+                                <div class="movie-summary" id="summary-${movie.index}">
+                                  ${movie.year} <br>
+                                  ${movie.publicRating} <br>
+                                  ${movie.summary} <br>
+                                  ${movie.genres}
+                                </div>
+                              </button>
+                            </div>
+                          `).join('');
+                          movieGrid.innerHTML = html;
+                        })
+                        .catch(error => {
+                          console.log('Error retrieving top movies:', error);
+                        });
+                    }
+
+                    getTopMovies();
+                </script>
+              <form>
+                <h1>Welcome!</h1>
+                <h2>What are you looking for?</h2>
+                <div class="movie-data">
+                  <!--<label for="genre">Select a genre:</label>-->
+                  <br>
+                  <select name="genre" id="genre" size="3" required>
+                    <option disabled selected value>Random<i class="bar"></i></option>
+                    <option value="Action">Action</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Animated">Animation</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Crime">Crime</option>
+                    <option value="Documentary">Documentary</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Family">Family</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="History">History</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Music">Music</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Sci fi">Sci Fi</option>
+                    <option value>Surprise</option>
+                    <option value="TV Movie">TV Movie</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="War">War</option>
+                    <option value="Western">Western</option>
+                  </select>
+                  <input id="start-btn" value="Start" type="button">
+                </div>
+              </form>
             </div>
-        </section>
+          </section>
 
         <section class="loader">
             <div class="loading center">
@@ -267,5 +322,7 @@
         </footer>
     </main>
     <script src="../script2.js"></script>
+    <script src="../server.js"></script>
+
 </body>
 </html>
