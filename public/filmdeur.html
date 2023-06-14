@@ -50,7 +50,6 @@
 
                             // Mettre à jour les éléments HTML avec les données de l'utilisateur
                             document.getElementById('username').textContent = username;
-                            document.getElementById('user-photo').src = photo;
                         })
                         .catch(error => {
                             console.error('Erreur lors de la récupération des données de l\'utilisateur :', error);
@@ -107,7 +106,7 @@
                             <img src="images/tutorial_1.svg" alt="SliderImg">
                         </div>
                         <div class="slider-item-content">
-                            <h2 class="slider-item-title">Select</h2>
+                            <h2 class="slider-item-title">Welcome back</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore</p>
                         </div>
@@ -153,69 +152,18 @@
         </section>
 
         <section href='#' class="start-ui">
-            <div class="web-crawler-results"></div>
-
-                <div class="movie-grid" id="movieGrid"></div>
-
-                <script>
-                    function toggleSummary(index) {
-                      const summaryElement = document.getElementById(`summary-${index}`);
-                      summaryElement.classList.toggle('show-summary');
-                    }
-
-                    function getTopMovies() {
-                      const apiKey = 'api_key=4898aec2424aaa52b8e4e628ec9b9e04';
-                      const apiUrl = `https://api.themoviedb.org/3/movie/top_rated?${apiKey}&language=en-US&page=1`;
-
-                      fetch(apiUrl)
-                        .then(response => response.json())
-                        .then(data => {
-                          const movieResults = data.results.slice(0, 9);
-                          const movieData = movieResults.map((movie, index) => {
-                            return {
-                              title: movie.title,
-                              image: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
-                              summary: movie.overview,
-                              year: movie.release_date.split('-')[0],
-                              publicRating: movie.vote_average,
-                              pressRating: movie.vote_count,
-                              genres: movie.genre_ids.join(', '),
-                              index: index
-                            };
-                          });
-
-                          const movieGrid = document.getElementById('movieGrid');
-                          const html = movieData.map(movie => `
-                            <div class="movie-item">
-                              <button onclick="toggleSummary(${movie.index})">
-                                <img class="movie-image" src="${movie.image}" alt="${movie.title}">
-                                <h3 class="movie-item-title">${movie.title} #${movie.index >= 0 && movie.index <= 8 ? `<span class="position">${movie.index + 1}</span>` : ''}
-</h3>
-                                <div class="movie-summary" id="summary-${movie.index}">
-                                  ${movie.year} <br>
-                                  ${movie.publicRating} <br>
-                                  ${movie.summary} <br>
-                                  ${movie.genres}
-                                </div>
-                              </button>
-                            </div>
-                          `).join('');
-                          movieGrid.innerHTML = html;
-                        })
-                        .catch(error => {
-                          console.log('Error retrieving top movies:', error);
-                        });
-                    }
-
-                    getTopMovies();
-                </script>
+            <div class="swiper-container">
+                <div class="swiper-wrapper" id="movieSlider"></div>
+                <div class="slider-buttons">
+                    <button class="swiper-button-prev">Prev</button>
+                    <button class="swiper-button-next">Next</button>
+                </div>
+              </div>
               <form>
-                <h1>Welcome!</h1>
-                <h2>What are you looking for?</h2>
                 <div class="movie-data">
                   <!--<label for="genre">Select a genre:</label>-->
                   <br>
-                  <select name="genre" id="genre" size="3" required>
+                  <select name="genre" id="genre" size="5" required>
                     <option disabled selected value>Random<i class="bar"></i></option>
                     <option value="Action">Action</option>
                     <option value="Adventure">Adventure</option>
@@ -317,12 +265,13 @@
         </section>
 
         <footer>
+
             Portfolio Project HolbertonSchool TOULOUSE C#19<br>
             made with ♡ by <a href="https://github.com/TessierV"><b>Vanessa</b></a>
         </footer>
     </main>
     <script src="../script2.js"></script>
+    <script src="../Topratedranking.js"></script>
     <script src="../server.js"></script>
-
 </body>
 </html>
