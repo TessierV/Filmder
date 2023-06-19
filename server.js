@@ -78,13 +78,11 @@ app.post('/signup', upload.single('photo'), (req, res) => {
     res.send("Ce pseudo est déjà pris.");
     return;
   }
-
   const userData = {
     username: username,
     password: password,
 
   };
-
   saveUserData(userData);
   res.redirect('/filmdeur.html');
 });
@@ -186,6 +184,4 @@ app.get('/user-photo', (req, res) => {
     res.status(401).send('Utilisateur non connecté.');
   }
 });
-
-
 

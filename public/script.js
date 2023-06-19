@@ -128,12 +128,12 @@ function setGaugeValue(gauge, value, vote_count, popularity, adult, backdrop_pat
 //TESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSST
 const genreColors = {
     action: "#FFFFB5",
-    comedy: "#ABDEE6",
+    comedy: "#EBFF9B",
     drama: "#FFC8A2",
     romance: "#FEE1E8",
     thriller: "#C6DBDA",
     fantasy: "#EEC9E8",
-    animation: "#FFDBCC",
+    animation: "#CA99FF",
     crime: "#E5E5E5",
     adventure: "#FFC296",
     horror: "#ECD5E3",
@@ -507,10 +507,19 @@ function setYellow() {
 }
 
 function setBlue() {
-    document.getElementById("css").setAttribute("href", "style/color4.css");
-    setCookie("color", "color4", 7);
+  document.getElementById("css").setAttribute("href", "style/color4.css");
+  setCookie("color", "color4", 7);
 }
 
+function setPurple() {
+document.getElementById("css").setAttribute("href", "style/color5.css");
+setCookie("color", "color5", 7);
+}
+
+function setOrange() {
+document.getElementById("css").setAttribute("href", "style/color6.css");
+setCookie("color", "color6", 7);
+}
 
 // Appel de la fonction setColor au chargement de la page
 setColor();
@@ -574,27 +583,20 @@ function toggleLike() {
   const likeButton = document.getElementById('likeButton');
 
   if (likeButton.classList.contains('active')) {
-    // Le bouton est déjà actif, donc le film est "unliked"
     moviesList = moviesList.filter(movie => movie.title !== currentMovie.title);
     likeButton.classList.remove('active');
   } else {
-    // Le bouton n'est pas actif, donc le film est "liked"
     moviesList.push(currentMovie);
     likeButton.classList.add('active');
   }
-
-  // Mettre à jour l'interface utilisateur
   updateMoviesListUI();
 }
 
 let currentGroupIndex = 0;
 const moviesPerPage = 5;
 
-// Fonction pour mettre à jour l'interface utilisateur avec la liste des films likés
 function updateMoviesListUI() {
   const moviesListContainer = document.getElementById('moviesListContainer');
-
-  // Calculez les index de début et de fin du groupe actuel
   const startIndex = currentGroupIndex * moviesPerPage;
   const endIndex = startIndex + moviesPerPage;
 
@@ -616,8 +618,6 @@ function updateMoviesListUI() {
     .join('');
 
   moviesListContainer.innerHTML = moviesListHTML;
-
-  // Sauvegarder la liste des films likés dans le stockage local
   localStorage.setItem('moviesList', JSON.stringify(moviesList));
 }
 
@@ -656,18 +656,12 @@ nextButton.addEventListener('click', showNextGroup);
 
 
   function deleteMovie(index) {
-    // Supprimer le film de la liste
     moviesList.splice(index, 1);
-
-    // Mettre à jour la liste affichée
     updateMoviesListUI();
-
-    // Mettre à jour la liste sauvegardée dans le stockage local
     saveMoviesList();
   }
 
   function saveMoviesList() {
-    // Convertir la liste en format JSON
     const moviesListJSON = JSON.stringify(moviesList);
 
     // Sauvegarder la liste dans le stockage local
@@ -678,16 +672,5 @@ nextButton.addEventListener('click', showNextGroup);
     const seemoreContainer = document.querySelector('.seemore');
     seemoreContainer.classList.toggle('visible');
   }
-
-  //SHARE
-//   const twitterShare = document.getElementById('twitterShare');
-
-//   twitterShare.addEventListener('click', () => {
-//     const tweetText = `Check out this movie: ${lastMovie.title}`;
-//     const tweetUrl = 'https://example.com'; // Remplacez par l'URL de votre site ou de la page du film
-//     const tweetShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(tweetUrl)}`;
-//     window.open(tweetShareUrl);
-//   });
-
 
 

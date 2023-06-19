@@ -10,6 +10,8 @@ body {
 
 }
 
+
+
 /*HEADING*/
 h1 {
   font-family: 'Montserrat', sans-serif;
@@ -1337,8 +1339,14 @@ p {
   overflow: hidden;
   display: block;
   margin: 0 auto;
+  border-radius: 15px;
 }
 
+.slider-image-wrapper .image_wrapper2 {
+  width: 35%;
+  top: -5%;
+  transform: translate(-0%, 7%);
+}
 
 .slider-image-wrapper::before {
   content: "";
@@ -1368,7 +1376,6 @@ p {
 }
 
 .slider-item-content {
-  padding: 15px 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1835,13 +1842,14 @@ option:checked {
   cursor: pointer;
   display: block;
   margin: auto;
-  padding: 10px 100px;
+  padding: 15px 100px;
   font-weight: bold;
   margin-top: 1rem;
   border-radius: 10px;
   border: none;
   transition: all 300ms ease-in-out;
   text-decoration: none;
+  width: 300px;
 }
 
 .button_input:hover {
@@ -1850,20 +1858,7 @@ option:checked {
 
 /*Profil*/
 
-.BrushBtn {
-  position: absolute;
-  top: calc(50% - 35px);
-  left: calc(90% - 60px);
-  text-decoration: none;
-  text-align: center;
-  display: block;
-  height: 40px;
-  width: 40px;
-  line-height: 20px;
-  padding: 10px;
-  cursor: pointer;
-  color: #C4C4C4;
-}
+
 
 .MainBtn {
   position: absolute;
@@ -1895,7 +1890,7 @@ option:checked {
 
 .BrushBtn {
   position: absolute;
-  top: calc(50% - 35px);
+  top: calc(50% - 25px);
   left: calc(90% - 60px);
   text-decoration: none;
   text-align: center;
@@ -1905,7 +1900,6 @@ option:checked {
   line-height: 20px;
   padding: 10px;
   cursor: pointer;
-  color: #C4C4C4;
 }
 
 .circular-menu {
@@ -1958,32 +1952,19 @@ option:checked {
 
 .form_container {
   display: grid;
-  grid-template-columns: 0.5fr 2fr 0.5fr;
+  grid-template-columns: 1fr 2fr 0.5fr;
   background-color: #F5F5F5;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 10%;
   width: 90%;
+
 }
 
 .circle-orange {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: pink;
-  border-radius: 50%;
   width: 50px;
   height: 50px;
-  margin: 0 auto;
-}
-
-.circle-plum {
-  display: flex;
-  background-color: plum;
-  border-radius: 50%;
-  padding: 3%;
-  width: 50px;
-  height: 50px;
-  transform: translate(0%, -50%);
   margin: 0 auto;
 }
 
@@ -1992,7 +1973,7 @@ option:checked {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: yellow;
+  background-color: transparent;
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -2051,4 +2032,47 @@ option:checked {
 
 .nav a:hover {
   color: black;
+}
+
+
+/*TOP 10*/
+.slider-image-wrapper .image_wrapper2 {
+  width: 38%;
+  transform: translate(0%, 20%);
+}
+
+
+.slider-ranking-rating{
+  text-decoration: none;
+  font-size: x-small;
+  font-weight: 600;
+  -webkit-transition: all 0.5s ease-out;
+}
+
+.slider-ranking-rating p{
+  text-decoration: none;
+  font-size: small;
+  font-weight: 600;
+  -webkit-transition: all 0.5s ease-out;
+
+}
+
+.slider-ranking-rating span{
+  background-image: var(--colorbg90);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  font-size: x-small;
+  font-weight: 600;
+  margin-right: 2%;
+}
+
+.slider-item-title-top-title{
+  margin-top: 35px;
+  font-size: larger;
+  font-family: 'Montserrat', sans-serif;
+  color: #283238;
+  text-align: center;
+  font-weight: 600;
 }

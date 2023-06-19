@@ -81,10 +81,9 @@ function getTopMovies() {
             <img class="slider-image-wrapper image_wrapper2" src="${movie.image}" alt="${movie.title}">
           </div>
           <div class="slider-item-content">
-          <h2 class="slider-item-title-top-title slider-ranking-rating"><br>Match of the week ${movie.index >= 0 && movie.index <= 9 ? `<span style="font-size= 10; font-weight:600;">TOP #${movie.index + 1}</span>` : ''}</h2>
+          <h2 class="slider-item-title-top-title slider-ranking-rating"><br>${movie.title}</h2>
 
-            <p class="slider-ranking-rating"> ${movie.title}
-            </p>
+            <p class="slider-ranking-rating">Match of the week ${movie.index >= 0 && movie.index <= 9 ? `<span style="font-size= 10; font-weight:600;">TOP #${movie.index + 1}</span>` : ''}</p>
             <a class="slider-ranking-rating"><span>Rating: ${movie.publicRating}/10</span> ${movie.year}</a>
             <p>${movie.summary}<br></p>
             <p>${movie.genres}</p>

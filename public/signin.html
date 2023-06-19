@@ -3,7 +3,7 @@
 
 <head>
   <link rel="stylesheet" href="../style/style.css">
-  <title>Connexion</title>
+  <title>Sign In</title>
   <style>
     body {
       margin: 0;
@@ -70,8 +70,8 @@
 
     .grid-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 20px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 2%;
       margin-top: 50px;
       text-align: center;
     }
@@ -79,25 +79,29 @@
     .grid-item {
       background-color: #F5F5F5;
       border-radius: 5px;
+      padding: 6%;
+      height: 70%;
     }
 
-    .grid-item_text {
-      transform: translate(0%, -60%);
-      font-size: smaller;
+
+    .grid-item_text h2 {
+      color: black;
+      font-weight: 800;
+      font-size: 18px;
+      padding-top: 2%;
+      text-transform: uppercase;
     }
 
     .grid-item_text p {
-      color: #0AA3E9;
+      color: black;
+      font-weight: 300;
+      font-size: 16px;
     }
 
-    .grid-item_text_even {
-      transform: translate(0%, -60%);
-      font-size: smaller;
+    .grid-item_text img {
+      padding-top: 3%;
     }
 
-    .grid-item_text_even p {
-      color: #7425BE;
-    }
 
 
     .form_container {
@@ -109,32 +113,19 @@
       width: 90%;
     }
 
+    .form_container_text{
+      font-size: larger;
+    }
+
     .circle-orange {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 20px;
-      height: 20px;
+      width: 40px;
+      height: 40px;
       margin: 0 auto;
       opacity: 0.2;
-    }
-
-    .circle-plum {
-      display: flex;
-      width: 45px;
-      height: 45px;
-      transform: translate(0%, -60%);
-      margin: 5px auto;
-      border-radius: 50%;
-    }
-
-    .circle-plum2 {
-      display: flex;
-      width: 45px;
-      height: 45px;
-      transform: translate(0%, -60%);
-      margin: 5px auto;
-      border-radius: 50%;
+      background-color: transparent;
     }
 
     .circle-yellow2 {
@@ -181,7 +172,8 @@
       display: flex;
       justify-content: center;
       padding-bottom: 1%;
-      font-size: 10px;
+      font-size: 16px;
+
     }
 
 
@@ -196,12 +188,14 @@
       margin-right: 5px;
     }
   </style>
+  <link rel="stylesheet" href="../style/color1.css" id="css">
+
 </head>
 
 <body>
   <header>
     <div class="logo">
-      <p class="log_title">Connexion</p>
+      <p class="log_title">Sign In</p>
     </div>
     <a href="/index.html"><img class="red-circle" src="images/popcorn-logo.png" alt="SliderImg"></a>
   </header>
@@ -211,29 +205,35 @@
   <div class="container">
     <div class="grid-container">
       <div class="grid-item">
-        <img class="circle-plum2" src="images/application.svg" alt="SliderImg">
         <div class="grid-item_text">
-          <h2>Categories</h2>
-          <p>By suscribing get more exclusive categories</p>
+          <img src="images/appss.svg" alt="SliderImg">
+          <h2>Genre</h2>
+          <p>Choose from 10 film genres without any subscription requirement, with a total of 20 films available if you
+            are subscribed.</p>
         </div>
       </div>
       <div class="grid-item">
-        <img class="circle-plum" src="images/art.svg" alt="SliderImg">
-        <div class="grid-item_text_even">
-
-          <h2>Thèmes</h2>
-          <p>Get more theme.</p>
+        <div class="grid-item_text">
+          <img src="images/pencil-paintbrush.svg" alt="SliderImg">
+          <h2>Themes</h2>
+          <p>Get for free 3 more themes by suscribing</p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-item_text">
+          <img src="images/star.svg" alt="SliderImg">
+          <h2>Weekly Ranking</h2>
+          <p>"Experience the Weekly Top 10 Most-Watched and Popular Films on IMDB: Unlock with a Subscription!"</p>
         </div>
       </div>
     </div>
 
     <form action="/signin" method="POST">
-
       <div class="form_container">
         <img class="circle-orange" src="images/user.svg" alt="SliderImg">
         <div>
-          <p>Username</p>
-          <input type="text" name="username" placeholder="Nom d'utilisateur" required><br>
+          <p class="form_container_text">Username</p>
+          <input type="text" name="username" placeholder="Enter your username" required><br>
         </div>
         <img class="circle-blue" src="images/check.svg" alt="SliderImg">
       </div>
@@ -241,17 +241,16 @@
       <div class="form_container">
         <img class="circle-orange" src="images/locked-computer.svg" alt="SliderImg">
         <div>
-          <p>Password</p>
-          <input type="password" name="password" placeholder="Mot de passe" required>
+          <p class="form_container_text">Password</p>
+          <input type="password" name="password" placeholder="Enter your password" required>
         </div>
         <img class="circle-yellow2" src="images/check.svg" alt="SliderImg">
       </div>
       <div>
-        <button  class="button_input" type="submit">Se connecter</button>
+        <button class="button_input" type="submit">Sign In</button>
       </div>
     </form>
-    <a class="relocate" href="/signup">Pas de compte ? cliquer ici</a>
-
+    <a class="relocate" href="/signup">No account ? Click here</a>
   </div>
 </body>
 

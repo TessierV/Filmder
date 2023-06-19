@@ -391,16 +391,8 @@ form h1 {
   background-color: var(--colors4);
 }
 
-.circle-orange {
-  background-color: pink;
-}
-
 .circle-plum {
   background-color: var(--colors4);
-}
-
-.circle-yellow {
-  background-color: yellow;
 }
 
 .circle-blue {

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
   <link rel="stylesheet" href="../style/style.css">
-  <title>Inscription</title>
+  <title>Sign Up</title>
+
+
+</head>
   <style>
     body {
       margin: 0;
@@ -33,6 +37,7 @@
 
     .logo {
       margin: 0 auto;
+      width: 100%;
     }
 
     .red-circle {
@@ -70,8 +75,8 @@
 
     .grid-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 20px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 2%;
       margin-top: 50px;
       text-align: center;
     }
@@ -79,25 +84,29 @@
     .grid-item {
       background-color: #F5F5F5;
       border-radius: 5px;
+      padding: 6%;
+      height: 70%;
     }
 
-    .grid-item_text {
-      transform: translate(0%, -60%);
-      font-size: smaller;
+
+    .grid-item_text h2 {
+      color: black;
+      font-weight: 800;
+      font-size: 18px;
+      padding-top: 2%;
+      text-transform: uppercase;
     }
 
     .grid-item_text p {
-      color: #0AA3E9;
+      color: black;
+      font-weight: 300;
+      font-size: 16px;
     }
 
-    .grid-item_text_even {
-      transform: translate(0%, -60%);
-      font-size: smaller;
+    .grid-item_text img {
+      padding-top: 3%;
     }
 
-    .grid-item_text_even p {
-      color: #7425BE;
-    }
 
 
     .form_container {
@@ -109,32 +118,19 @@
       width: 90%;
     }
 
+    .form_container_text{
+      font-size: larger;
+    }
+
     .circle-orange {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 20px;
-      height: 20px;
+      width: 40px;
+      height: 40px;
       margin: 0 auto;
       opacity: 0.2;
-    }
-
-    .circle-plum {
-      display: flex;
-      width: 45px;
-      height: 45px;
-      transform: translate(0%, -60%);
-      margin: 5px auto;
-      border-radius: 50%;
-    }
-
-    .circle-plum2 {
-      display: flex;
-      width: 45px;
-      height: 45px;
-      transform: translate(0%, -60%);
-      margin: 5px auto;
-      border-radius: 50%;
+      background-color: transparent;
     }
 
     .circle-yellow2 {
@@ -156,6 +152,7 @@
       margin: 0 auto;
       opacity: 1;
       transition: opacity 0.3s ease-in-out;
+      background-color: transparent;
     }
 
     .circle-blue {
@@ -181,7 +178,8 @@
       display: flex;
       justify-content: center;
       padding-bottom: 1%;
-      font-size: 10px;
+      font-size: 16px;
+
     }
 
 
@@ -196,12 +194,12 @@
       margin-right: 5px;
     }
   </style>
-</head>
+  <link rel="stylesheet" href="../style/color1.css" id="css">
 
 <body>
   <header>
     <div class="logo">
-      <p class="log_title">Inscription</p>
+      <p class="log_title">Sign Up </p>
     </div>
     <a href="/index.html"><img class="red-circle" src="images/popcorn-logo.png" alt="SliderImg"></a>
   </header>
@@ -211,28 +209,34 @@
   <div class="container">
     <div class="grid-container">
       <div class="grid-item">
-        <img class="circle-plum2" src="images/application.svg" alt="SliderImg">
         <div class="grid-item_text">
-          <h2>Categories</h2>
-          <p>By suscribing get more exclusive categories</p>
+          <img src="images/appss.svg" alt="SliderImg">
+          <h2>Genre</h2>
+          <p>Choose from 10 film genres without any subscription requirement, with a total of 20 films available if you
+            are subscribed.</p>
         </div>
       </div>
       <div class="grid-item">
-        <img class="circle-plum" src="images/art.svg" alt="SliderImg">
-        <div class="grid-item_text_even">
-
-          <h2>Thèmes</h2>
-          <p>Get more theme.</p>
+        <div class="grid-item_text">
+          <img src="images/pencil-paintbrush.svg" alt="SliderImg">
+          <h2>Themes</h2>
+          <p>Get for free 3 more themes by suscribing</p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="grid-item_text">
+          <img src="images/star.svg" alt="SliderImg">
+          <h2>Weekly Ranking</h2>
+          <p>"Experience the Weekly Top 10 Most-Watched and Popular Films on IMDB: Unlock with a Subscription!"</p>
         </div>
       </div>
     </div>
 
     <form action="/signup" method="POST" enctype="multipart/form-data">
-
       <div class="form_container">
         <img class="circle-orange" src="images/user.svg" alt="SliderImg">
         <div>
-          <p>Username</p>
+          <p class="form_container_text">Username</p>
           <input type="text" id="username" name="username" required>
         </div>
         <img class="circle-blue" src="images/check.svg" alt="SliderImg">
@@ -241,25 +245,28 @@
       <div class="form_container">
         <img class="circle-orange" src="images/locked-computer.svg" alt="SliderImg">
         <div>
-          <p>Password</p>
+          <p class="form_container_text">Password</p>
           <input type="password" id="password" name="password" required>
         </div>
-        <img class="circle-yellow2" src="images/check.svg" alt="SliderImg">
+        <img class="circle-yellow" src="images/check.svg" alt="SliderImg">
       </div>
 
       <div class="form_container">
         <img class="circle-orange" src="images/locked-computer.svg" alt="SliderImg">
         <div>
-          <p>Confirm Password</p>
+          <p class="form_container_text">Confirm Password</p>
           <input type="password" id="confirmPassword" name="confirmPassword" required>
         </div>
         <img class="circle-yellow" src="images/check.svg" alt="SliderImg">
       </div>
 
+
+
       <div>
-        <input class="button_input" type="submit" value="S'inscrire">
+        <input class="button_input" type="submit" value="Sign Up">
       </div>
     </form>
+    <a class="relocate" href="/signin">Have an account ? Click here</a>
     <script>
       // JavaScript code
       window.addEventListener('DOMContentLoaded', () => {
@@ -300,9 +307,6 @@
         });
       });
     </script>
-    <a class="relocate" href="/signin">Déjà un compte ? clicker ici</a>
-
   </div>
 </body>
-
 </html>
