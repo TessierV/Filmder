@@ -4,9 +4,6 @@
 
 Filmdeur is a unique movie exploration platform designed to ignite your cinematic curiosity. Say goodbye to indecisiveness and hello to thrilling movie adventures! Powered by the IMDB API, Filmdeur offers a delightful randomization feature that takes you on an unexpected journey through the vast world of films.
 
-### Discover the Unexpected
-Filmdeur was born out of a deep passion for cinema and a strong desire to share that passion with fellow movie enthusiasts like you. We believe that every film has the power to transport, inspire, and entertain. With Filmdeur, you can rediscover the joy of movie exploration, as it surprises you with hidden gems, undiscovered classics, and everything in between.
-
 ### How it Works
 Filmdeur's intuitive interface makes it effortless to dive into the realm of cinema let Filmdeur handpick a movie for you. Our randomizer feature leverages the extensive IMDB database, ensuring a diverse and exciting selection every time.
 
@@ -21,17 +18,20 @@ Visit our website or download our app today, and let the magic of Filmdeur surpr
  ▪️ <a href="https://filmdertest.netlify.app/">See Filmdeur Project (version not update)</a> ▪️
 </p>
 
-<a href="https://filmdeur-landingpage.netlify.app/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&pause=1000&color=f64790&center=true&vCenter=true&width=735&height=45&lines=Lights,+Camera,+Randomness+-+Filmdeur+Awaits" alt="Typing SVG" /></a>
-
 ## Build
 * HTML5   
 * CSS custom properties  
-* JavaScript  
+* JavaScript
+* Express
+
+![Filmdeur(2)](https://github.com/TessierV/Filmdeur/assets/113889290/8e9637a6-e49a-4869-8b82-0ad6f2a14597)
+
 
 ## Installation
-`git clone https://github.com/TessierV/filmdeur.git`  
-`npm install`  
-`node server.js`  
+download the repository: `git clone https://github.com/TessierV/filmdeur.git`  
+installation require: `npm install`  
+launch the server: `node server.js`  
+open your browser: `http://localhost:3000/`   
 
 ## File Descriptions
 
@@ -60,3 +60,7 @@ Visit our website or download our app today, and let the magic of Filmdeur surpr
 <hr>
 <p align="right">Holberton School - TOULOUSE C19 Cohort JUNE. 2023
 </p>
+
+
+
+
