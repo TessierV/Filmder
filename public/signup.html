@@ -40,14 +40,6 @@
       width: 100%;
     }
 
-    .red-circle {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      opacity: 0.2;
-      margin-right: 20px;
-    }
-
     .red-circle:hover {
       opacity: 0.5;
     }
@@ -129,7 +121,7 @@
       width: 40px;
       height: 40px;
       margin: 0 auto;
-      opacity: 0.2;
+      opacity: 0.3;
       background-color: transparent;
     }
 
@@ -197,11 +189,11 @@
   <link rel="stylesheet" href="../style/color1.css" id="css">
 
 <body>
-  <header>
+  <header class="headerProfil">
     <div class="logo">
       <p class="log_title">Sign Up </p>
     </div>
-    <a href="/index.html"><img class="red-circle" src="images/popcorn-logo.png" alt="SliderImg"></a>
+    <a class="red-circle" href="/index.html"></a>
   </header>
   <div class="rond"></div>
 
@@ -237,7 +229,7 @@
         <img class="circle-orange" src="images/user.svg" alt="SliderImg">
         <div>
           <p class="form_container_text">Username</p>
-          <input type="text" id="username" name="username" required>
+          <input class="form_container_input"  type="text" id="username" name="username" required>
         </div>
         <img class="circle-blue" src="images/check.svg" alt="SliderImg">
       </div>
@@ -246,7 +238,7 @@
         <img class="circle-orange" src="images/locked-computer.svg" alt="SliderImg">
         <div>
           <p class="form_container_text">Password</p>
-          <input type="password" id="password" name="password" required>
+          <input class="form_container_input"  type="password" id="password" name="password" required>
         </div>
         <img class="circle-yellow" src="images/check.svg" alt="SliderImg">
       </div>
@@ -255,7 +247,7 @@
         <img class="circle-orange" src="images/locked-computer.svg" alt="SliderImg">
         <div>
           <p class="form_container_text">Confirm Password</p>
-          <input type="password" id="confirmPassword" name="confirmPassword" required>
+          <input class="form_container_input"  type="password" id="confirmPassword" name="confirmPassword" required>
         </div>
         <img class="circle-yellow" src="images/check.svg" alt="SliderImg">
       </div>

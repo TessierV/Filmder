@@ -406,7 +406,36 @@ form h1 {
 }
 
 /* PROFIL */
+.red-circle {
+  position: relative;
+  background-image: url(../images/popcorn-logo__white.png);
+  opacity: 0.4;
+}
+
+.red-circle:hover {
+  opacity: 1;
+}
+
 .grid-item_text p,
 .grid-item_text h2{
+  color: var(--colorblack);
+}
+
+/* Sign in */
+
+.circle-orange {
+  filter: invert(100%);
+}
+
+.form_container_text{
+  color: var(--colorblack);
+}
+
+.form_container_input{
+  background-color: var(--colors5);
+  color: var(--colors2);
+}
+
+.relocate{
   color: var(--colorblack);
 }

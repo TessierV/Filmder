@@ -328,10 +328,6 @@ form h1 {
   background-color: var(--colors2);
 }
 
-.circle-orange {
-  background-color: pink;
-}
-
 .circle-plum {
   background-color: var(--colors2);
 }
@@ -351,4 +347,27 @@ form h1 {
 
 .slider-ranking-rating{
   color: var(--colorwhite);
+}
+
+/* Sign in */
+
+.headerProfil, .rond{
+  background-color: var(--colors4);
+}
+
+
+.circle-orange {
+  filter: invert(100%);
+}
+
+.form_container_text{
+  color: var(--colorwhite);
+}
+
+.form_container_input{
+  color: var(--colors2);
+}
+
+.relocate{
+  color: var(--colorblack);
 }

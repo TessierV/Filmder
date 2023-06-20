@@ -392,12 +392,13 @@ label:hover,
   font-size: xx-small;
   cursor: pointer;
   background-color: transparent;
-  opacity: 0.2;
+  opacity: 0.3;
+  fill: var(--colorblack);
 }
 
 #toggleSeemoreButton:hover {
   transition: opacity 0.3s ease-in-out;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 
@@ -1624,14 +1625,19 @@ share2 header
 
 }
 
-.sign {
+.sign, .signout{
   transform: translate(-5.8rem, 35%);
+  opacity: 1;
 }
 
-.sign svg:hover {
-  opacity: 0.7;
-  transition: opacity 0.3s ease-in-out;
+.sign svg, .signout svg{
+  opacity: 0.4;
+  fill: var(--colorblack);
+}
 
+.sign svg:hover, .signout svg:hover {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
 
 
@@ -2073,4 +2079,22 @@ option:checked {
   color: #283238;
   text-align: center;
   font-weight: 600;
+}
+
+.red-circle {
+  position: relative;
+  background-image: url(../images/popcorn-logo.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 60px;
+  opacity: 0.3;
+  transform: translate(-80%, -10%);
+  transition: all 300ms ease-in-out;
+
+}
+
+.red-circle:hover {
+  opacity: 1;
 }

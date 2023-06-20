@@ -392,9 +392,6 @@ form h1 {
   background-color: var(--colors4);
 }
 
-.circle-orange {
-  background-color: pink;
-}
 
 .circle-plum {
   background-color: var(--colors4);
@@ -413,5 +410,35 @@ form h1 {
 /* PROFIL */
 .grid-item_text p,
 .grid-item_text h2{
+  color: var(--colorblack);
+}
+
+.red-circle {
+  position: relative;
+  background-image: url(../images/popcorn-logo__white.png);
+  opacity: 0.4;
+}
+
+.red-circle:hover {
+  opacity: 1;
+}
+
+/* Sign in */
+
+.circle-orange {
+  filter: invert(100%);
+}
+
+.form_container_text{
+  color: var(--colorblack);
+}
+
+
+.form_container_input{
+  background-color: var(--colors5);
+  color: var(--colors2);
+}
+
+.relocate{
   color: var(--colorblack);
 }

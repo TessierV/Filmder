@@ -467,6 +467,7 @@ function setColor() {
     }
 }
 
+
 // Fonction pour obtenir le cookie
 function getCookie(name) {
     var nameEQ = name + "=";

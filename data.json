@@ -15,7 +15,8 @@
     "username": "test",
     "password": "test",
     "email": "vanessa.tessier31@gmail.com",
-    "photo": "public/uploads/photo-1686052696938-267831686.jpg"
+    "photo": "public/uploads/photo-1686052696938-267831686.jpg",
+    "moviesList": []
   },
   {
     "username": "azer",
@@ -27,7 +28,8 @@
     "username": "Justine",
     "password": "azerty",
     "email": "vanessa.tessier31@gmail.com",
-    "photo": "public\\uploads\\photo-1686054642942-200449786.jpg"
+    "photo": "public\\uploads\\photo-1686054642942-200449786.jpg",
+    "moviesList": []
   },
   {
     "username": "aq",
@@ -48,5 +50,18 @@
   {
     "username": "test1",
     "password": "ze"
+  },
+  {
+    "username": "ere",
+    "password": "ere",
+    "moviesList": []
+  },
+  {
+    "username": "Test",
+    "password": "az"
+  },
+  {
+    "username": "testt",
+    "password": "testt"
   }
 ]
