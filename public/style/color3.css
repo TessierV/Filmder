@@ -7,10 +7,10 @@
   --colors2: #ffd92f;
   --colors3: #757575;
   --colors4: #262d36;
-  --colors5: #516371;
+  --colors5: #75818a;
 
   --colorbg: linear-gradient(0deg, #fff52f 0%, #d2a800 100%);
-  --colorbg90: linear-gradient(90deg, #fff52f 0%, #d2a800 100%);
+  --colorbg90: linear-gradient(90deg, #d4ad14 0%, #bf9901 100%);
 
   --colorsbg_round: radial-gradient(circle, #fff52f 0%, #d2a800 100%);
 
@@ -21,11 +21,7 @@
 
 body {
   background-color: var(--colors5);
-  /*background: radial-gradient(circle, rgba(241,100,159,1) 0%, rgba(242,131,98,1) 100%);*/
-  /*background: linear-gradient(180deg, rgba(120,174,154,1) 0%, rgba(245,245,245,1) 100%);*/
 }
-
-
 
 /*HEADING*/
 h1,
@@ -97,19 +93,17 @@ option {
 }
 
 /*LOADING TEST TINDER*/
-
-
 .sonar {
   background: var(--colorsbg_round);
-  box-shadow: inset 0px 0px 0px 3px var(--colors1), inset 0px 0px 0px 6px var(--colors2);
+  box-shadow: inset 0px 0px 0px 3px var(--colors3), inset 0px 0px 0px 6px var(--colors2);
 }
 
-.loading h1{
+.loading h1 {
   color: var(--colorwhite);
 }
 
 .profile-pic {
-  border: 3px solid var(--colors1);
+  border: 3px solid var(--colors3);
   background-color: var(--colorbg90);
   background-image: url(../images/popcorn-logo.png)
 }
@@ -137,13 +131,9 @@ option {
 }
 
 /*Title + description*/
-
-
-
 .card__image {
   background: var(--colors4);
   color: var(--colorwhite);
-
 }
 
 .card__header {
@@ -201,7 +191,6 @@ select option:hover {
 }
 
 /*Footer*/
-
 footer {
   color: var(--colorwhite);
 }
@@ -218,7 +207,6 @@ footer a:hover {
   text-decoration: none;
   border-bottom: 1px solid var(--colors3);
 }
-
 
 .slider-image-wrapper::before {
   background-color: var(--colors3);
@@ -254,7 +242,6 @@ footer a:hover {
   color: var(--colorwhite);
 }
 
-
 .none {
   display: none;
 }
@@ -264,19 +251,16 @@ option:checked {
   color: var(--colorblack);
 }
 
-/* Set background and text color for the select element */
 select {
   background-color: var(--colors5);
   color: var(--colorblack);
 }
 
-/* Set background and text color for the options */
 option {
   background-color: var(--colors5);
-  color: var(--colorblack);
+  color: var(--colorwhite);
 }
 
-/* Set background and text color for the dropdown arrow */
 select::-ms-expand {
   color: var(--colorblack);
 }
@@ -284,15 +268,12 @@ select::-ms-expand {
 option:checked {
   background-color: var(--colors3) !important;
   color: var(--colorblack) !important;
-
 }
-
 
 /* Set hover effect for the options */
 option:hover {
   background: var(--colors3);
   color: var(--colorwhite);
-
 }
 
 /* Set active effect for the options */
@@ -310,11 +291,6 @@ option:checked {
   color: var(--colors2);
 }
 
-/*#toggleSeemoreButton{
-  background: var(--colorbg);
-  color: var(--colors1);
-}*/
-
 .delete-button {
   color: var(--colors1);
 }
@@ -323,16 +299,15 @@ option:checked {
   color: var(--colorwhite);
 }
 
-.prev_next button{
+.prev_next button {
   color: var(--colorwhite);
 }
 
-.prev_next button:hover{
+.prev_next button:hover {
   border-bottom: 1px solid var(--colors2);
   border-radius: 0%;
   transition: opacity 3s ease-in-out;
 }
-
 
 form h1 {
   color: var(--colorblack);
@@ -341,12 +316,10 @@ form h1 {
 }
 
 /*PROFIL*/
-
 .button_input {
   background: var(--colorbg90);
-  color: white;
+  color: var(--colorwhite);
 }
-
 
 .headerProfil {
   background-color: var(--colorwhite);
@@ -366,9 +339,4 @@ form h1 {
 
 .circle-plum {
   background-color: var(--colorwhite);
-}
-
-
-.circle-blue {
-  background-color: blue;
 }

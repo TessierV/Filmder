@@ -5,24 +5,16 @@
   --colors1: #eaeaea;
   --colors2: #30CD90;
   --colors3: #21A6C4;
-
   --colorbg: linear-gradient(0deg, #30CD90 0%, #21A6C4 100%);
   --colorbg90: linear-gradient(90deg, #30CD90 0%, #21A6C4 100%);
-
   --colorsbg_round: radial-gradient(circle, #30CD90 0%, #21A6C4 100%);
-
   --colorwhite: #F5F5F5;
   --colorblack: #283238;
-
 }
 
 body {
   background-color: var(--colors1);
-  /*background: radial-gradient(circle, rgba(241,100,159,1) 0%, rgba(242,131,98,1) 100%);*/
-  /*background: linear-gradient(180deg, rgba(120,174,154,1) 0%, rgba(245,245,245,1) 100%);*/
 }
-
-
 
 /*HEADING*/
 h1,
@@ -36,7 +28,7 @@ select:hover {
 }
 
 .header_title {
-  color: #283238;
+  color: var(--colorblack);
 }
 
 header {
@@ -52,7 +44,6 @@ option {
   color: var(--colorblack);
 }
 
-
 .start-ui {
   background-color: var(--colorwhite);
 }
@@ -62,7 +53,6 @@ option {
   background: var(--colorbg90);
   color: var(--colorwhite);
 }
-
 
 .overview::-webkit-scrollbar-track {
   background: transparent;
@@ -82,7 +72,6 @@ option {
   color: var(--colorblack);
 }
 
-
 .NTMText h1 {
   background-image: var(--colorbg90);
   -webkit-background-clip: text;
@@ -91,15 +80,12 @@ option {
   -moz-text-fill-color: transparent;
 }
 
-
 .err-msg {
   background-color: var(--colors2);
   color: var(--colors1);
 }
 
 /*LOADING TEST TINDER*/
-
-
 .sonar {
   background: var(--colorsbg_round);
   box-shadow: inset 0px 0px 0px 3px var(--colors1), inset 0px 0px 0px 6px var(--colors2);
@@ -109,7 +95,6 @@ option {
   border: 3px solid var(--colors1);
   background-color: var(--colorsbg_round);
   background-image: url(../images/popcorn-logo.png);
-
 }
 
 .gauge__body {
@@ -120,18 +105,15 @@ option {
   background: linear-gradient(90deg, var(--colors2) 0%, var(--colors3) 100%);
 }
 
-
 .gauge__cover {
   background: var(--colorwhite);
 }
-
 
 .test {
   background: var(--colorwhite);
 }
 
 /*Title + description*/
-
 .subheading{
   color: var(--colorblack);
 }
@@ -141,8 +123,6 @@ option {
 
   color: var(--colorwhite);
 }
-
-
 
 .card__header {
   background-color: var(--colorwhite);
@@ -156,7 +136,6 @@ option {
 .card__thumb {
   background-color: var(--colors5);
   background: var(--colorbg90);
-
 }
 
 .card__status {
@@ -176,7 +155,6 @@ option {
 .btn2 svg {
   width: 50%;
 }
-
 
 #genre option:checked {
   background-color: var(--colors5);
@@ -214,12 +192,11 @@ footer a:hover {
 .slider-image-wrapper::before {
   background-color: var(--colors3);
   background: var(--colorbg);
-
   z-index: -1;
 }
 
 .slider-item-title{
-  color: #000000;
+  color: var(--colorblack);
 }
 
 .slider-item {
@@ -250,7 +227,6 @@ footer a:hover {
   color: var(--colorwhite);
 }
 
-
 .none {
   display: none;
 }
@@ -268,11 +244,6 @@ option:checked {
   color: var(--colorwhite);
 }
 
-/*#toggleSeemoreButton{
-  background: var(--colorbg90);
-  color: var(--colorwhite);
-}*/
-
 form h1 {
   color: var(--colorblack);
   font-weight: 400;
@@ -280,8 +251,6 @@ form h1 {
 }
 
 /*Profil*/
-
-
 .headerProfil {
   background-color: var(--colorwhite);
 }
@@ -298,13 +267,6 @@ form h1 {
   background-color: var(--colorwhite);
 }
 
-
-
 .circle-plum {
   background-color: var(--colorwhite);
-}
-
-
-.circle-blue {
-  background-color: blue;
 }

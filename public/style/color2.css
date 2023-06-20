@@ -13,7 +13,6 @@
   --colors5: #2B2D31;
   --colorwhite: #000;
   --colorblack: #F5F5F5;
-
 }
 
 body {
@@ -81,11 +80,11 @@ option {
 
 /* > */
 .movie-data .bar {
-  border-bottom: 0.0625rem solid #999;
+  border-bottom: 0.0625rem solid var(--colors3);
 }
 
 .btn {
-  background-color: lightgray;
+  background-color: var(--colors3);
 }
 
 .btn:active {
@@ -122,7 +121,6 @@ option {
   display: none;
 }
 
-
 /*LOADING TEST TINDER*/
 .sonar {
   background: var(--colorsbg_round);
@@ -132,7 +130,6 @@ option {
 .loading h1{
   color: var(--colorblack);
 }
-
 
 .profile-pic {
   border: 3px solid var(--colors1);
@@ -243,7 +240,6 @@ footer a:hover {
   background: var(--colorbg);
 }
 
-
 .slider-item {
   background-color: var(--colors1);
 }
@@ -256,7 +252,6 @@ footer a:hover {
 .slider-item-content {
   color: var(--colorblack);
 }
-
 
 .swiper-pagination-bullet {
   background: var(--colors3);
@@ -300,36 +295,30 @@ footer a:hover {
 /* Set background and text color for the select element */
 select {
   background-color: var(--colors5);
-  color: #fff;
+  color: var(--colorblack);
 }
 
 /* Set background and text color for the options */
 option {
   background-color: var(--colors5);
-  color: #fff;
+  color: var(--colorblack);
 }
 
-/* Set background and text color for the dropdown arrow */
 select::-ms-expand {
-  color: #fff;
+  color: var(--colorblack);
 }
 
 option:checked {
   background-color: var(--colors2) !important;
 }
 
-
-/* Set hover effect for the options */
 option:hover {
   background: var(--colorbg);
 }
 
-/* Set active effect for the options */
 option:checked {
   background-color: var(--colors2);
 }
-
-
 
 .share2 a {
   background: var(--colors6);
@@ -338,11 +327,6 @@ option:checked {
 .share2 span {
   color: var(--colorwhite);
 }
-
-/*#toggleSeemoreButton{
-  background: var(--colorbg);
-  color: var(--colorwhite);
-}*/
 
 .movie-item {
   color: var(--colorblack);
@@ -371,7 +355,7 @@ form h1 {
 
 .button_input {
   background: var(--colorbg90);
-  color: white;
+  color: var(--colorblack);
 }
 
 
@@ -395,12 +379,8 @@ form h1 {
   background-color: var(--colors4);
 }
 
-.circle-blue {
-  background-color: blue;
-}
 
 /* RANKING 10 */
-
 .slider-ranking-rating{
   color: var(--colorblack);
 }
@@ -421,7 +401,7 @@ form h1 {
   color: var(--colorblack);
 }
 
-/* Sign in */
+/* SIGN IN */
 
 .circle-orange {
   filter: invert(100%);

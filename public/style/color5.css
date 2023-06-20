@@ -6,20 +6,18 @@
   --colors1: #1E1F22;
   --colors2: #ff7951;
   --colors6: #f64790;
-  --colorbg: linear-gradient(60deg, #f64790 0%, #ff7951 100%);
-  --colorbg90: linear-gradient(90deg, #f64790 0%, #ff7951 100%);
-  --colorsbg_round: radial-gradient(circle, #f64790 0%, #ff7951 100%);
+  --colorbg: linear-gradient(60deg, var(--colors6) 0%, var(--colors2) 100%);
+  --colorbg90: linear-gradient(90deg, var(--colors6) 0%, var(--colors2) 100%);
+  --colorsbg_round: radial-gradient(circle, var(--colors6) 0%, var(--colors2) 100%);
   --colors3: #F5F5F5;
   --colors5: #2B2D31;
   --colorwhite: #000;
   --colorblack: #F5F5F5;
-
 }
 
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--colors5);
-  /*background: linear-gradient(180deg, rgba(120,174,154,1) 0%, rgba(245,245,245,1) 100%);*/
 }
 
 /*HEADING*/
@@ -51,9 +49,7 @@ form h2 {
 .test32 h2,
 .test32 h1 {
   color: var(--colorblack);
-
 }
-
 
 h3,
 footer {
@@ -68,7 +64,6 @@ option {
   color: var(--colorblack);
   font-size: x-small;
 }
-
 
 .start-ui {
   background-color: var(--colors1);
@@ -122,7 +117,6 @@ option {
   display: none;
 }
 
-
 /*LOADING TEST TINDER*/
 .sonar {
   background: var(--colorsbg_round);
@@ -133,7 +127,6 @@ option {
   color: var(--colorblack);
 }
 
-
 .profile-pic {
   border: 3px solid var(--colors1);
   background-image: url(../images/popcorn-logo.png);
@@ -141,7 +134,6 @@ option {
 }
 
 /*Gauge Test*/
-
 .gauge__body {
   background: var(--colors3);
 }
@@ -188,14 +180,12 @@ option {
   background: var(--colorbg);
 }
 
-
 .card__status {
   color: var(--colors2);
 }
 
 .card__description {
   color: var(--colorblack);
-
 }
 
 .btn2 {
@@ -222,7 +212,6 @@ select option:hover {
   color: var(--colors2);
 }
 
-
 /*Footer*/
 footer a {
   background-image: var(--colorbg);
@@ -243,7 +232,6 @@ footer a:hover {
   background: var(--colorbg);
 }
 
-
 .slider-item {
   background-color: var(--colors1);
 }
@@ -256,7 +244,6 @@ footer a:hover {
 .slider-item-content {
   color: var(--colorblack);
 }
-
 
 .swiper-pagination-bullet {
   background: var(--colors3);
@@ -284,7 +271,6 @@ footer a:hover {
 .swiper-button-prev::before {
   background: var(--colorbg);
 }
-
 
 /*swipper*/
 .swipper-start {
@@ -318,7 +304,6 @@ option:checked {
   background-color: var(--colors2) !important;
 }
 
-
 /* Set hover effect for the options */
 option:hover {
   background: var(--colorbg);
@@ -329,8 +314,6 @@ option:checked {
   background-color: var(--colors2);
 }
 
-
-
 .share2 a {
   background: var(--colors6);
 }
@@ -339,11 +322,6 @@ option:checked {
   color: var(--colorwhite);
 }
 
-/*#toggleSeemoreButton{
-  background: var(--colorbg);
-  color: var(--colorwhite);
-}*/
-
 .movie-item {
   color: var(--colorblack);
 }
@@ -351,7 +329,6 @@ option:checked {
 .prev_next button{
   color: var(--colorblack);
 }
-
 
 form h1 {
   color: var(--colorblack);
@@ -368,12 +345,10 @@ form h1 {
 }
 
 /*PROFIL*/
-
 .button_input {
   background: var(--colorbg90);
   color: var(--colorblack);
 }
-
 
 .headerProfil {
   background-color: var(--colors1);
@@ -392,7 +367,6 @@ form h1 {
   background-color: var(--colors4);
 }
 
-
 .circle-plum {
   background-color: var(--colors4);
 }
@@ -402,7 +376,6 @@ form h1 {
 }
 
 /* RANKING 10 */
-
 .slider-ranking-rating{
   color: var(--colorblack);
 }
@@ -424,7 +397,6 @@ form h1 {
 }
 
 /* Sign in */
-
 .circle-orange {
   filter: invert(100%);
 }
@@ -432,7 +404,6 @@ form h1 {
 .form_container_text{
   color: var(--colorblack);
 }
-
 
 .form_container_input{
   background-color: var(--colors5);
