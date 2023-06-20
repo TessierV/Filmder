@@ -403,3 +403,15 @@ form h1 {
 .circle-blue {
   background-color: blue;
 }
+
+/* RANKING 10 */
+
+.slider-ranking-rating{
+  color: var(--colorblack);
+}
+
+/* PROFIL */
+.grid-item_text p,
+.grid-item_text h2{
+  color: var(--colorblack);
+}

@@ -59,6 +59,11 @@ option {
   background: transparent;
 }
 
+.slider-item-content p{
+  color: var(--colorwhite);
+
+}
+
 /*This is a match*/
 .thisismatch {
   background-color: var(--colors2);
@@ -334,4 +339,16 @@ form h1 {
 
 .circle-blue {
   background-color: blue;
+}
+
+/* PROFIL */
+
+.grid-item_text p{
+  color: var(--colorwhite);
+}
+
+/* RANKING 10 */
+
+.slider-ranking-rating{
+  color: var(--colorwhite);
 }

@@ -524,7 +524,7 @@ label:hover,
   color: black;
   z-index: 4;
   letter-spacing: -4px;
-  transform: translate(-20%, -90%);
+  transform: translate(-10%, -90%);
 }
 
 .random-fact {
@@ -1873,14 +1873,13 @@ option:checked {
   padding: 10px;
   cursor: pointer;
   color: black;
-  opacity: 0.2;
+  opacity: 1;
 }
 
 .MainBtn:hover {
   color: black;
-  opacity: 1;
+  opacity: 0.8;
 }
-
 
 /*PROFIL*/
 
@@ -1891,13 +1890,12 @@ option:checked {
 .BrushBtn {
   position: absolute;
   top: calc(50% - 25px);
-  left: calc(90% - 60px);
+  left: calc(85% - 60px);
   text-decoration: none;
   text-align: center;
   display: block;
   height: 40px;
   width: 40px;
-  line-height: 20px;
   padding: 10px;
   cursor: pointer;
 }
