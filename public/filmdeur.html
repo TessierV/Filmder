@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Filmdeur</title>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -12,13 +13,11 @@
         integrity="sha384-VJvy4gloAEdY1WmscKT7ndCwz5r5x5eBk5DW8Dddg0Jc+SB9kmCUGPZAMvxW0o+z" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filmdeur</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-dT8W6NarixHx+aT6UZp6fR1wPt72G6TjT6lVkIvR8yLyGxPx6onxppEe3q3ugQZw+jk0uvLUocL40rX5r5bggQ=="
         crossorigin="anonymous" />
     <link rel="shortcut icon" href="../public/images/popcorn-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/header.css">
     <link rel="stylesheet" href="../style/color1.css" id="css">
     <script>
         // Fonction pour vérifier si l'utilisateur est connecté
@@ -31,13 +30,12 @@
 
 </head>
 
-
 <body>
     <main>
 
         <header>
             <div>
-                <p>Bienvenue <span id="username"></span></p>
+                <p class="welcome_header">Bienvenue <span id="username"></span> sur</p>
             </div>
 
             <script>
@@ -56,7 +54,6 @@
                             console.error('Erreur lors de la récupération des données de l\'utilisateur :', error);
                         });
                 }
-
                 // Appeler la fonction pour récupérer les données de l'utilisateur au chargement de la page
                 fetchUserData();
             </script>
@@ -71,7 +68,7 @@
                         </svg></a>
                     <a class="signout" href="/logout"><svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"
                             height="25" width="25">
-                            <g fill="#464646">
+                            <g>
                                 <path d="m15 16a1 1 0 0 1 -1-1v-10a1 1 0 0 1 2 0v10a1 1 0 0 1 -1 1z" />
                                 <path
                                     d="m15 26a10 10 0 0 1 -5.56-18.33 1 1 0 0 1 1.12 1.66 8 8 0 1 0 8.88 0 1 1 0 0 1 1.12-1.66 10 10 0 0 1 -5.56 18.33z" />
@@ -89,7 +86,6 @@
                     </button>
                 </div>
             </div>
-
             <div class="seemore">
                 <div id="moviesListContainer"></div>
                 <div class="prev_next">
@@ -271,7 +267,6 @@
         </section>
 
         <footer>
-
             Portfolio Project HolbertonSchool TOULOUSE C#19<br>
             made with ♡ by <a href="https://github.com/TessierV"><b>Vanessa</b></a>
         </footer>

@@ -75,6 +75,10 @@ option {
   color: var(--colorblack);
 }
 
+.welcome_header{
+  color: var(--colorblack);
+}
+
 /* > */
 .movie-data .bar {
   border-bottom: 0.0625rem solid #999;
@@ -398,6 +402,17 @@ form h1 {
 }
 
 /* Sign in */
+.red-circle {
+  position: relative;
+  background-image: url(../images/popcorn-logo__white.png);
+  opacity: 1;
+}
+
+.red-circle:hover {
+  opacity: 0.3;
+}
+
+
 .circle-orange {
   filter: invert(100%);
 }

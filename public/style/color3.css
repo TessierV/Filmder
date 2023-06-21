@@ -317,6 +317,10 @@ form h1 {
   font-size: larger;
 }
 
+.welcome_header{
+  color: var(--colorwhite);
+}
+
 /*PROFIL*/
 .button_input {
   background: var(--colorbg90);

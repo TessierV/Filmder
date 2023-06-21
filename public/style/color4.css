@@ -175,7 +175,7 @@ option {
   background-color: var(--colors3);
   background: var(--colorbg90);
   color: var(--colorwhite);
-}
+  }
 
 select option:hover {
   background-color: var(--colors1);
@@ -260,9 +260,7 @@ option:checked {
 }
 
 /*Share button*/
-.share2 a {
-  background: var(--colors3);
-}
+
 
 .share2 span {
   color: var(--colorwhite);
@@ -329,8 +327,19 @@ form h1 {
 .slider-ranking-rating{
   color: var(--colorwhite);
 }
+.slider-item-title-top-title{
+  color: var(--colors4);
+}
 
 /* Sign in */
+.red-circle {
+  opacity: 1;
+}
+
+.red-circle:hover {
+  opacity: 0.3;
+}
+
 .headerProfil, .rond{
   background-color: var(--colors4);
 }

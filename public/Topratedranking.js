@@ -24,7 +24,7 @@ function mapGenreIDs(genreIDs) {
 
   const genreColors = {
     Action: '#FFFFB5',
-    Adventure: '#ABDEE6',
+    Adventure: '#bad1b3',
     Animated: '#CA99FF',
     Comedy: '#EBFF9B',
     Crime: '#E5E5E5',
@@ -32,8 +32,8 @@ function mapGenreIDs(genreIDs) {
     Drama: '#FFC8A2',
     Family: '#D4F0F0',
     Fantasy: '#EEC9E8',
-    History: '#B8DEC6',
-    Horror: '#ECD5E3',
+    History: '#8494FD',
+    Horror: '#f88585',
     Music: '#55CBCD',
     Mystery: '#ADCCDE',
     Romance: '#FEE1E8',
@@ -83,7 +83,7 @@ function getTopMovies() {
           <div class="slider-item-content">
           <h2 class="slider-item-title-top-title slider-ranking-rating"><br>${movie.title}</h2>
 
-            <p class="slider-ranking-rating">Match of the week ${movie.index >= 0 && movie.index <= 9 ? `<span style="font-size= 10; font-weight:600;">TOP #${movie.index + 1}</span>` : ''}</p>
+            <p class="slider-ranking-rating">${movie.index >= 0 && movie.index <= 9 ? `<span style="font-weight:600;">TOP #${movie.index + 1}</span>` : ''} Match of the week </p>
             <a class="slider-ranking-rating"><span>Rating: ${movie.publicRating}/10</span> ${movie.year}</a>
             <p>${movie.summary}<br></p>
             <p>${movie.genres}</p>
