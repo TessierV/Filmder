@@ -10,6 +10,8 @@
   --colorsbg_round: radial-gradient(circle, #30CD90 0%, #21A6C4 100%);
   --colorwhite: #F5F5F5;
   --colorblack: #283238;
+  --colorgrey: #9DA0A2;
+
 }
 
 body {

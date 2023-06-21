@@ -1,194 +1,12 @@
 <!DOCTYPE html>
 <html>
-
-
 <head>
   <link rel="stylesheet" href="../style/style.css">
   <link rel="shortcut icon" href="../public/images/popcorn-logo.png" type="image/x-icon">
-
-  <title>Sign Up</title>
-
-
-</head>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #eaeaea;
-    }
-
-    .container {
-      width: 80%;
-      margin: 0 auto;
-    }
-
-    header {
-      background-color: #F5F5F5;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-
-    }
-
-    .rond {
-      border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
-      background-color: #F5F5F5;
-      height: 15px;
-    }
-
-    .logo {
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .red-circle:hover {
-      opacity: 0.5;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 50px;
-    }
-
-    form>div {
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    form input[type="text"],
-    form input[type="password"] {
-      width: 100%;
-    }
-
-    form input[type="submit"] {
-      align-self: center;
-    }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 2%;
-      margin-top: 50px;
-      text-align: center;
-    }
-
-    .grid-item {
-      background-color: #F5F5F5;
-      border-radius: 5px;
-      padding: 6%;
-      height: 70%;
-    }
-
-
-    .grid-item_text h2 {
-      color: black;
-      font-weight: 800;
-      font-size: 18px;
-      padding-top: 2%;
-      text-transform: uppercase;
-    }
-
-    .grid-item_text p {
-      color: black;
-      font-weight: 300;
-      font-size: 16px;
-    }
-
-    .grid-item_text img {
-      padding-top: 3%;
-    }
-
-
-
-    .form_container {
-      display: grid;
-      grid-template-columns: 0.5fr 2fr 0.5fr;
-      background-color: #F5F5F5;
-      padding: 10px;
-      border-radius: 5px;
-      width: 90%;
-    }
-
-    .form_container_text{
-      font-size: larger;
-    }
-
-    .circle-orange {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      margin: 0 auto;
-      opacity: 0.3;
-      background-color: transparent;
-    }
-
-    .circle-yellow2 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 30px;
-      height: 30px;
-      margin: 0 auto;
-      opacity: 0;
-    }
-
-    .circle-yellow {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 30px;
-      height: 30px;
-      margin: 0 auto;
-      opacity: 1;
-      transition: opacity 0.3s ease-in-out;
-      background-color: transparent;
-    }
-
-    .circle-blue {
-      display: none;
-      justify-content: center;
-      align-items: center;
-      width: 30px;
-      height: 30px;
-      margin: 0 auto;
-
-    }
-
-    .circle-yellow.error {
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-
-    .relocate {
-      text-decoration: underline;
-      text-transform: none;
-      color: black;
-      display: flex;
-      justify-content: center;
-      padding-bottom: 1%;
-      font-size: 16px;
-
-    }
-
-
-    .toggle-password {
-      display: flex;
-      align-items: center;
-      margin-left: 10px;
-      cursor: pointer;
-    }
-
-    .toggle-password input {
-      margin-right: 5px;
-    }
-  </style>
   <link rel="stylesheet" href="../style/color1.css" id="css">
+  <title>Sign Up</title>
+</head>
+
 
 <body>
   <header class="headerProfil">
@@ -198,8 +16,6 @@
     <a class="red-circle" href="/index.html"></a>
   </header>
   <div class="rond"></div>
-
-
   <div class="container">
     <div class="grid-container">
       <div class="grid-item">
@@ -226,7 +42,7 @@
       </div>
     </div>
 
-    <form action="/signup" method="POST" enctype="multipart/form-data">
+    <form action="/signup" class="form_sign" method="POST" enctype="multipart/form-data">
       <div class="form_container">
         <img class="circle-orange" src="images/user.svg" alt="SliderImg">
         <div>

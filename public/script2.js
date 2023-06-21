@@ -135,13 +135,13 @@ const genreColors = {
     fantasy: "#EEC9E8",
     animation: "#CA99FF",
     crime: "#E5E5E5",
-    adventure: "#FFC296",
-    horror: "#ECD5E3",
+    adventure: "#bad1b3",
+    horror: "#f88585",
     'science fiction': "#D5EDB9",
     mystery: "#ADCCDE",
     family: "#D4F0F0",
     documentary: "#FFDBCC",
-    history: "#B8DEC6",
+    history: "#8494FD",
     war: "#FF968A",
     music: "#55CBCD",
     western: "#FFCCB6",
@@ -186,7 +186,7 @@ let releaseYearText;
     <div style="flex-basis: 40%; display: flex;  justify-content: center; align-items: center; margin-left: 5%;">
                 <p style="font-size: 10px;  text-align: left;"><b>vote average</b>: ${movie.vote_average} / 10<br>${movie.vote_count} voted</p>
             </div>
-            <div style="margin-left: 5px; flex-basis: 60%; display: flex; justify-content: center; align-items: center;">
+            <div style="margin-left: 50px; flex-basis: 60%; display: flex; justify-content: center; align-items: center;">
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; ">
                 <button style="border: none; height: 30px; width: 30px; border-radius: 50%; padding: 5%; background-color: white; background-size: 30px 30px; background-repeat: no-repeat; background-position: center center; background-image: url(${movie.vote_average > 8 ? './images/goldlike.png' : movie.vote_average >= 5 ? './images/superlike.png' : './images/notpopular.png'});">
                 </button>
@@ -195,14 +195,8 @@ let releaseYearText;
                     <div style="margin-left: 5px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                     <button style="border: none; height: 30px; width: 30px; border-radius: 50%; padding: 5%; background-color: white; background-size: 30px 30px; background-repeat: no-repeat; background-position: center center; background-image: url(${movie.vote_count <= 1000 ? './images/notpopular.png' : movie.vote_count <= 5000 ? './images/popular.png' : movie.vote_count <= 10000 ? './images/superpopular.png' : './images/goldpopular.png'});">
                     </button>
-                                    <h4 style="margin-top: 5px; ">Popular</h4>
+                    <h4 style="margin-top: 5px; ">Popular</h4>
                 </div>
-                <div style="margin-left: 5px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <button style="border: none; height: 30px; width: 30px; border-radius: 50%; padding: 5%; background-color: white; background-size: 30px 30px; background-repeat: no-repeat; background-position: center center; background-image: url(${movie.adult ? './images/icons/children.png' : './images/icons/baby-boy.png'});">
-                </button>
-                    <h4 style="margin-top: 5px;">${movie.adult ? 'Adult' : 'Family'}</h4>
-                </div>
-
             </div>
         </div>
     </div>
@@ -218,13 +212,16 @@ let releaseYearText;
             </div>
 
           <div class="card__description">
+            <div class="scroller">
             <p><b>Original title</b>: ${movie.original_title}</p>
+
             <p><b>Overview:</b></p>
-            <p class="scroller">${movie.overview}</p>
+            <p class="card__overview" >${movie.overview}</p>
             <p><b>Genres</b>:</p>
-            <ul class="genre-list" style="width: 420px; list-style-type: none; padding: 0; display: flex; flex-wrap: wrap;">
+            <ul class="genre-list" style="padding: 2%; list-style-type: none; padding: 0; display: flex; flex-wrap: wrap;">
             ${genreListHTML}
             </ul>
+            </div>
           </div>
         </div>
       </div>

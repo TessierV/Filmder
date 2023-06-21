@@ -13,6 +13,8 @@
   --colorbglack : linear-gradient(90deg, var(--colors2) 0%, var(--colorblack) 100%);
   --colorwhite: #F5F5F5;
   --colorblack: #283238;
+  --colorgrey: #7C7D7F;
+
 }
 
 body {

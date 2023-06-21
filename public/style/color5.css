@@ -13,6 +13,8 @@
   --colors5: #2B2D31;
   --colorwhite: #000;
   --colorblack: #F5F5F5;
+  --colorgrey: #7C7D7F;
+
 }
 
 body {
@@ -62,7 +64,6 @@ select:hover {
 
 option {
   color: var(--colorblack);
-  font-size: x-small;
 }
 
 .start-ui {
