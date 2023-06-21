@@ -2,23 +2,23 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900');
 
 :root {
-  --colors1: #EAE5DD;
+  --colors1: #EEEEF0;
   --colors2: #262d36;
   --colors3: #f14141;
   --colors4: #D2153B;
-
+  --colors5: #9e988d;
   --colorbg: linear-gradient(0deg, var(--colors3) 0%, var(--colors4) 100%);
   --colorbg90: linear-gradient(90deg, var(--colors3) 0%, var(--colors4) 100%);
   --colorsbg_round: radial-gradient(circle, var(--colors3) 0%, var(--colors4) 100%);
   --colorbglack : linear-gradient(90deg, var(--colors2) 0%, var(--colorblack) 100%);
   --colorwhite: #F5F5F5;
   --colorblack: #283238;
+  --colorgrey: #7C7D7F;
+
 }
 
 body {
   background-color: var(--colors1);
-  /*background: radial-gradient(circle, rgba(241,100,159,1) 0%, rgba(242,131,98,1) 100%);*/
-  /*background: linear-gradient(180deg, rgba(120,174,154,1) 0%, rgba(245,245,245,1) 100%);*/
 }
 
 /*HEADING*/
@@ -59,6 +59,11 @@ option {
   background: transparent;
 }
 
+.slider-item-content p{
+  color: var(--colorwhite);
+
+}
+
 /*This is a match*/
 .thisismatch {
   background-color: var(--colors2);
@@ -89,8 +94,6 @@ option {
 }
 
 /*LOADING TEST TINDER*/
-
-
 .sonar {
   background: var(--colorsbg_round);
   box-shadow: inset 0px 0px 0px 3px var(--colors3), inset 0px 0px 0px 6px var(--colors3);
@@ -126,10 +129,13 @@ option {
 
 
 .card__image {
-  background: #9e988d;
+  background: var(--colors5);
   color: var(--colorwhite);
 }
 
+.card__thumb svg{
+  fill: var(--colorblack);
+}
 
 .card__header {
   background: var(--colorbg90);
@@ -157,12 +163,9 @@ option {
   background-color: var(--colorwhite);
 }
 
-/*a changer*/
 .btn2 svg {
   width: 50%;
 }
-
-
 
 .btn2:hover {
   transform: scale(1.1);
@@ -172,7 +175,7 @@ option {
   background-color: var(--colors3);
   background: var(--colorbg90);
   color: var(--colorwhite);
-}
+  }
 
 select option:hover {
   background-color: var(--colors1);
@@ -202,8 +205,7 @@ footer a:hover {
 
 
 .slider-image-wrapper::before {
-  background-color: var(--colors3);
-  background: var(--colorbg);
+  background: var(--colors1);
   z-index: -1;
 }
 
@@ -237,8 +239,6 @@ footer a:hover {
   background: var(--colorbg);
 }
 
-
-
 /*swipper*/
 .swipper-start {
   background-color: var(--colors2);
@@ -251,7 +251,6 @@ footer a:hover {
   color: var(--colorwhite);
 }
 
-
 .none {
   display: none;
 }
@@ -261,18 +260,11 @@ option:checked {
 }
 
 /*Share button*/
-.share2 a {
-  background: var(--colors3);
-}
+
 
 .share2 span {
   color: var(--colorwhite);
 }
-
-/*#toggleSeemoreButton{
-  background: var(--colorbg90);
-  color: var(--colors1);
-}*/
 
 .prev_next button:hover{
   border-bottom: 1px solid var(--colors3);
@@ -292,4 +284,78 @@ form h1 {
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
+}
+
+/*PROFIL*/
+.button_input {
+  background: var(--colorbg90);
+  color: var(--colorwhite);
+}
+
+
+.headerProfil {
+  background-color: var(--colorwhite);
+}
+
+.rond {
+  background-color: var(--colorwhite);
+}
+
+.grid-item {
+  background-color: var(--colors2);
+  color: var(--colorwhite);
+}
+
+.grid-item h2{
+  color: var(--colorwhite);
+}
+
+.form_container {
+  background-color: var(--colors2);
+}
+
+.circle-plum {
+  background-color: var(--colors2);
+}
+
+/* PROFIL */
+.grid-item_text p{
+  color: var(--colorwhite);
+}
+
+/* RANKING 10 */
+.slider-ranking-rating{
+  color: var(--colorwhite);
+}
+.slider-item-title-top-title{
+  color: var(--colors4);
+}
+
+/* Sign in */
+.red-circle {
+  opacity: 1;
+}
+
+.red-circle:hover {
+  opacity: 0.3;
+}
+
+.headerProfil, .rond{
+  background-color: var(--colors4);
+}
+
+.circle-orange {
+  filter: invert(100%);
+}
+
+.form_container_text{
+  color: var(--colorwhite);
+}
+
+.form_container_input{
+  color: var(--colors2);
+}
+
+.relocate{
+  color: var(--colorblack);
 }

@@ -13,16 +13,13 @@
 
   --colorwhite: #F5F5F5;
   --colorblack: #283238;
+  --colorgrey: #9DA0A2;
 
 }
 
 body {
   background-color: var(--colors1);
-  /*background: radial-gradient(circle, rgba(241,100,159,1) 0%, rgba(242,131,98,1) 100%);*/
-  /*background: linear-gradient(180deg, rgba(120,174,154,1) 0%, rgba(245,245,245,1) 100%);*/
 }
-
-
 
 /*HEADING*/
 h1,
@@ -98,8 +95,6 @@ option {
 }
 
 /*LOADING TEST TINDER*/
-
-
 .sonar {
   background: var(--colorsbg_round);
   box-shadow: inset 0px 0px 0px 3px var(--colors1), inset 0px 0px 0px 6px var(--colors2);
@@ -131,9 +126,12 @@ option {
 }
 
 /*Title + description*/
-
 .subheading{
   color: var(--colorblack);
+}
+
+.card__thumb svg{
+  fill: var(--colorwhite);
 }
 
 .card__image {
@@ -268,13 +266,35 @@ option:checked {
   color: var(--colorwhite);
 }
 
-/*#toggleSeemoreButton{
-  background: var(--colorbg90);
-  color: var(--colorwhite);
-}*/
-
 form h1 {
   color: var(--colorblack);
   font-weight: 400;
   font-size: larger;
+}
+
+
+/*PROFIL*/
+.button_input {
+  background: var(--colorbg90);
+  color: white;
+}
+
+.headerProfil {
+  background-color: var(--colorwhite);
+}
+
+.rond {
+  background-color: var(--colorwhite);
+}
+
+.grid-item {
+  background-color: var(--colorwhite);
+}
+
+.form_container {
+  background-color: var(--colorwhite);
+}
+
+.circle-plum {
+  background-color: var(--colorwhite);
 }

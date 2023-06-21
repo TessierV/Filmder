@@ -15,6 +15,11 @@ app.use(session({
   saveUninitialized: false
 }));
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+
 app.get('/signin', (req, res) => {
   if (isUserLoggedIn(req)) {
     res.redirect('/filmdeur.html');
@@ -78,13 +83,11 @@ app.post('/signup', upload.single('photo'), (req, res) => {
     res.send("Ce pseudo est déjà pris.");
     return;
   }
-
   const userData = {
     username: username,
     password: password,
 
   };
-
   saveUserData(userData);
   res.redirect('/filmdeur.html');
 });
@@ -173,7 +176,7 @@ app.get('/user', (req, res) => {
   }
 });
 
-app.get('/user-photo', (req, res) => {
+/*app.get('/user-photo', (req, res) => {
   if (isUserLoggedIn(req)) {
     const photoPath = req.session.photo;
     if (photoPath) {
@@ -185,7 +188,5 @@ app.get('/user-photo', (req, res) => {
   } else {
     res.status(401).send('Utilisateur non connecté.');
   }
-});
-
-
+});*/
 
