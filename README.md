@@ -13,9 +13,9 @@ Whether you're in the mood for an action-packed thriller, an emotional drama, or
 Visit our website or download our app today, and let the magic of Filmdeur surprise and inspire you with every movie randomization.
 
 <p align="center">
- ▪️ <a href="https://filmdeur-landingpage.netlify.app/">See the landing page</a>
- ▪️ <a href="https://github.com/TessierV/filmdeur_landing_page">See the github landing page</a> ▪️<br>
- ▪️ <a href="https://filmdertest.netlify.app/">See Filmdeur Project (version not update)</a> ▪️
+ ▪️ <a href="https://filmdeur-landingpage.netlify.app/">See the landing page</a>  
+ ▪️ <a href="https://github.com/TessierV/filmdeur_landing_page">See the github landing page</a> ▪️<br>  
+ ▪️ <a href="https://filmdertest.netlify.app/">See Filmdeur Project (version not update)</a> ▪️  
 </p>
 
 ## Build
@@ -28,10 +28,10 @@ Visit our website or download our app today, and let the magic of Filmdeur surpr
 
 
 ## Installation
-download the repository: `git clone https://github.com/TessierV/filmdeur.git`  
-installation require: `npm install`  
-launch the server: `node server.js`  
-open your browser: `http://localhost:3000/`   
+* download the repository: `git clone https://github.com/TessierV/filmdeur.git`  
+* installation require: `npm install`  
+* launch the server: `node server.js`  
+* open your browser: `http://localhost:3000/`   
 
 ## File Descriptions
 
@@ -39,10 +39,10 @@ open your browser: `http://localhost:3000/`
     <summary>
         <b>See more</b>
     </summary>
-▪ script.js: Contains all the website script from JS<br>   
-▪ style.css : Contains all the CSS<br>   
-▪ index.html : Contains all the html from the landing page<br>   
-▪ img/ : Directory contains all the picture require<br>   
+ ▪ script.js: Contains all the website script from JS<br>     
+ ▪ style.css : Contains all the CSS  <br>     
+ ▪ index.html : Contains all the html from the landing page  <br>     
+ ▪ img/ : Directory contains all the picture require<br>     
 </details>
 
 ## Attributions
