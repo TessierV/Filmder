@@ -161,7 +161,7 @@ function showMovie2(movie) {
                 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; ">
                 <button style="border: none; height: 30px; width: 30px; border-radius: 50%; padding: 5%; background-color: white; background-size: 30px 30px; background-repeat: no-repeat; background-position: center center; background-image: url(${movie.vote_average > 8 ? './images/goldlike.png' : movie.vote_average >= 5 ? './images/superlike.png' : './images/notpopular.png'});">
                 </button>
-                                    <h4 style="margin-top: 5px;">Like</h4>
+                <h4 style="margin-top: 5px;">Like</h4>
                 </div>
                     <div style="margin-left: 5px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                     <button style="border: none; height: 30px; width: 30px; border-radius: 50%; padding: 5%; background-color: white; background-size: 30px 30px; background-repeat: no-repeat; background-position: center center; background-image: url(${movie.vote_count <= 1000 ? './images/notpopular.png' : movie.vote_count <= 5000 ? './images/popular.png' : movie.vote_count <= 10000 ? './images/superpopular.png' : './images/goldpopular.png'});">
@@ -377,7 +377,7 @@ function displayMatch(movie) {
             <h3> You and <b>${lastMovie.title}</b><br> have liked each other.</h3>
             <button class="button_returnback">Return back</button>
           </div>
-          <div class="heart-container"></div> <!-- new div to contain heart animations -->
+          <div class="heart-container"></div>
         </center>
       `;
       /*** SETUP THE RAINING HEART ***/
@@ -641,7 +641,7 @@ function fetchUserData() {
           document.getElementById('username').textContent = username;
       })
       .catch(error => {
-          console.error('Erreur lors de la récupération des données de l\'utilisateur :', error);
+          console.error('ERROR WITH USERNAME :', error);
       });
 }
 /*** FETCH USER DATA ***/
