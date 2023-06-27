@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <title>Sign Up</title>
+  <!--=============== CSS ===============-->
   <link rel="stylesheet" href="../style/style.css">
   <link rel="shortcut icon" href="../public/images/popcorn-logo.png" type="image/x-icon">
   <link rel="stylesheet" href="../style/color1.css" id="css">
-  <title>Sign Up</title>
 </head>
 
 
 <body>
+  <!--=============== HEADER ===============-->
   <header class="headerProfil">
     <div class="logo">
       <p class="log_title">Sign Up </p>
@@ -16,6 +19,7 @@
     <a class="red-circle" href="/index.html"></a>
   </header>
   <div class="rond"></div>
+  <!--=============== GRID ===============-->
   <div class="container">
     <div class="grid-container">
       <div class="grid-item">
@@ -41,13 +45,13 @@
         </div>
       </div>
     </div>
-
+    <!--=============== FORM ===============-->
     <form action="/signup" class="form_sign" method="POST" enctype="multipart/form-data">
       <div class="form_container">
         <img class="circle-orange" src="images/user.svg" alt="SliderImg">
         <div>
           <p class="form_container_text">Username</p>
-          <input class="form_container_input"  type="text" id="username" name="username" required>
+          <input class="form_container_input" type="text" id="username" name="username" required>
         </div>
         <img class="circle-blue" src="images/check.svg" alt="SliderImg">
       </div>
@@ -56,7 +60,7 @@
         <img class="circle-orange" src="images/locked-computer.svg" alt="SliderImg">
         <div>
           <p class="form_container_text">Password</p>
-          <input class="form_container_input"  type="password" id="password" name="password" required>
+          <input class="form_container_input" type="password" id="password" name="password" required>
         </div>
         <img class="circle-yellow" src="images/check.svg" alt="SliderImg">
       </div>
@@ -65,60 +69,19 @@
         <img class="circle-orange" src="images/locked-computer.svg" alt="SliderImg">
         <div>
           <p class="form_container_text">Confirm Password</p>
-          <input class="form_container_input"  type="password" id="confirmPassword" name="confirmPassword" required>
+          <input class="form_container_input" type="password" id="confirmPassword" name="confirmPassword" required>
         </div>
         <img class="circle-yellow" src="images/check.svg" alt="SliderImg">
       </div>
-
-
-
       <div>
         <input class="button_input" type="submit" value="Sign Up">
       </div>
     </form>
     <a class="relocate" href="/signin">Have an account ? Click here</a>
-    <script>
-      // JavaScript code
-      window.addEventListener('DOMContentLoaded', () => {
-        const passwordInput = document.getElementById('password');
-        const confirmPasswordInput = document.getElementById('confirmPassword');
-        const circleYellow = document.querySelector('.circle-yellow');
-
-        confirmPasswordInput.addEventListener('input', () => {
-          if (passwordInput.value !== confirmPasswordInput.value) {
-            circleYellow.classList.add('error');
-          } else {
-            circleYellow.classList.remove('error');
-          }
-        });
-      });
-    </script>
-    <script>
-      window.addEventListener('DOMContentLoaded', () => {
-        const passwordInput = document.getElementById('password');
-        const confirmPasswordInput = document.getElementById('confirmPassword');
-        const togglePassword = document.getElementById('togglePassword');
-        const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
-
-        togglePassword.addEventListener('change', () => {
-          passwordInput.type = togglePassword.checked ? 'text' : 'password';
-        });
-
-        toggleConfirmPassword.addEventListener('change', () => {
-          confirmPasswordInput.type = toggleConfirmPassword.checked ? 'text' : 'password';
-        });
-
-        confirmPasswordInput.addEventListener('input', () => {
-          if (passwordInput.value !== confirmPasswordInput.value) {
-            circleYellow.classList.add('error');
-          } else {
-            circleYellow.classList.remove('error');
-          }
-        });
-      });
-    </script>
   </div>
 </body>
+
 </html>
+<!--=============== SCRIPT ===============-->
 <script src="../script.js"></script>
-<script>setColor();</script>
+<script src="./login.js"></script>

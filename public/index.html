@@ -2,7 +2,11 @@
 <html lang="en">
 
 <head>
+    <!--=============== IMPORTATION ===============-->
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmdeur</title>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -10,25 +14,21 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"
         integrity="sha384-VJvy4gloAEdY1WmscKT7ndCwz5r5x5eBk5DW8Dddg0Jc+SB9kmCUGPZAMvxW0o+z" crossorigin="anonymous">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filmdeur</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-dT8W6NarixHx+aT6UZp6fR1wPt72G6TjT6lVkIvR8yLyGxPx6onxppEe3q3ugQZw+jk0uvLUocL40rX5r5bggQ=="
         crossorigin="anonymous" />
+    <!--=============== STYLE CSS ===============-->
     <link rel="shortcut icon" href="../public/images/popcorn-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/header.css">
     <link rel="stylesheet" href="../style/color1.css" id="css">
 </head>
 
-
 <body>
     <main>
-
         <header>
+            <!--=============== HEADER ===============-->
             <div id="loginSignupButtons">
-
                 <div class="center-content">
                     <a class="sign" href="/signin"><svg id="Layer_2" opacity="0.2" viewBox="-42 0 512 512.001"
                             height="25" width="25" xmlns="http://www.w3.org/2000/svg">
@@ -45,6 +45,7 @@
                             <a href="#" onclick="setBlue()"><i class="fa fa-github"></i></a>
                         </nav>
                     </div>
+                    <!--=============== SEE THE MOVIE LIKED ===============-->
                     <button id="toggleSeemoreButton" onclick="toggleSeemore()"><svg id="Layer_1"
                             enable-background="new 0 0 32 32" height="25" viewBox="0 0 32 32" width="25"
                             xmlns="http://www.w3.org/2000/svg">
@@ -54,9 +55,6 @@
                     </button>
                 </div>
             </div>
-
-
-
             <div class="seemore">
                 <div id="moviesListContainer"></div>
                 <div class="prev_next">
@@ -65,6 +63,7 @@
                 </div>
             </div>
         </header>
+        <!--=============== TUTORIAL ===============-->
         <section href='#' class="swipper-start">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -84,7 +83,8 @@
                         </div>
                         <div class="slider-item-content">
                             <h2 class="slider-item-title">Discover</h2>
-                            <p>Expand your movie horizons and embrace the joy of exploring new stories and captivating narratives.</p>
+                            <p>Expand your movie horizons and embrace the joy of exploring new stories and captivating
+                                narratives.</p>
                         </div>
                     </div>
                     <div class="slider-item swiper-slide">
@@ -93,7 +93,8 @@
                         </div>
                         <div class="slider-item-content ">
                             <h2 class="slider-item-title">Skip</h2>
-                            <p>Feeling indecisive or not in the mood for a particular movie? No problem! With the Skip feature, effortlessly move on to the next movie suggestion. </p>
+                            <p>Feeling indecisive or not in the mood for a particular movie? No problem! With the Skip
+                                feature, effortlessly move on to the next movie suggestion. </p>
                         </div>
                     </div>
                     <div class="slider-item swiper-slide">
@@ -114,7 +115,7 @@
                 <button class="button_swipper">Enter</button>
             </div>
         </section>
-
+        <!--=============== CATEGORIES ===============-->
         <section href='#' class="start-ui">
             <div class="test32">
                 <div class="swiper-container">
@@ -126,7 +127,8 @@
                             </div>
                             <div class="slider-item-content">
                                 <h2 class="slider-item-title">Welcome, Choose Your Movie Genre</h2>
-                                <p>Step into the world of cinema and embark on a thrilling journey. With a warm welcome, we invite you to select your preferred movie genre.</p>
+                                <p>Step into the world of cinema and embark on a thrilling journey. With a warm welcome,
+                                    we invite you to select your preferred movie genre.</p>
                             </div>
                         </div>
                         <div class="slider-item swiper-slide">
@@ -135,7 +137,8 @@
                             </div>
                             <div class="slider-item-content">
                                 <h2 class="slider-item-title"> Subscribe to Discover the Top Films of the Week</h2>
-                                <p>Unlock the ultimate movie experience by subscribing to our exclusive service. Stay up-to-date with the latest cinematic masterpieces, critically acclaimed gems</p>
+                                <p>Unlock the ultimate movie experience by subscribing to our exclusive service. Stay
+                                    up-to-date with the latest cinematic masterpieces, critically acclaimed gems</p>
                             </div>
                         </div>
                         <div class="slider-item swiper-slide">
@@ -144,7 +147,8 @@
                             </div>
                             <div class="slider-item-content ">
                                 <h2 class="slider-item-title">More Themes and Genres to Discover</h2>
-                                <p>Expand your movie horizons and explore an extensive range of themes and genres by subscribing to our service. </p>
+                                <p>Expand your movie horizons and explore an extensive range of themes and genres by
+                                    subscribing to our service. </p>
                             </div>
                         </div>
                         <div class="slider-item swiper-slide">
@@ -153,7 +157,9 @@
                             </div>
                             <div class="slider-item-content">
                                 <h2 class="slider-item-title">Register Now, It's Free!</h2>
-                                <p>Experience the magic of our movie platform by registering today. Best of all, registration is completely free. Don't miss out on this opportunity to enhance your movie-watching journey.</p>
+                                <p>Experience the magic of our movie platform by registering today. Best of all,
+                                    registration is completely free. Don't miss out on this opportunity to enhance your
+                                    movie-watching journey.</p>
                             </div>
                         </div>
                     </div>
@@ -164,9 +170,7 @@
                     <div class="swiper-pagination"></div>
                 </div>
                 <form>
-
                     <div class="movie-data">
-                        <!--<label for="genre">Select a genre:</label>-->
                         <br>
                         <select name="genre" id="genre" size="5" required>
                             <option disabled selected value>Random <i class="bar"></i></option>
@@ -183,10 +187,9 @@
                         <input id="start-btn" value="Start" type="button">
                     </div>
                 </form>
-
             </div>
         </section>
-
+        <!--=============== LOADER ===============-->
         <section class="loader">
             <div class="loading center">
                 <div class="profile-pic center"></div>
@@ -199,14 +202,14 @@
             </div>
         </section>
 
-        <!-- Game section -->
+        <!--=============== MOVIE PAGE ===============-->
         <section class="match-ui">
             <div class="show-match">
                 <div class="test">
                     <div class="match-elem display-movie">
-                        <!-- Poster are added here -->
+                        <!--=============== POSTER ===============-->
                     </div>
-                    <!-- Gauge -->
+                    <!--=============== GAUGE ===============-->
                     <div class="gauge">
                         <div class="gauge__body">
                             <div class="gauge__fill"></div>
@@ -216,10 +219,11 @@
                         <div class="gauge__text_content"></div>
                     </div>
                     <div class="match-elem display-movie2">
-                        <!-- More Info are added here -->
+                        <!--=============== INFO ===============-->
                     </div>
                 </div>
             </div>
+            <!--=============== BUTTONS ===============-->
             <div class="buttons">
                 <button class="next-movie btn2"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                         viewBox="0 0 24 24" fill="none" stroke="#EC5E65" stroke-width="3.5" stroke-linecap="round"
@@ -252,11 +256,11 @@
                 </button>
             </div>
         </section>
-
+        <!--=============== THIS IS A MATCH ===============-->
         <section class="thisismatch bg_heart">
 
         </section>
-
+        <!--=============== FOOTER ===============-->
         <footer>
             made with ♡ by <a href="https://github.com/TessierV"><b>Vanessa</b></a><br>
             <p>Portfolio Project HolbertonSchool TOULOUSE C#19</p>

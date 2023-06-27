@@ -32,6 +32,7 @@ document.querySelector('.ismatch').addEventListener('click', displayMatch)
 
 let genreID;
 let moviesList = [];
+const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 
 /*** GENERATE RANDOM PAGE ***/
 async function getMovies() {
@@ -607,17 +608,41 @@ function deleteMovie(index) {
   saveMoviesList();
 }
 
+/*** SAVE LIST LIKED ***/
 function saveMoviesList() {
   const moviesListJSON = JSON.stringify(moviesList);
   localStorage.setItem('moviesList', moviesListJSON);
 }
 
+/*** TOGGLE ***/
 function toggleSeemore() {
   const seemoreContainer = document.querySelector('.seemore');
   seemoreContainer.classList.toggle('visible');
 }
 
+/*** TOGGLE SUMMARY ***/
 function toggleSummary(index) {
   const summaryElement = document.getElementById(`summary-${index}`);
   summaryElement.classList.toggle('show-summary');
 }
+
+/*** CHECK LOG ***/
+function isUserLoggedIn() {
+  return false;
+}
+
+/*** FETCH USER DATA ***/
+function fetchUserData() {
+  fetch('/user')
+      .then(response => response.json())
+      .then(data => {
+          const username = data.username || '';
+          const photo = data.photo || '';
+          document.getElementById('username').textContent = username;
+      })
+      .catch(error => {
+          console.error('Erreur lors de la récupération des données de l\'utilisateur :', error);
+      });
+}
+/*** FETCH USER DATA ***/
+fetchUserData();

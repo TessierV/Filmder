@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
+    <!--=============== IMPORTATION ===============-->
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmdeur</title>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -11,52 +14,22 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"
         integrity="sha384-VJvy4gloAEdY1WmscKT7ndCwz5r5x5eBk5DW8Dddg0Jc+SB9kmCUGPZAMvxW0o+z" crossorigin="anonymous">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-dT8W6NarixHx+aT6UZp6fR1wPt72G6TjT6lVkIvR8yLyGxPx6onxppEe3q3ugQZw+jk0uvLUocL40rX5r5bggQ=="
         crossorigin="anonymous" />
+    <!--=============== STYLE CSS ===============-->
     <link rel="shortcut icon" href="../public/images/popcorn-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/color1.css" id="css">
-    <script>
-        // Fonction pour vérifier si l'utilisateur est connecté
-        function isUserLoggedIn() {
-            // Vous devez implémenter la logique pour vérifier l'état de connexion ici
-            // Retournez true si l'utilisateur est connecté, sinon false
-            return false;
-        }
-    </script>
-
 </head>
 
 <body>
     <main>
-
+        <!--=============== HEADER ===============-->
         <header>
             <div>
                 <p class="welcome_header">Bienvenue <span id="username"></span> sur</p>
             </div>
-
-            <script>
-                // Fonction pour récupérer les données de l'utilisateur depuis le serveur
-                function fetchUserData() {
-                    fetch('/user')
-                        .then(response => response.json())
-                        .then(data => {
-                            const username = data.username || '';
-                            const photo = data.photo || '';
-
-                            // Mettre à jour les éléments HTML avec les données de l'utilisateur
-                            document.getElementById('username').textContent = username;
-                        })
-                        .catch(error => {
-                            console.error('Erreur lors de la récupération des données de l\'utilisateur :', error);
-                        });
-                }
-                // Appeler la fonction pour récupérer les données de l'utilisateur au chargement de la page
-                fetchUserData();
-            </script>
             <div id="loginSignupButtons">
                 <div class="center-content">
                     <a class="sign" href="/profil.html"><svg id="Layer_2" viewBox="-42 0 512 512.001" height="25"
@@ -77,6 +50,7 @@
                     <div class="share2">
                         <h1 class="header_title">Filmdeur</h1>
                     </div>
+                    <!--=============== SEE THE MOVIE LIKED ===============-->
                     <button id="toggleSeemoreButton" onclick="toggleSeemore()"><svg id="Layer_1"
                             enable-background="new 0 0 32 32" height="25" viewBox="0 0 32 32" width="25"
                             xmlns="http://www.w3.org/2000/svg">
@@ -94,6 +68,7 @@
                 </div>
             </div>
         </header>
+        <!--=============== TUTORIAL ===============-->
         <section href='#' class="swipper-start">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -145,7 +120,7 @@
                 <button class="button_swipper">Enter</button>
             </div>
         </section>
-
+        <!--=============== CATEGORIES ===============-->
         <section href='#' class="start-ui">
             <div class="swiper-container">
                 <div class="swiper-wrapper" id="movieSlider"></div>
@@ -185,7 +160,7 @@
             </form>
             </div>
         </section>
-
+        <!--=============== LOADER ===============-->
         <section class="loader">
             <div class="loading center">
                 <div class="profile-pic center"></div>
@@ -197,15 +172,14 @@
                 </div>
             </div>
         </section>
-
-        <!-- Game section -->
+        <!--=============== MOVIE PAGE ===============-->
         <section class="match-ui">
             <div class="show-match">
                 <div class="test">
+                    <!--=============== POSTER ===============-->
                     <div class="match-elem display-movie">
-                        <!-- Poster are added here -->
                     </div>
-                    <!-- Gauge -->
+                    <!--=============== GAUGE ===============-->
                     <div class="gauge">
                         <div class="gauge__body">
                             <div class="gauge__fill"></div>
@@ -215,10 +189,11 @@
                         <div class="gauge__text_content"></div>
                     </div>
                     <div class="match-elem display-movie2">
-                        <!-- More Info are added here -->
+                        <!--=============== MORE INFO ===============-->
                     </div>
                 </div>
             </div>
+            <!--=============== BUTTON SELECTION ===============-->
             <div class="buttons">
                 <button class="next-movie btn2"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                         viewBox="0 0 24 24" fill="none" stroke="#EC5E65" stroke-width="3.5" stroke-linecap="round"
@@ -241,9 +216,7 @@
                         <path fill="#DCC786"
                             d="M14,7h3v3a1,1,0,0,0,2,0V7h3a1,1,0,0,0,0-2H19V2a1,1,0,0,0-2,0V5H14a1,1,0,0,0,0,2Z" />
                     </svg>
-
                 </button>
-                <!--<button class="ismatch btn2"></button>-->
                 <button id="likeButton" onclick="toggleLike()" class="ismatch btn2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
                         stroke="#8EDFC2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
@@ -261,19 +234,18 @@
                 </button>
             </div>
         </section>
-
+        <!--=============== THIS IS A MATCH ===============-->
         <section class="thisismatch bg_heart">
-
         </section>
-
+        <!--=============== FOOTER ===============-->
         <footer>
             Portfolio Project HolbertonSchool TOULOUSE C#19<br>
             made with ♡ by <a href="https://github.com/TessierV"><b>Vanessa</b></a>
         </footer>
     </main>
+    <!--=============== SCRIPT ===============-->
     <script src="../script2.js"></script>
     <script src="../Topratedranking.js"></script>
     <script src="../server.js"></script>
 </body>
-
 </html>

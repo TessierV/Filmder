@@ -624,3 +624,4 @@ function toggleSeemore() {
   const seemoreContainer = document.querySelector('.seemore');
   seemoreContainer.classList.toggle('visible');
 }
+
