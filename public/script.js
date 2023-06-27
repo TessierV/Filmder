@@ -65,6 +65,7 @@ async function getMovies() {
     displayMatch(movie.title);
     displayMatchUI();
     showMovie(movie);
+    /*** ERROR HANDLE ***/
   } catch (error) {
     console.log(error)
     displayStartUI()

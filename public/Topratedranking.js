@@ -1,4 +1,4 @@
-/* Fonction pour mapper les IDs de genre en noms de genre */
+/*** MAP THE GENRE ID TO TEXT ***/
 function mapGenreIDs(genreIDs) {
   const genreMap = {
     28: 'Action',
@@ -22,6 +22,7 @@ function mapGenreIDs(genreIDs) {
     37: 'Western'
   };
 
+  /*** DEFINE COLOR TO GENRE***/
   const genreColors = {
     Action: '#FFFFB5',
     Adventure: '#bad1b3',
@@ -52,7 +53,7 @@ function mapGenreIDs(genreIDs) {
   return genres.join('');
 }
 
-/* Fonction pour récupérer les films les mieux notés */
+/*** GET THE TOP MOVIE GENRE***/
 function getTopMovies() {
   const apiKey = 'api_key=4898aec2424aaa52b8e4e628ec9b9e04';
   const apiUrl = `https://api.themoviedb.org/3/movie/top_rated?${apiKey}&language=en-US&page=1`;
@@ -75,6 +76,7 @@ function getTopMovies() {
       });
 
       const movieSlider = document.getElementById('movieSlider');
+      /*** PUT THE LIST INTO SLIDER ***/
       const html = movieData.map(movie => `
         <div class="slider-item swiper-slide">
           <div class="slider-image-wrapper">
@@ -82,7 +84,6 @@ function getTopMovies() {
           </div>
           <div class="slider-item-content">
           <h2 class="slider-item-title-top-title slider-ranking-rating"><br>${movie.title}</h2>
-
             <p class="slider-ranking-rating">${movie.index >= 0 && movie.index <= 9 ? `<span style="font-weight:600;">TOP #${movie.index + 1}</span>` : ''} Match of the week </p>
             <a class="slider-ranking-rating"><span>Rating: ${movie.publicRating}/10</span> ${movie.year}</a>
             <p>${movie.summary}<br></p>
