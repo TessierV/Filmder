@@ -1,4 +1,4 @@
-![FILMDEUR](https://github.com/TessierV/Filmdeur/assets/113889290/e8f7390b-078e-4642-92ad-fc08c6a4ed09)
+![FILMDEUR](https://github.com/TessierV/Filmdeur/assets/113889290/20c368f6-5f8f-4912-a54a-196c4cc6735e)
 
 <h2><a href="https://filmdeur-landingpage.netlify.app/"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=38&pause=1000&color=f64790&center=true&vCenter=true&width=735&height=45&lines=FILMDEUR+-+Your+Movie+Randomizer" alt="Typing SVG" /></a></h2><br>
 
@@ -24,8 +24,7 @@ Visit our website or download our app today, and let the magic of Filmdeur surpr
 * JavaScript
 * Express
 
-![Filmdeur(2)](https://github.com/TessierV/Filmdeur/assets/113889290/8e9637a6-e49a-4869-8b82-0ad6f2a14597)
-
+![Filmdeur(2)](https://github.com/TessierV/Filmdeur/assets/113889290/669eaaca-aee7-4953-bcb0-81888ec07197)
 
 ## Installation
 * download the repository: `git clone https://github.com/TessierV/filmdeur.git`  
