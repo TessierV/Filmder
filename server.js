@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-
+/*** Route for displaying the sign-in page ***/
 app.get('/signin', (req, res) => {
   if (isUserLoggedIn(req)) {
     res.redirect('/filmdeur.html');
@@ -28,12 +28,13 @@ app.get('/signin', (req, res) => {
   }
 });
 
+/*** Route for handling sign-in form submission ***/
 app.post('/signin', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
-  console.log('Nom d\'utilisateur :', username);
-  console.log('Mot de passe :', password);
+  console.log('Username:', username);
+  console.log('Password:', password);
 
   if (checkCredentials(username, password)) {
     req.session.username = username;
@@ -44,6 +45,7 @@ app.post('/signin', (req, res) => {
   }
 });
 
+/*** Route for displaying the sign-up page ***/
 app.get('/signup', (req, res) => {
   if (isUserLoggedIn(req)) {
     res.redirect('/filmdeur.html');
@@ -52,6 +54,7 @@ app.get('/signup', (req, res) => {
   }
 });
 
+/*** Set up multer storage for file uploads ***/
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'public/uploads');
@@ -64,51 +67,56 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+/*** Route for handling sign-up form submission with file upload ***/
 app.post('/signup', upload.single('photo'), (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
   const email = req.body.email;
 
-  console.log('Nom d\'utilisateur :', username);
-  console.log('Mot de passe :', password);
-  console.log('Confirmer le mot de passe :', confirmPassword);
+  console.log('Username:', username);
+  console.log('Password:', password);
+  console.log('Confirm Password:', confirmPassword);
 
   if (password !== confirmPassword) {
-    res.send("Le mot de passe ne correspond pas à la confirmation.");
+    res.send("The password does not match the confirmation.");
     return;
   }
 
   if (checkUsernameExists(username)) {
-    res.send("Ce pseudo est déjà pris.");
+    res.send("This username is already taken.");
     return;
   }
+
   const userData = {
     username: username,
     password: password,
-
   };
+
   saveUserData(userData);
   res.redirect('/filmdeur.html');
 });
 
+/*** Route for handling user logout ***/
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
-      console.error('Erreur lors de la destruction de la session :', err);
+      console.error('Error destroying session:', err);
     } else {
-      console.log('Déconnexion réussie.');
+      console.log('Logout successful.');
     }
     res.redirect('/index.html');
   });
 });
 
+/*** Serve static files from the 'public' directory ***/
 app.use(express.static(__dirname + '/public'));
 
 app.listen(port, () => {
-  console.log(`Serveur Express.js en cours d'exécution sur le port ${port}`);
+  console.log(`Express.js server running on port ${port}`);
 });
 
+/*** Function to check user credentials ***/
 function checkCredentials(username, password) {
   const jsonData = fs.readFileSync('data.json', 'utf8');
   const users = JSON.parse(jsonData);
@@ -116,6 +124,7 @@ function checkCredentials(username, password) {
   return user !== undefined;
 }
 
+/*** Function to check if a username already exists ***/
 function checkUsernameExists(username) {
   const jsonData = fs.readFileSync('data.json', 'utf8');
   const users = JSON.parse(jsonData);
@@ -123,6 +132,7 @@ function checkUsernameExists(username) {
   return user !== undefined;
 }
 
+/*** Function to save user data to JSON file ***/
 function saveUserData(userData) {
   let jsonData = [];
   if (fs.existsSync('data.json')) {
@@ -133,46 +143,51 @@ function saveUserData(userData) {
   fs.writeFileSync('data.json', JSON.stringify(jsonData, null, 2));
 }
 
+/*** Function to check if a user is logged in ***/
 function isUserLoggedIn(req) {
   return req.session && req.session.isLoggedIn === true;
 }
 
+
+/*** Route for serving the index.html file ***/
 app.get('/index.html', (req, res) => {
   const filePath = __dirname + '/public/index.html';
 
-  // Lire le contenu du fichier
+  /*** Read the content of the file ***/
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
-      console.error('Erreur lors de la lecture du fichier :', err);
-      return res.status(500).send('Erreur de lecture du fichier.');
+      console.error('Error reading file:', err);
+      return res.status(500).send('Error reading file.');
     }
 
-    // Vérifier si l'utilisateur est connecté
+    /*** Check if the user is logged in ***/
     if (isUserLoggedIn(req)) {
       const username = req.session.username || '';
       const userPhoto = req.session.photo || '';
 
-      // Modifier la balise img avec l'id "user-photo"
-      const modifiedData = data.replace('<img id="user-photo" src="" alt="Photo de profil">', '<img id="user-photo" src="' + userPhoto + '" alt="Photo de profil">');
+      /*** Modify the img tag with id "user-photo" ***/
+      const modifiedData = data.replace('<img id="user-photo" src="" alt="Profile Photo">', '<img id="user-photo" src="' + userPhoto + '" alt="Profile Photo">');
 
-      // Envoyer le fichier modifié au client
+      /*** Send the modified file to the client ***/
       res.send(modifiedData);
     } else {
-      // Envoyer le fichier non modifié au client
+      /*** Send the file as it is to the client ***/
       res.send(data);
     }
   });
 });
 
+
+/*** Route for getting user data as JSON ***/
 app.get('/user', (req, res) => {
   if (isUserLoggedIn(req)) {
     const username = req.session.username || '';
     const photo = req.session.photo || '';
 
-    // Renvoyer les données de l'utilisateur en tant que réponse JSON
+    /*** Send the user data as JSON response ***/
     res.json({ username: username, photo: photo });
   } else {
-    res.status(401).send('Utilisateur non connecté.');
+    res.status(401).send('User not logged in.');
   }
 });
 
@@ -189,6 +204,3 @@ app.get('/user', (req, res) => {
     res.status(401).send('Utilisateur non connecté.');
   }
 });*/
-
-
-

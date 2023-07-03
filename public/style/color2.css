@@ -20,7 +20,6 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--colors5);
-  /*background: linear-gradient(180deg, rgba(120,174,154,1) 0%, rgba(245,245,245,1) 100%);*/
 }
 
 /*HEADING*/
@@ -55,7 +54,6 @@ form h2 {
 
 }
 
-
 h3,
 footer {
   color: var(--colorblack);
@@ -79,7 +77,7 @@ option {
   color: var(--colorblack);
 }
 
-.welcome_header{
+.welcome_header {
   color: var(--colorblack);
 }
 
@@ -132,7 +130,7 @@ option {
   box-shadow: inset 0px 0px 0px 3px var(--colors2), inset 0px 0px 0px 6px var(--colors5);
 }
 
-.loading h1{
+.loading h1 {
   color: var(--colorblack);
 }
 
@@ -182,7 +180,7 @@ option {
   fill: var(--colors4);
 }
 
-.subheading{
+.subheading {
   color: var(--colorblack);
 }
 
@@ -223,7 +221,6 @@ select option:hover {
 .purple-heart:nth-child(even) {
   color: var(--colors2);
 }
-
 
 /*Footer*/
 footer a {
@@ -333,10 +330,9 @@ option:checked {
   color: var(--colorblack);
 }
 
-.prev_next button{
+.prev_next button {
   color: var(--colorblack);
 }
-
 
 form h1 {
   color: var(--colorblack);
@@ -344,7 +340,7 @@ form h1 {
   font-size: larger;
 }
 
-.card__age{
+.card__age {
   color: var(--colorblack);
 }
 
@@ -353,7 +349,6 @@ form h1 {
 }
 
 /*PROFIL*/
-
 .button_input {
   background: var(--colorbg90);
   color: var(--colorblack);
@@ -380,9 +375,8 @@ form h1 {
   background-color: var(--colors4);
 }
 
-
 /* RANKING 10 */
-.slider-ranking-rating{
+.slider-ranking-rating {
   color: var(--colorblack);
   font-size: larger;
 }
@@ -399,7 +393,7 @@ form h1 {
 }
 
 .grid-item_text p,
-.grid-item_text h2{
+.grid-item_text h2 {
   color: var(--colorblack);
 }
 
@@ -409,15 +403,15 @@ form h1 {
   filter: invert(100%);
 }
 
-.form_container_text{
+.form_container_text {
   color: var(--colorblack);
 }
 
-.form_container_input{
+.form_container_input {
   background-color: var(--colors5);
   color: var(--colors2);
 }
 
-.relocate{
+.relocate {
   color: var(--colorblack);
 }
