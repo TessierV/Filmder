@@ -15,7 +15,6 @@ Visit our website or download our app today, and let the magic of Filmdeur surpr
 <p align="center">
  ▪️ <a href="https://filmdeur-landingpage.netlify.app/">See the landing page</a>  
  ▪️ <a href="https://github.com/TessierV/filmdeur_landing_page">See the github landing page</a> ▪️<br>  
- ▪️ <a href="https://filmdertest.netlify.app/">See Filmdeur Project (version not update)</a> ▪️  
 </p>
 
 ## Build
